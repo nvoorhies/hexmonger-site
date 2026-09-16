@@ -30,7 +30,7 @@ Both are under the SIL Open Font License; the license files are in
 
 | file | source | notes |
 | --- | --- | --- |
-| `cn-square.webp`, `cn-chatter.webp` | Captured from the game: [nvoorhies/cute-fantasy](https://github.com/nvoorhies/cute-fantasy) `scripts/capture_promo.sh` (shots `village` and `chatter`) | 1200×512 crops of a 1920×1080 grab. Re-run that script rather than editing them; it boots the real world scene, so a shot always matches the build it came from |
+| `cn-wood.webp`, `cn-square.webp`, `cn-chatter.webp` | Captured from the game: [nvoorhies/cute-fantasy](https://github.com/nvoorhies/cute-fantasy) `scripts/capture_promo.sh` (shots `wood`, `village`, `chatter`) | 1200px-wide crops of 1920×1080 grabs, taken with the foliage turned up past its shipping values (3D trees to 150 m, impostors to 700, shell grass on) — the harness does that itself, so a re-run reproduces them. Edit the harness, not the images |
 | `cn-key.webp`, `cn-key-560.webp` | cute-fantasy `icon.png` | The game's key art, resized. **Model-generated, like the character portraits in `sprites/portraits/`** — so nothing on the page describes the art as painted or drawn by hand. `necro-key.webp` on the home page is the same source |
 | `cn-og.jpg` | The key art on a dusk field | 1200×630 social preview |
 
