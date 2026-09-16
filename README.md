@@ -14,6 +14,7 @@ store reviewers saw. This site only links to them.
 | path | what it is |
 | --- | --- |
 | `index.html` | the home page: featured game, coming-soon games, studio, contact |
+| `castles-in-the-sand/index.html` | the Castles in the Sand page, styled like the game (`assets/castles.css`) |
 | `404.html` | the not-found page (Pages serves it for any missing path) |
 | `assets/site.css` | all styles |
 | `assets/fonts/` | Fraunces + Inter, self-hosted (SIL OFL) so no page load goes to a third party |
@@ -32,7 +33,7 @@ failing check does not deploy.
 
 ## Common edits
 
-- **A store listing goes live** — in `index.html`, replace the matching
+- **A store listing goes live** — in `index.html` and in `castles-in-the-sand/index.html` (which has it in two places: the hero and the closing section), replace the matching
   `<span class="btn btn-soon">…</span>` with
   `<a class="btn btn-ghost" href="…">App Store</a>` (the comment above the
   buttons has the shape). Update the eyebrow line ("Coming soon to …").

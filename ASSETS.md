@@ -15,3 +15,13 @@ the source and export it again. Don't edit the web copy.
 Fonts: Fraunces and Inter variable woff2, Latin subset, from Fontsource.
 Both are under the SIL Open Font License; the license files are in
 `assets/fonts/`.
+
+## Castles in the Sand page
+
+| file | source | notes |
+| --- | --- | --- |
+| `cits-key-tall*.webp` | castles-in-the-sand `icon.png`, rows 60–900 | Leaves out the watermark in the bottom-right corner |
+| `cits-app-icon.webp` | same, cropped square from the castle and child | Also used as the page favicon. The Play Store icon has the watermark, so it isn't used here |
+| `cits-03-tide.webp`, `cits-05-result.webp` | `store/screenshots/android-tablet/` | 1200×750 |
+| `cits-og.jpg` | `store/feature_graphic_1024x500.png` on a sand-coloured 1200×630 canvas | Social preview |
+| `fonts/lilita-one.ttf` | castles-in-the-sand `fonts/` | The game's own display font (SIL OFL). Served unmodified, because the font's name is reserved and a converted copy would need a new name |

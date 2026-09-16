@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Castles in the Sand — a cozy beach-building game with real water</title>
+<meta name="description" content="Shape wet sand into castles with one finger, then let the tide in. A cozy beach-building game with real water. Play free in your browser; coming soon to iPhone, iPad and Android.">
+<link rel="canonical" href="https://hexmonger.com/castles-in-the-sand/">
+<meta name="theme-color" content="#efe3c8">
+<link rel="icon" href="/assets/img/cits-app-icon.webp" type="image/webp">
+<link rel="apple-touch-icon" href="/assets/img/cits-app-icon.webp">
+<link rel="preload" href="/assets/fonts/lilita-one.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/assets/castles.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="Castles in the Sand">
+<meta property="og:description" content="Build a beach. Then the tide. A cozy beach-building game with real water.">
+<meta property="og:url" content="https://hexmonger.com/castles-in-the-sand/">
+<meta property="og:image" content="https://hexmonger.com/assets/img/cits-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Castles in the Sand",
+  "url": "https://hexmonger.com/castles-in-the-sand/",
+  "image": "https://hexmonger.com/assets/img/cits-og.jpg",
+  "description": "A cozy beach-building game with real water. Shape wet sand into castles, then let the tide in.",
+  "genre": ["Simulation", "Casual", "Sandbox"],
+  "gamePlatform": ["Web browser", "iOS", "Android"],
+  "applicationCategory": "Game",
+  "contentRating": "Everyone",
+  "publisher": { "@type": "Organization", "name": "Hexmonger", "url": "https://hexmonger.com/" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "https://hexmonger.itch.io/castles-in-the-sand" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Shared studio chrome, kept quiet so the game leads -->
+<header class="studio-bar">
+  <div class="wrap">
+    <a class="studio-home" href="/" aria-label="Hexmonger home">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="22" height="22">
+      <span>Hexmonger</span>
+    </a>
+    <nav class="game-nav" aria-label="Castles in the Sand">
+      <a class="opt" href="#how">How it plays</a>
+      <a class="opt" href="#levels">Levels</a>
+      <a class="opt" href="https://policies.hexmonger.com/castles-in-the-sand/">Support</a>
+      <a class="nav-play" href="https://hexmonger.itch.io/castles-in-the-sand">Play free</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" aria-labelledby="title" style="padding:0">
+    <div class="hero-art">
+      <img src="/assets/img/cits-key-tall.webp"
+           srcset="/assets/img/cits-key-tall-720.webp 720w, /assets/img/cits-key-tall.webp 1440w"
+           sizes="100vw" width="1440" height="1181"
+           alt="A child in a straw hat builds a sandcastle decorated with shells and sea glass at sunset, a seagull and a crab looking on.">
+    </div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="app-id">
+          <img src="/assets/img/cits-app-icon.webp" alt="" width="56" height="56">
+          <span><b>A cozy beach-building game</b>Free · rated for everyone</span>
+        </div>
+        <h1 id="title">Castles in the Sand</h1>
+        <p class="tagline">Build a beach. Then the tide.</p>
+        <p class="lede">Shape wet sand into castles with one finger, plant your flag, and let the sea have a go at it. The water is real, and so is the way your walls give way.</p>
+        <div class="btns">
+          <a class="btn btn-play" href="https://hexmonger.itch.io/castles-in-the-sand">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>
+            Play free in your browser
+          </a>
+          <!-- Swap for a real link when live:
+               <a class="btn btn-store" href="https://apps.apple.com/app/idXXXXXXXXX">App Store</a> -->
+          <span class="btn btn-soon" aria-disabled="true">App Store <small>SOON</small></span>
+          <span class="btn btn-soon" aria-disabled="true">Google Play <small>SOON</small></span>
+        </div>
+        <p class="fine">No accounts · plays offline · the browser version has no ads</p>
+      </div>
+    </div>
+    <svg class="tide" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+      <g class="lap"><path class="t-back" d="M-200 30 C 0 8, 160 48, 360 26 S 720 6, 920 28 S 1280 50, 1480 22 S 1600 20, 1700 26 V70 H-200Z"/></g>
+      <path class="t-foam" d="M0 42 C 180 26, 320 58, 520 40 S 860 24, 1060 42 S 1320 56, 1440 38 V70 H0Z"/>
+      <path class="t-front" d="M0 52 C 200 40, 340 66, 540 52 S 880 38, 1080 54 S 1330 64, 1440 50 V70 H0Z"/>
+    </svg>
+  </section>
+
+  <!-- ============ The four verbs ============ -->
+  <section id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="kicker">One finger builds</p>
+        <h2 id="how-title">Four ways to work the sand</h2>
+        <p>Two fingers move the camera: drag to pan, pinch to zoom, twist to turn. In the browser, the mouse does the same.</p>
+      </div>
+      <div class="verbs">
+        <div class="verb">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#8a4b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 46c8-6 16-6 24-2s18 4 28-2" stroke="#d9c193" stroke-width="7"/>
+            <path d="M8 46c8-5 15-5 22-1s17 4 26-1" stroke="#7cc3c9" stroke-width="3"/>
+            <path d="M22 34 34 14M34 14l-8 2M34 14l1 8"/>
+          </svg>
+          <h3>Scoop</h3>
+          <p>Cut channels, dig moats, carve a way for the water to go.</p>
+          <span class="gesture">Drag</span>
+        </div>
+        <div class="verb">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#8a4b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10 52h44" stroke="#d9c193" stroke-width="7"/>
+            <rect x="20" y="36" width="24" height="12" rx="3" fill="#e6d5b0"/>
+            <path d="M32 10v16M26 20l6 6 6-6"/>
+            <path d="M14 32l-4-2M50 32l4-2" stroke="#7cc3c9"/>
+          </svg>
+          <h3>Pat</h3>
+          <p>Press a wall firm so the sea has to work for it.</p>
+          <span class="gesture">Tap</span>
+        </div>
+        <div class="verb">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#8a4b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10 54h44" stroke="#d9c193" stroke-width="7"/>
+            <path d="M22 50c2-8 4-10 4-16 3 2 3-6 6-14 3 8 3 16 6 14 0 6 2 8 4 16Z" fill="#e6d5b0"/>
+            <path d="M32 6c-2 3-3 5-3 6a3 3 0 0 0 6 0c0-1-1-3-3-6Z" fill="#7cc3c9" stroke="#3f8f9a" stroke-width="2"/>
+          </svg>
+          <h3>Drip</h3>
+          <p>Let wet sand fall grain by grain into tall, knobbly spires.</p>
+          <span class="gesture">Press &amp; hold</span>
+        </div>
+        <div class="verb">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#8a4b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 54h48" stroke="#d9c193" stroke-width="7"/>
+            <path d="M18 18h28l-4 30H22Z" fill="#e9a8a0"/>
+            <path d="M22 18c0-8 20-8 20 0" />
+            <path d="M24 26v4h4v-4h4v4h4v-4" stroke="#fff8ec" stroke-width="2.5"/>
+          </svg>
+          <h3>Stamp</h3>
+          <p>Press a bucket mold into the sand and lift it clean away.</p>
+          <span class="gesture">Pick a mold, tap</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ The sea ============ -->
+  <svg class="tide tide-flip" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="background:#cfe9ea">
+    <path d="M0 40 C 200 20, 360 60, 560 40 S 900 20, 1100 42 S 1340 58, 1440 36 V70 H0Z" fill="#efe3c8"/>
+  </svg>
+  <section class="sea" aria-labelledby="sea-title" style="padding-top:40px">
+    <div class="wrap split">
+      <div class="split-copy">
+        <p class="kicker">Then the tide</p>
+        <h2 id="sea-title">The sea is not an animation</h2>
+        <p>Water flows downhill, soaks into the sand, carries grains away and drops them somewhere else. Wet sand wicks, slumps and settles.</p>
+        <p>A wall that gets too wet sags. A moat that drains does its job. Your castle survives, or melts, for the same reasons a real one would.</p>
+        <p class="pull">When the tide eats your tower, it’s because the water really did undercut it.</p>
+      </div>
+      <div class="stack">
+        <figure class="postcard" style="--tilt:-1.8deg">
+          <img src="/assets/img/cits-03-tide.webp" width="1200" height="750" loading="lazy" alt="The tide rolling up the beach toward a sculpted mound with a red flag.">
+          <figcaption>The tide is in. Hold on.</figcaption>
+        </figure>
+        <figure class="postcard">
+          <img src="/assets/img/cits-04-waves.webp" width="1200" height="750" loading="lazy" alt="Foam washing over the sand as the sea breaks against a wall.">
+          <figcaption>Lull. Repair now!</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <svg class="tide" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="background:#b7dfe0">
+    <path class="t-foam" d="M0 34 C 180 18, 340 52, 540 34 S 880 16, 1080 36 S 1330 52, 1440 30 V70 H0Z"/>
+    <path class="t-front" d="M0 46 C 200 34, 360 62, 560 46 S 900 30, 1100 48 S 1340 60, 1440 44 V70 H0Z"/>
+  </svg>
+
+  <!-- ============ Levels ============ -->
+  <section id="levels" aria-labelledby="levels-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="kicker">The campaign</p>
+        <h2 id="levels-title">Twelve levels, two kinds of problem</h2>
+        <p>Each level teaches a tool and gives you a new bucket mold when you finish it.</p>
+      </div>
+      <div class="modes">
+        <article class="mode">
+          <img src="/assets/img/cits-02-build.webp" width="1200" height="750" loading="lazy" alt="A red flag planted on a sculpted mound, with the Start the Tide button ready.">
+          <div class="mode-body">
+            <span class="tag" style="color:var(--flag)"><i style="background:var(--flag)"></i>Protect the flag</span>
+            <h3>Hold back the sea</h3>
+            <p>Plant your flag, build whatever you think will save it, then keep the sea from soaking or undermining it for a whole tide.</p>
+          </div>
+        </article>
+        <article class="mode">
+          <img src="/assets/img/cits-06-hydraulics.webp" width="1200" height="750" loading="lazy" alt="The First Channel level: a target ring on the sand and a shelf of bucket molds.">
+          <div class="mode-body">
+            <span class="tag" style="color:var(--sea-deep)"><i style="background:var(--sea)"></i>Hydraulics</span>
+            <h3>Let the sea in, on purpose</h3>
+            <p>Route the incoming water into marked basins, then make it stay there as the tide comes and goes.</p>
+          </div>
+        </article>
+      </div>
+      <p class="stars"><b>★★★</b>Fewer grains moved means more stars. The best builders do the least.</p>
+    </div>
+  </section>
+
+  <!-- ============ Free play + quiet ============ -->
+  <section class="free" aria-labelledby="free-title">
+    <div class="wrap split rev">
+      <div class="split-copy">
+        <p class="kicker">No goals unless you want them</p>
+        <h2 id="free-title">Free play, always</h2>
+        <p>Every mold you have unlocked, a whole beach and a tide button. Free play is one tap from the main menu, and the levels are there when you want them.</p>
+      </div>
+      <figure class="postcard" style="--tilt:1.6deg">
+        <img src="/assets/img/cits-05-result.webp" width="1200" height="750" loading="lazy" alt="The results panel after a round: The flag stands! with two stars.">
+        <figcaption>The flag stands!</figcaption>
+      </figure>
+    </div>
+    <div class="wrap notes">
+      <div class="note"><h3>Made to be quiet</h3><p>Sand hisses under your finger. Waves break, run up and drain away. Every sound is synthesized, with a slow, soft music bed under it all.</p></div>
+      <div class="note"><h3>Cozy, not punishing</h3><p>No lives and no timer in your face. The tide is the timer, and it’s slow and easy to see. If it takes your castle, build another.</p></div>
+      <div class="note"><h3>Runs on what you have</h3><p>Phones, tablets and the browser. Quality presets change only how it looks. The sand behaves the same on every setting.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ Fair & quiet ============ -->
+  <section aria-labelledby="fair-title">
+    <div class="wrap">
+      <div class="fair-card">
+        <div>
+          <p class="kicker">Fair and quiet about it</p>
+          <h2 id="fair-title">What you should know before you play</h2>
+        </div>
+        <ul class="fair-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7"/></svg><span><b>No accounts, no sign-in.</b> The game itself plays offline. Your beach, progress and settings stay on your device.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7"/></svg><span><b>Ads between levels, never during a round.</b> On phones and tablets, a full-screen ad can appear when you leave a finished level, at most once every twenty minutes.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7"/></svg><span><b>Saying no costs nothing.</b> If the tide takes your flag, you can choose to watch an ad to save the level, or not.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7"/></svg><span><b>One purchase removes them for good.</b> Restore Purchase brings it back on your other devices. The browser version has no ads at all.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7"/></svg><span><b>Nothing about you is collected.</b> Ads are matched to the game, not to you. Read the <a href="https://policies.hexmonger.com/castles-in-the-sand/privacy.html">privacy policy</a>.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Get it ============ -->
+  <section class="get" id="play" aria-labelledby="get-title">
+    <div class="wrap">
+      <svg class="castle" viewBox="0 0 120 80" aria-hidden="true">
+        <path d="M6 76h108" stroke="#d9c193" stroke-width="6" stroke-linecap="round"/>
+        <path d="M20 74V44h8v-5h6v5h6v-5h6v5h4V30l-5 0 15-20 15 20h-5v14h4v-5h6v5h6v-5h6v5h8v30Z" fill="#e6d5b0" stroke="#8a4b12" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M60 10V2" stroke="#8a4b12" stroke-width="2"/>
+        <path d="M60 2h11l-3 3 3 3H60" fill="#c9473b"/>
+        <path d="M54 74V62a6 6 0 0 1 12 0v12Z" fill="#8a6a44"/>
+        <circle cx="36" cy="58" r="3.5" fill="#e9a8a0"/><circle cx="84" cy="58" r="3.5" fill="#8fc9a3"/>
+      </svg>
+      <h2 id="get-title">Go build a beach</h2>
+      <div class="btns">
+        <a class="btn btn-play" href="https://hexmonger.itch.io/castles-in-the-sand">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>
+          Play free in your browser
+        </a>
+        <span class="btn btn-soon" aria-disabled="true">App Store <small>SOON</small></span>
+        <span class="btn btn-soon" aria-disabled="true">Google Play <small>SOON</small></span>
+      </div>
+      <p class="platform-note">Coming soon to iPhone, iPad and Android. Rated 4+ / Everyone.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="game-footer">
+  <div class="wrap">
+    <div class="by-studio">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="34" height="34">
+      <span><b>A Hexmonger game</b><a href="/">More from the studio</a></span>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <ul>
+        <li><a href="https://policies.hexmonger.com/castles-in-the-sand/">Support &amp; FAQ</a></li>
+        <li><a href="mailto:support@hexmonger.com">support@hexmonger.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Privacy</h4>
+      <ul>
+        <li><a href="https://policies.hexmonger.com/castles-in-the-sand/privacy.html">Privacy policy</a></li>
+        <li><a href="mailto:privacy@hexmonger.com">privacy@hexmonger.com</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

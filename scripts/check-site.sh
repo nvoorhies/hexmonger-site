@@ -18,8 +18,10 @@ for p in $pages; do
     [ -e "$f" ] || { echo "broken link in $p: $r"; fail=1; }
   done
 done
-for u in $(grep -oE 'url\("[^"]+"\)' assets/site.css | sed -E 's/url\("//; s/"\)//'); do
-  [ -e "assets/$u" ] || { echo "broken url() in site.css: $u"; fail=1; }
+for css in assets/*.css; do
+  for u in $(grep -oE 'url\("[^"]+"\)' "$css" | sed -E 's/url\("//; s/"\)//' | grep -v '^data:' || true); do
+    [ -e "assets/$u" ] || { echo "broken url() in $css: $u"; fail=1; }
+  done
 done
 [ "$(cat CNAME)" = "hexmonger.com" ] || { echo "CNAME is not hexmonger.com"; fail=1; }
 [ $fail -eq 0 ] && echo "site OK"
