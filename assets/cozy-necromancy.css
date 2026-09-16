@@ -137,7 +137,8 @@ section { padding: 78px 0; }
 /* ---------- the look ---------- */
 .look { background: var(--dusk-2); }
 .look .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; align-items: center; }
-.faces { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.faces { display: grid; gap: 18px; }
+.face.wide img { width: 100%; }
 .face { margin: 0; }
 .face img { border-radius: 14px; border: 1px solid var(--line); }
 .face figcaption {
