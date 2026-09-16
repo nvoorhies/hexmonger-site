@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goblin Hunt — an ink-and-paper wandering</title>
+<meta name="description" content="Goblin Hunt is a top-down fantasy role-playing game drawn in pen and ink: real-time fights struck on the beat, generated villages, wilds and barrows, and adventures you carry one character through. In development.">
+<link rel="canonical" href="https://hexmonger.com/goblin-hunt/">
+<meta name="theme-color" content="#f1e9d6">
+<link rel="icon" href="/assets/img/hexmonger-mark.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/fell-sc.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/goblin-hunt.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="Goblin Hunt — an ink-and-paper wandering">
+<meta property="og:description" content="A top-down fantasy RPG drawn in pen and ink. In development.">
+<meta property="og:url" content="https://hexmonger.com/goblin-hunt/">
+<meta property="og:image" content="https://hexmonger.com/assets/img/gh-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Goblin Hunt",
+  "url": "https://hexmonger.com/goblin-hunt/",
+  "description": "A top-down fantasy role-playing game drawn in pen-and-ink black and white.",
+  "genre": ["Role-playing", "Action"],
+  "gamePlatform": ["Web browser", "iOS", "Android"],
+  "publisher": { "@type": "Organization", "name": "Hexmonger", "url": "https://hexmonger.com/" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="studio-bar">
+  <div class="in">
+    <a class="studio-home" href="/" aria-label="Hexmonger home">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="22" height="22">
+      <span>HEXMONGER</span>
+    </a>
+    <nav class="bar-nav" aria-label="Goblin Hunt">
+      <a class="opt" href="#contents">Contents</a>
+      <a class="opt" href="https://policies.hexmonger.com/goblin-hunt/">Support</a>
+      <a class="bar-play" href="https://hexmonger.itch.io/goblin-hunt">Try the prototype</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="book">
+
+  <!-- ======== Title page ======== -->
+  <section class="leaf" aria-labelledby="title">
+    <div class="title-page">
+      <div class="title-block">
+        <p class="pre">A Role-Playing Game of Steel, Rumor &amp; Ink</p>
+        <h1 id="title"><span>Goblin</span><span>Hunt</span></h1>
+        <p class="sub">an ink-and-paper wandering</p>
+        <svg class="orn" viewBox="0 0 220 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <path d="M4 12h78M138 12h78"/>
+          <path d="M82 12c6-8 14-8 18 0s12 8 18 0M100 12c-4 6 0 10 10 10s14-4 10-10"/>
+          <path d="M110 2l5 10-5 10-5-10z" fill="currentColor"/>
+          <circle cx="92" cy="12" r="1.8" fill="currentColor"/><circle cx="128" cy="12" r="1.8" fill="currentColor"/>
+        </svg>
+        <p class="desc">Being a top-down adventure drawn wholly in pen and ink, with real-time fights struck to the beat, villages and wilds and barrows raised anew each time, and adventures you carry one character through.</p>
+        <div class="cta">
+          <a class="btn btn-blood" href="https://hexmonger.itch.io/goblin-hunt">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg>
+            Try the prototype
+          </a>
+          <span class="btn btn-soon" aria-disabled="true">Phones &amp; tablets — in preparation</span>
+        </div>
+        <p class="proto-note">An early build, free in your browser. Expect rough edges and missing pages.</p>
+        <p class="imprint">HEXMONGER<small>In development · MMXXVI</small></p>
+      </div>
+      <figure>
+        <div class="plate">
+          <img src="/assets/img/gh-village.webp" width="1200" height="750"
+               alt="In-game: a walled village seen from above, drawn in black ink — timbered houses, a dirt road through the gate, and a villager named Mari with the prompt Talk to Mari.">
+        </div>
+        <figcaption><b>FRONTISPIECE.</b> Ashstead, the last lit window before the wilds.</figcaption>
+      </figure>
+    </div>
+    <span class="folio">i</span>
+  </section>
+
+  <!-- ======== Contents + preface ======== -->
+  <section class="leaf" id="contents" aria-labelledby="preface-title">
+    <div class="running"><span>GOBLIN HUNT</span><span>PREFACE</span></div>
+    <div class="spread">
+      <div>
+        <h2 id="preface-title">Preface</h2>
+        <p class="dek">wherein the reader is told what manner of book this is</p>
+        <p class="drop">This is a game about a road, a village at the end of it, and the dark places a little way past the village where no sensible person goes. You play one wanderer. You walk the road, talk to the people who live there, hear what frightens them, and then go and do something about it.</p>
+        <p>Everything is drawn in ink on white paper, seen from above with north always up, in the manner of the old adventure maps and the illustrated rulebooks that came with them. Colour is spent in exactly one place, and you will know it when you see it.</p>
+        <p>The villages, the wilds and the barrows are raised anew from a seed. The adventures, which are small books of their own, decide what must be there and how it connects; the engine draws the rest.</p>
+      </div>
+      <div>
+        <h3>Contents</h3>
+        <ol class="contents">
+          <li><a href="#combat">I. Of Combat</a><span class="dots"></span><span class="pg">1</span></li>
+          <li><a href="#places">II. Of Places Above &amp; Below</a><span class="dots"></span><span class="pg">2</span></li>
+          <li><a href="#wilderness">III. Of the Wilderness</a><span class="dots"></span><span class="pg">3</span></li>
+          <li><a href="#company">IV. Of Hirelings, Gear &amp; Advancement</a><span class="dots"></span><span class="pg">4</span></li>
+          <li><a href="#library">V. The Library of Adventures</a><span class="dots"></span><span class="pg">5</span></li>
+          <li><a href="#appendix-a">Appendix A: Controls</a><span class="dots"></span><span class="pg">6</span></li>
+          <li><a href="#appendix-b">Appendix B: On Ads &amp; Privacy</a><span class="dots"></span><span class="pg">6</span></li>
+        </ol>
+        <div class="boxed" style="margin-top:26px">
+          <h4>NOTICE TO THE READER</h4>
+          <p style="text-align:left">Goblin Hunt is <b>in development</b>. An early prototype plays in the browser today. Phone and tablet editions are in preparation; this page will say where to find them.</p>
+        </div>
+      </div>
+    </div>
+    <span class="folio">ii</span>
+  </section>
+
+  <!-- ======== I. Combat ======== -->
+  <section class="leaf" id="combat" aria-labelledby="combat-title">
+    <div class="running"><span>GOBLIN HUNT</span><span>OF COMBAT</span></div>
+    <span class="chapter-no">CHAPTER I</span>
+    <h2 id="combat-title">Of Combat</h2>
+    <p class="dek">in which blows are struck to a beat, and the ink runs red</p>
+    <div class="spread">
+      <div>
+        <p class="drop">Fighting is real time, and it keeps a rhythm. Around every foe within reach, a ring closes steadily onto a dashed mark. Tap the foe to strike. Strike as the ring meets the mark and the blow lands hard; strike early and it glances.</p>
+        <p>A careless swing costs you. Strike off the beat and you are caught in your own follow-through for a moment: your feet drag and you cannot swing again until you recover. The ring is a promise you make, not only a measure of damage.</p>
+        <p>Blood is the one colour the game allows. It is flung in the direction of the blow, heaviest at the wound and thinning downrange, and it stays where it fell. So do the fallen.<a class="fn" href="#fn1" id="r1">*</a></p>
+        <table class="ledger">
+          <caption>TABLE I: THE STRIKE<em>as the ring closes on its mark</em></caption>
+          <thead><tr><th>Timing</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Early in the beat</td><td>A glancing blow, as little as two-fifths of full damage</td></tr>
+            <tr><td>As the ring closes</td><td>Damage rises with it</td></tr>
+            <tr><td>On the mark</td><td>Double damage and a <span class="blood">critical</span>: more blood, flung farther</td></tr>
+            <tr><td>A hair late</td><td>Still counted on the mark; the window forgives</td></tr>
+            <tr><td>Off the beat</td><td>A moment’s recovery, with dragging feet</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <figure class="ring-fig">
+          <svg viewBox="0 0 300 300" role="img" aria-label="Diagram: a solid ring closing inward onto a dashed target ring around a goblin; the moment they meet is marked in red as the critical window.">
+            <g fill="none" stroke="#1b1814" stroke-linecap="round">
+              <circle cx="150" cy="150" r="128" stroke-width="3"/>
+              <circle cx="150" cy="150" r="78" stroke-width="2.4" stroke-dasharray="7 7"/>
+              <path d="M150 20v28M150 280v-28M20 150h28M280 150h-28" stroke-width="1.6"/>
+              <path d="M142 40l8 10 8-10M142 260l8-10 8 10M40 142l10 8-10 8M260 142l-10 8 10 8" stroke-width="1.6"/>
+              <path d="M205 95a78 78 0 0 1 22 42" stroke="#9b1b1b" stroke-width="7"/>
+            </g>
+            <!-- a small ink goblin -->
+            <g stroke="#1b1814" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" fill="#fff">
+              <path d="M126 140l-12-10 16 2M174 140l12-10-16 2"/>
+              <ellipse cx="150" cy="146" rx="22" ry="19"/>
+              <path d="M136 164c-4 16-2 26 14 28 16-2 18-12 14-28" />
+              <path d="M142 144h3M155 144h3" stroke-width="3"/>
+              <path d="M143 154q7 4 14 0"/>
+              <path d="M170 176l18 18M184 186l8-4" />
+            </g>
+            <g font-family="Garamond, Georgia, serif" font-style="italic" font-size="15" fill="#1b1814">
+              <text x="150" y="16" text-anchor="middle">the ring closes</text>
+              <text x="150" y="226" text-anchor="middle">the mark</text>
+              <text x="222" y="86" fill="#9b1b1b">strike!</text>
+            </g>
+          </svg>
+          <figcaption><b>FIG. 1.</b> The closing ring, and the moment to strike.</figcaption>
+        </figure>
+        <div class="footnotes">
+          <p id="fn1"><a href="#r1">*</a> The fallen are not tidied away. They grey where they lie, and the living walk over them.</p>
+        </div>
+      </div>
+    </div>
+    <span class="folio">1</span>
+  </section>
+
+  <!-- ======== II. Places ======== -->
+  <section class="leaf" id="places" aria-labelledby="places-title">
+    <div class="running"><span>GOBLIN HUNT</span><span>OF PLACES ABOVE &amp; BELOW</span></div>
+    <span class="chapter-no">CHAPTER II</span>
+    <h2 id="places-title">Of Places Above &amp; Below</h2>
+    <p class="dek">villages, keeps and taverns, and the deeps beneath the barrow</p>
+    <div class="spread">
+      <div>
+        <p class="drop">Each village is walled, with a road running through its gate and a river running past it. Houses face the road; the largest is the keep, the next the shop. Trees overhang the lanes, and their canopies thin to nothing around you and the people you meet, so the ink never hides who is standing there.</p>
+        <p>Step through any door and the place behind it is drawn fresh: a house, a shop, a tavern with its long counter, a keep with a steward who pays for swords. The village waits exactly as you left it, and you come out where you went in.</p>
+        <h3>The Barrows</h3>
+        <p>Past the village, a barrow mouth opens in the grass. Below it the dungeon goes down level by level, each deeper and worse than the last. What lives there depends on the adventure: goblin war-bands, the restless dead, vermin, or something with horns in the third deep that you should probably leave alone.</p>
+      </div>
+      <figure>
+        <div class="plate"><img src="/assets/img/gh-tavern.webp" width="1200" height="750" loading="lazy" alt="In-game: a tavern interior with a hatched counter, shelves, and a barkeep named Marta."></div>
+        <figcaption><b>PLATE I.</b> The Tin Candle, where the taverner keeps rumors behind the bar.</figcaption>
+      </figure>
+    </div>
+    <div class="spread rev">
+      <div>
+        <p>Walls and dark are drawn the old way: heavy black stipple, flagstones outlined one by one, stairs going down into nothing. Every layout comes from a seed, so the same adventure never draws quite the same deep twice unless its author pins it.</p>
+      </div>
+      <figure>
+        <div class="plate"><img src="/assets/img/gh-dungeon.webp" width="1200" height="750" loading="lazy" alt="In-game: a flagstone dungeon room edged in dense black stipple, with a stair and a passage leading east."></div>
+        <figcaption><b>PLATE II.</b> The first deep: flagstones, a stair, and the way on.</figcaption>
+      </figure>
+    </div>
+    <span class="folio">2</span>
+  </section>
+
+  <!-- ======== III. Wilderness ======== -->
+  <section class="leaf" id="wilderness" aria-labelledby="wild-title">
+    <div class="running"><span>GOBLIN HUNT</span><span>OF THE WILDERNESS</span></div>
+    <span class="chapter-no">CHAPTER III</span>
+    <h2 id="wild-title">Of the Wilderness</h2>
+    <p class="dek">on rumors that draw the map, and the dice that walk it</p>
+    <div class="spread">
+      <div>
+        <p class="drop">Beyond the road’s end stands a waymark. Walk onto it and the wilderness opens as a hand-drawn map, with only the places you know marked on it. A place you have never heard of is not on the map at all, and you cannot travel there.</p>
+        <p>So you listen. A taverner’s rumor about caves in a ravine inks a new mark on the map. Choose a destination and your token sets out, leg by leg, the trail drawing itself bold behind you.</p>
+        <p>At each leg’s end the dice are rolled. They might bring nothing, a choice written on a card, or a fight in a clearing among the trees, with your hired swords beside you. The dice are fixed by the road, so reloading will not change what waits on it.</p>
+      </div>
+      <figure>
+        <div class="plate"><img src="/assets/img/gh-wilds.webp" width="1200" height="750" loading="lazy" alt="In-game: the village gate opening onto a winding road through clumps of ink-drawn trees on the Bleak Heath."></div>
+        <figcaption><b>PLATE III.</b> The Bleak Heath, east of the village gate.</figcaption>
+      </figure>
+    </div>
+    <table class="ledger" style="margin-top:26px">
+      <caption>TABLE II: WHAT A LEG OF THE ROAD MAY BRING</caption>
+      <thead><tr><th>Result</th><th>What happens</th></tr></thead>
+      <tbody>
+        <tr><td>Quiet road</td><td>You walk on. The trail inks in behind you.</td></tr>
+        <tr><td>A card</td><td>Two or three choices, resolved on the spot: pay up, turn back, or stand your ground.</td></tr>
+        <tr><td>A fight</td><td>Steel yourself. The map closes on a clearing with the foe in its far half. Win, walk out, and the journey resumes.</td></tr>
+        <tr><td>Arrival</td><td>You stand at the waymark of the new place, or at the mouth of the caves.</td></tr>
+      </tbody>
+    </table>
+    <span class="folio">3</span>
+  </section>
+
+  <!-- ======== IV. Company ======== -->
+  <section class="leaf" id="company" aria-labelledby="company-title">
+    <div class="running"><span>GOBLIN HUNT</span><span>OF HIRELINGS, GEAR &amp; ADVANCEMENT</span></div>
+    <span class="chapter-no">CHAPTER IV</span>
+    <h2 id="company-title">Of Hirelings, Gear &amp; Advancement</h2>
+    <p class="dek">on the company you keep and the names you lose</p>
+    <div class="cols">
+      <h3>Hired Swords</h3>
+      <p>At the tavern, coin buys company: up to two hirelings, each with a name of their own that is never given to another. They follow at your side and go for the nearest foe they can see. You don’t give them orders, and you can’t bring them back. When one falls, they stay where they fell, and their name is written on the roll of honor in your journal.</p>
+      <h3>Arms &amp; Armour</h3>
+      <p>A weapon adds to every blow; armour and shield take something off every bite. Two slots on your belt hold what you will want in a hurry, such as a draught or a ration. Shops sell gear for gold, and there are always people willing to pay for something done.</p>
+      <h3>Advancement</h3>
+      <p>There are no classes. You begin as a Wanderer and may rise through five levels, gaining strength of arm and more to lose. Experience comes from what you kill and what you finish. Advancing is noted in the log and never stops the fight to tell you about it.</p>
+      <table class="ledger">
+        <caption>TABLE III: THE WANDERER’S LOT</caption>
+        <thead><tr><th>Concern</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>Hirelings</td><td>Two at most. When they die, they stay dead.</td></tr>
+          <tr><td>Belt</td><td>Two quick-use slots</td></tr>
+          <tr><td>Levels</td><td>Five, classless</td></tr>
+          <tr><td>Death</td><td>You wake in the village, healed; the map remembers only what you knew</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <span class="folio">4</span>
+  </section>
+
+  <!-- ======== V. Library ======== -->
+  <section class="leaf" id="library" aria-labelledby="library-title">
+    <div class="running"><span>GOBLIN HUNT</span><span>THE LIBRARY OF ADVENTURES</span></div>
+    <span class="chapter-no">CHAPTER V</span>
+    <h2 id="library-title">The Library of Adventures</h2>
+    <p class="dek">small books that set the stage, and leave the drawing to the engine</p>
+    <div class="spread">
+      <div>
+        <p class="drop">Each adventure is a module: a small bundle that names its places, its people, its quests and how it ends. It can be shared as a single file and added to your library. Anything the adventure does not pin down, such as the layout of a village or the turns of a dungeon, the engine draws for you.</p>
+        <p>The library lists every adventure you have, and what became of your character in each. Choose one, read its opening, and decide who walks into it.</p>
+        <blockquote class="read-aloud">The road climbs all day, and at dusk you see it: a squat stone keep behind a dry moat, the last lit window before the wilds swallow the map. East of here, they say, a ravine full of caves breathes out cold air and worse. The keep pays for swords. The caves pay better, if you live.<cite>THE KEEP ON THE MARCHES · READ ALOUD</cite></blockquote>
+      </div>
+      <div>
+        <table class="ledger">
+          <caption>TABLE IV: WHAT THERE IS TO WIN<em>The Keep on the Marches</em></caption>
+          <thead><tr><th>Deed</th><th class="num">Points</th></tr></thead>
+          <tbody>
+            <tr><td>Find the tavern</td><td class="num">5</td></tr>
+            <tr><td>Hear of the ravine</td><td class="num">5</td></tr>
+            <tr><td>Enter the caves</td><td class="num">10</td></tr>
+            <tr><td>Report to the steward</td><td class="num">15</td></tr>
+            <tr><td>Lift the barrow torc</td><td class="num">15</td></tr>
+            <tr><td>Slay the terror of the third deep</td><td class="num"><span class="blood">25</span></td></tr>
+            <tr><td>Be counted a Veteran</td><td class="num">10</td></tr>
+          </tbody>
+        </table>
+        <p style="text-align:left">The game comes with two adventures, <i>The Keep on the Marches</i> and <i>First Light</i>. There is also a random wandering with no module at all.</p>
+      </div>
+    </div>
+    <span class="folio">5</span>
+  </section>
+
+  <!-- ======== Appendices ======== -->
+  <section class="leaf" aria-label="Appendices">
+    <div class="running"><span>GOBLIN HUNT</span><span>APPENDICES</span></div>
+    <div class="spread">
+      <div id="appendix-a">
+        <h2 style="text-align:left">Appendix A</h2>
+        <p class="dek" style="text-align:left;margin-left:0">Controls</p>
+        <table class="ledger">
+          <thead><tr><th>To</th><th>On a touchscreen</th><th>At a keyboard</th></tr></thead>
+          <tbody>
+            <tr><td>Move</td><td>Drag the left half of the screen</td><td>WASD or arrows</td></tr>
+            <tr><td>Strike</td><td>Tap the foe (a second finger works while moving)</td><td>Click the foe</td></tr>
+            <tr><td>Talk</td><td>Tap a person</td><td>E or Space</td></tr>
+            <tr><td>Map, pack &amp; quests</td><td>Tap the minimap</td><td>M or Esc</td></tr>
+          </tbody>
+        </table>
+        <p style="text-align:left">New to the road? <i>Play the tutorial</i> from the title screen. It teaches by doing, and Esc skips it.</p>
+        <h3 style="margin-top:22px">Saving</h3>
+        <p style="text-align:left">Three save slots, plus an autosave at checkpoints and whenever the app is set aside. Saves stay on your device; there is no account.</p>
+      </div>
+      <div id="appendix-b">
+        <h2 style="text-align:left">Appendix B</h2>
+        <p class="dek" style="text-align:left;margin-left:0">On Ads &amp; Privacy</p>
+        <div class="boxed">
+          <h4>THE TERMS OF THE ROAD</h4>
+          <ul>
+            <li>The <b>browser edition</b> has no ads and no ad code.</li>
+            <li>The <b>phone and tablet editions</b> will be free and supported by ads. There will never be an ad during a fight, a conversation, a doorway or a death.</li>
+            <li>Two ads are offers you may refuse: getting back on your feet where you fell, and a hired sword when you are short of coin. The button to decline is as large as the one to accept.</li>
+            <li>One full-screen ad may appear between adventures.</li>
+          </ul>
+        </div>
+        <p style="text-align:left">Read the <a href="https://policies.hexmonger.com/goblin-hunt/privacy.html">privacy policy</a> in full, or write to <a href="mailto:privacy@hexmonger.com">privacy@hexmonger.com</a>.</p>
+      </div>
+    </div>
+    <span class="folio">6</span>
+  </section>
+
+  <!-- ======== Colophon ======== -->
+  <footer class="leaf colophon">
+    <img src="/assets/img/hexmonger-mark.svg" alt="" width="44" height="44">
+    <h2 style="font-size:26px">Colophon</h2>
+    <p style="text-align:center">Goblin Hunt is made by <a href="/">Hexmonger</a>. All pictures on this page are from the game as it plays today.</p>
+    <div class="row">
+      <a href="https://policies.hexmonger.com/goblin-hunt/">Support &amp; questions</a>
+      <a href="mailto:support@hexmonger.com">support@hexmonger.com</a>
+      <a href="https://policies.hexmonger.com/goblin-hunt/privacy.html">Privacy policy</a>
+      <a href="/">More from the studio</a>
+    </div>
+  </footer>
+</main>
+</body>
+</html>

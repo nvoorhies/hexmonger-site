@@ -15,6 +15,7 @@ store reviewers saw. This site only links to them.
 | --- | --- |
 | `index.html` | the home page: featured game, coming-soon games, studio, contact |
 | `castles-in-the-sand/index.html` | the Castles in the Sand page, styled like the game (`assets/castles.css`) |
+| `goblin-hunt/index.html` | the Goblin Hunt page, set like an old printed rulebook (`assets/goblin-hunt.css`) |
 | `404.html` | the not-found page (Pages serves it for any missing path) |
 | `assets/site.css` | all styles |
 | `assets/fonts/` | Fraunces + Inter, self-hosted (SIL OFL) so no page load goes to a third party |

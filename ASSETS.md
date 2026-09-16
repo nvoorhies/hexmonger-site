@@ -25,3 +25,12 @@ Both are under the SIL Open Font License; the license files are in
 | `cits-03-tide.webp`, `cits-05-result.webp` | `store/screenshots/android-tablet/` | 1200×750 |
 | `cits-og.jpg` | `store/feature_graphic_1024x500.png` on a sand-coloured 1200×630 canvas | Social preview |
 | `fonts/lilita-one.ttf` | castles-in-the-sand `fonts/` | The game's own display font (SIL OFL). Served unmodified, because the font's name is reserved and a converted copy would need a new name |
+
+## Goblin Hunt page
+
+| file | source | notes |
+| --- | --- | --- |
+| `gh-village.webp`, `gh-wilds.webp`, `gh-tavern.webp`, `gh-dungeon.webp`, `gh-prologue.webp`, `gh-title.webp` | Captured from the itch.io prototype (hexmonger.itch.io/goblin-hunt) in a headless browser, Sept 2026 | Converted to greyscale and cropped to leave out the arena debug line. Recapture them from a release build before launch |
+| `gh-og.jpg` | A 1200×630 render of the page's title leaf | Re-render if the title page changes |
+| `fonts/fell-sc.woff2`, `fonts/fell-italic.woff2` | IM Fell English (SC and italic), from Fontsource | SIL OFL |
+| `fonts/garamond*.woff2` | EB Garamond variable, from Fontsource | SIL OFL |
