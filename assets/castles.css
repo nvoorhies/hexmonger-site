@@ -148,7 +148,7 @@ h3 { font-size: 26px; color: var(--navy); }
 section { padding: 84px 0; }
 .intro { text-align: center; max-width: 700px; margin: 0 auto 44px; }
 .intro p { color: var(--muted); font-size: 18px; margin: 14px 0 0; }
-.verbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.verbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .verb {
   background: var(--cream); border-radius: var(--radius); padding: 24px 20px 22px;
   box-shadow: 0 1px 0 rgba(43,38,34,.08), 0 10px 24px -14px rgba(91,59,28,.35);
@@ -158,7 +158,7 @@ section { padding: 84px 0; }
 .verb h3 { font-size: 28px; }
 .verb p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
 .verb .gesture { display: inline-block; margin-top: 12px; font: 700 11.5px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--sea-deep); background: #e3f1f1; padding: 6px 9px; border-radius: 999px; }
-@media (max-width: 860px) { .verbs { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) { .verbs { grid-template-columns: 1fr; } }
 @media (max-width: 420px) { .verbs { gap: 12px; } .verb { padding: 18px 12px; } .verb h3 { font-size: 24px; } }
 
 /* ---------- the sea (water section) ---------- */
