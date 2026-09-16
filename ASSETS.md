@@ -26,6 +26,18 @@ Both are under the SIL Open Font License; the license files are in
 | `cits-og.jpg` | `store/feature_graphic_1024x500.png` on a sand-coloured 1200×630 canvas | Social preview |
 | `fonts/lilita-one.ttf` | castles-in-the-sand `fonts/` | The game's own display font (SIL OFL). Served unmodified, because the font's name is reserved and a converted copy would need a new name |
 
+## Cozy Necromancy page
+
+| file | source | notes |
+| --- | --- | --- |
+| `cn-key.webp`, `cn-key-560.webp` | cute-fantasy `icon.png` (1024²) | The game's key art, resized. `necro-key.webp` on the home page is the same source |
+| `cn-luna.webp`, `cn-chronicler.webp`, `cn-marta.webp`, `cn-thimble.webp`, `cn-margaux.webp`, `cn-jasper.webp` | cute-fantasy `sprites/portraits/*.png` | The in-game dialogue portraits at 480². Their names are painted into the art, so a caption here has to match the plaque. Don't use `rattlebones.png` (it is a stale asset naming a character the game's canon has retired) or `soren`/`blacksmith_gorn` (two blacksmiths, one canonical) |
+| `cn-og.jpg` | The key art on a dusk field | 1200×630 social preview |
+
+No gameplay screenshots yet — the page is built from key art and portraits.
+Add screenshots of Willowmere itself when there is a build to capture them
+from.
+
 ## Goblin Hunt page
 
 | file | source | notes |
