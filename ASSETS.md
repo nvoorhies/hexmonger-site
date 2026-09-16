@@ -30,13 +30,14 @@ Both are under the SIL Open Font License; the license files are in
 
 | file | source | notes |
 | --- | --- | --- |
-| `cn-key.webp`, `cn-key-560.webp` | cute-fantasy `icon.png` (1024²) | The game's key art, resized. `necro-key.webp` on the home page is the same source |
-| `cn-luna.webp`, `cn-chronicler.webp`, `cn-marta.webp`, `cn-thimble.webp`, `cn-margaux.webp`, `cn-jasper.webp` | cute-fantasy `sprites/portraits/*.png` | The in-game dialogue portraits at 480². Their names are painted into the art, so a caption here has to match the plaque. Don't use `rattlebones.png` (it is a stale asset naming a character the game's canon has retired) or `soren`/`blacksmith_gorn` (two blacksmiths, one canonical) |
+| `cn-square.webp`, `cn-chatter.webp` | Captured from the game: [nvoorhies/cute-fantasy](https://github.com/nvoorhies/cute-fantasy) `scripts/capture_promo.sh` (shots `village` and `chatter`) | 1200×512 crops of a 1920×1080 grab. Re-run that script rather than editing them; it boots the real world scene, so a shot always matches the build it came from |
+| `cn-key.webp`, `cn-key-560.webp` | cute-fantasy `icon.png` | The game's key art, resized. **Model-generated, like the character portraits in `sprites/portraits/`** — so nothing on the page describes the art as painted or drawn by hand. `necro-key.webp` on the home page is the same source |
 | `cn-og.jpg` | The key art on a dusk field | 1200×630 social preview |
 
-No gameplay screenshots yet — the page is built from key art and portraits.
-Add screenshots of Willowmere itself when there is a build to capture them
-from.
+The in-game character portraits are deliberately **not** used on the
+page: they are model-generated, and a strip of them presented as artwork
+implied a provenance the studio has not claimed. Screenshots of the
+running game carry that section instead.
 
 ## Goblin Hunt page
 
