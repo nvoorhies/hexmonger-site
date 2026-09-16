@@ -136,16 +136,20 @@ section { padding: 78px 0; }
 
 /* ---------- the look ---------- */
 .look { background: var(--dusk-2); }
-.look .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; align-items: center; }
-.faces { display: grid; gap: 18px; }
-.face.wide img { width: 100%; }
-.face { margin: 0; }
-.face img { border-radius: 14px; border: 1px solid var(--line); }
-.face figcaption {
-  margin-top: 9px; font: 600 12.5px/1.3 var(--sans); letter-spacing: .04em;
-  color: var(--faint); text-align: center;
+/* Screenshots are wide. They get the full column and the copy sits above
+   them, rather than both being squeezed into half the page each. */
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.shot { margin: 0; }
+.shot.hero { grid-column: 1 / -1; }
+.shot img {
+  width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line);
+  box-shadow: 0 22px 50px -30px rgba(0,0,0,.9);
 }
-@media (max-width: 900px) { .look .wrap { grid-template-columns: 1fr; gap: 34px; } }
+.shot figcaption {
+  margin-top: 10px; font: 600 12.5px/1.3 var(--sans); letter-spacing: .04em;
+  color: var(--faint);
+}
+@media (max-width: 760px) { .shots { grid-template-columns: 1fr; } }
 
 /* ---------- the dead ---------- */
 .dead-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
