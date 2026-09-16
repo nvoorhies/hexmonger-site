@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#e2b567" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Hexmonger mark: a hexagon ward around a six-rayed sigil and a lit eye -->
+  <path d="M32 3 57 17.5v29L32 61 7 46.5v-29Z" stroke-width="3.5"/>
+  <path d="M32 11 50 21.5v21L32 53 14 42.5v-21Z" stroke-width="1.5" opacity=".55"/>
+  <path d="M32 17v8M32 39v8M19 24.5l7 4M38 35.5l7 4M45 24.5l-7 4M26 35.5l-7 4" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="5.5" fill="#e2b567" stroke="none"/>
+  <circle cx="32" cy="32" r="2" fill="#15121c" stroke="none"/>
+</svg>

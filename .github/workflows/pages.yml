@@ -1,0 +1,48 @@
+name: Publish to GitHub Pages
+
+# Checks the site on every push and pull request; on pushes to main,
+# deploys it as a static site. Pages must be switched on once by hand:
+# Settings → Pages → Build and deployment → Source: GitHub Actions.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: ./scripts/check-site.sh
+
+  deploy:
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/configure-pages@v5
+      # Serve the site and nothing else: no scripts/, no README.
+      - run: |
+          mkdir _site
+          tar -cf - --exclude=./.git --exclude=./.github --exclude=./scripts \
+                    --exclude=./_site --exclude=./README.md --exclude=./ASSETS.md . |
+            tar -xf - -C _site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
