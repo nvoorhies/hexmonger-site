@@ -31,6 +31,7 @@ Both are under the SIL Open Font License; the license files are in
 | file | source | notes |
 | --- | --- | --- |
 | `gh-village.webp`, `gh-wilds.webp`, `gh-tavern.webp`, `gh-dungeon.webp`, `gh-prologue.webp`, `gh-title.webp` | Captured from the itch.io prototype (hexmonger.itch.io/goblin-hunt) in a headless browser, Sept 2026 | Converted to greyscale and cropped to leave out the arena debug line. Recapture them from a release build before launch |
+| `gh-riverbank.gif`, `gh-strike.gif` | Captured from the game itself: [nvoorhies/goblin-hunt](https://github.com/nvoorhies/goblin-hunt) `scripts/capture_gifs.sh` | 480×270, 12 fps. The probes behind them (`tests/visual_riverbank_probe.tscn`, `tests/visual_strike_probe.tscn`) boot the real game on a fixed map seed, so a re-run is the same shot. Re-run that script rather than editing the GIFs |
 | `gh-og.jpg` | A 1200×630 render of the page's title leaf | Re-render if the title page changes |
 | `fonts/fell-sc.woff2`, `fonts/fell-italic.woff2` | IM Fell English (SC and italic), from Fontsource | SIL OFL |
 | `fonts/garamond*.woff2` | EB Garamond variable, from Fontsource | SIL OFL |
