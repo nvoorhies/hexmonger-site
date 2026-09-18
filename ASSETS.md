@@ -7,7 +7,7 @@ the source and export it again. Don't edit the web copy.
 | --- | --- | --- |
 | `cits-hero.webp`, `cits-hero-800.webp` | castles-in-the-sand `icon.png` (1024², the key art without the title) | Cropped to rows 250–890. The crop leaves out the bottom-right corner, which has a generator watermark sparkle |
 | `og-image.jpg` | same, rows 200–738 | 1200×630 social preview |
-| `cits-02-build.webp`, `cits-04-waves.webp`, `cits-06-hydraulics.webp` | castles-in-the-sand `store/screenshots/android-tablet/*.jpg` | 1200×750 |
+| `cits-02-build.webp`, `cits-04-waves.webp`, `cits-06-hydraulics.webp` | castles-in-the-sand `store/screenshots/android-tablet/*.jpg` | 1200×750, WebP quality 80. Re-derive them whenever that repo re-captures its masters |
 | `necro-key.webp` | cute-fantasy `icon.png` | 900² |
 | `gh-building_house.png`, `gh-barrow_mouth.png`, `gh-wall_tower.png` | topdown-bw `assets/art/*.png` | Shown pixelated on the Goblin Hunt card, which stays a placeholder until there is real key art |
 | `hexmonger-mark.svg` | drawn for this site | Studio mark and favicon |
@@ -22,7 +22,7 @@ Both are under the SIL Open Font License; the license files are in
 | --- | --- | --- |
 | `cits-key-tall*.webp` | castles-in-the-sand `icon.png`, rows 60–900 | Leaves out the watermark in the bottom-right corner |
 | `cits-app-icon.webp` | same, cropped square from the castle and child | Also used as the page favicon. The Play Store icon has the watermark, so it isn't used here |
-| `cits-03-tide.webp`, `cits-05-result.webp` | `store/screenshots/android-tablet/` | 1200×750 |
+| `cits-03-tide.webp`, `cits-05-result.webp` | `store/screenshots/android-tablet/` | 1200×750, WebP quality 80 |
 | `cits-og.jpg` | `store/feature_graphic_1024x500.png` on a sand-coloured 1200×630 canvas | Social preview |
 | `fonts/lilita-one.ttf` | castles-in-the-sand `fonts/` | The game's own display font (SIL OFL). Served unmodified, because the font's name is reserved and a converted copy would need a new name |
 
