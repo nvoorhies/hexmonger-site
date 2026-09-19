@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devlog — Castles in the Sand</title>
+<meta name="description" content="How Castles in the Sand is made: the water and sand simulation, the GPU port, and testing a castle that is supposed to melt.">
+<link rel="canonical" href="https://hexmonger.com/castles-in-the-sand/devlog/">
+<meta name="theme-color" content="#efe3c8">
+<link rel="icon" href="/assets/img/cits-app-icon.webp" type="image/webp">
+<link rel="apple-touch-icon" href="/assets/img/cits-app-icon.webp">
+<link rel="preload" href="/assets/fonts/lilita-one.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/assets/castles.css">
+<link rel="stylesheet" href="/assets/castles-devlog.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="Castles in the Sand — devlog">
+<meta property="og:description" content="How the water and sand work, in more detail than anyone needs.">
+<meta property="og:url" content="https://hexmonger.com/castles-in-the-sand/devlog/">
+<meta property="og:image" content="https://hexmonger.com/assets/img/cits-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="studio-bar">
+  <div class="wrap">
+    <a class="studio-home" href="/" aria-label="Hexmonger home">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="22" height="22">
+      <span>Hexmonger</span>
+    </a>
+    <nav class="game-nav" aria-label="Castles in the Sand">
+      <a class="opt" href="/castles-in-the-sand/">The game</a>
+      <a class="opt" href="/castles-in-the-sand/devlog/" aria-current="page">Devlog</a>
+      <a class="nav-play" href="https://hexmonger.itch.io/castles-in-the-sand">Play free</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="article">
+  <header class="article-head measure">
+    <p class="series"><a href="/castles-in-the-sand/">Castles in the Sand</a></p>
+    <h1>Devlog</h1>
+    <p class="dek">How the game is made, for the people who ask "but how does the water work?" and mean it. Long posts, real numbers, and the mistakes along with the fixes.</p>
+  </header>
+
+  <div class="measure">
+    <ol class="post-list" reversed>
+      <li class="post-card">
+        <p class="series">Part 1 · The simulation · September 2026</p>
+        <h2><a href="/castles-in-the-sand/devlog/why-your-castle-melts/">Why your castle melts</a></h2>
+        <p>The water and sand model: a virtual-pipe sea that cannot blow up, waves that arrive as a traveling bore, sand that washes away and lands somewhere else, and three angles of repose that make damp sand hold and soaked sand melt.</p>
+        <p class="meta">About 20 minutes</p>
+      </li>
+      <li class="post-card upcoming">
+        <p class="series">Part 2 · Coming next</p>
+        <h2>Eleven passes and no floats</h2>
+        <p>Porting the simulation to fragment-shader ping-pong so it runs on phones and in the browser — and the renderer that turned the whole beach flat.</p>
+      </li>
+      <li class="post-card upcoming">
+        <p class="series">Part 3 · Coming later</p>
+        <h2>Unit-testing a melting sandcastle</h2>
+        <p>What you can assert about a simulation that has no right answer: conservation, emergent shapes, and why "melts between 20% and 90%" is a test.</p>
+      </li>
+    </ol>
+  </div>
+</main>
+
+<footer class="game-footer">
+  <div class="wrap">
+    <div class="by-studio">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="34" height="34">
+      <span><b>A Hexmonger game</b><a href="/">More from the studio</a></span>
+    </div>
+    <div>
+      <h4>Castles in the Sand</h4>
+      <ul>
+        <li><a href="/castles-in-the-sand/">The game</a></li>
+        <li><a href="https://hexmonger.itch.io/castles-in-the-sand">Play free</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <ul>
+        <li><a href="https://policies.hexmonger.com/castles-in-the-sand/">Support &amp; FAQ</a></li>
+        <li><a href="https://policies.hexmonger.com/castles-in-the-sand/privacy.html">Privacy policy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

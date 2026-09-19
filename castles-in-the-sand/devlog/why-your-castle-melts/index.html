@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why your castle melts — Castles in the Sand devlog</title>
+<meta name="description" content="How the water and sand in Castles in the Sand actually work: a virtual-pipe water model that cannot blow up, a traveling-bore sea, suspended sediment, and three angles of repose that make wet sand hold and soaked sand melt.">
+<link rel="canonical" href="https://hexmonger.com/castles-in-the-sand/devlog/why-your-castle-melts/">
+<meta name="theme-color" content="#efe3c8">
+<link rel="icon" href="/assets/img/cits-app-icon.webp" type="image/webp">
+<link rel="apple-touch-icon" href="/assets/img/cits-app-icon.webp">
+<link rel="preload" href="/assets/fonts/lilita-one.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/assets/castles.css">
+<link rel="stylesheet" href="/assets/castles-devlog.css">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="Why your castle melts">
+<meta property="og:description" content="The water and sand in Castles in the Sand, in more detail than anyone needs: pipes, bores, sediment and three angles of repose.">
+<meta property="og:url" content="https://hexmonger.com/castles-in-the-sand/devlog/why-your-castle-melts/">
+<meta property="og:image" content="https://hexmonger.com/assets/img/cits-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Why your castle melts",
+  "description": "How the water and sand simulation in Castles in the Sand works.",
+  "url": "https://hexmonger.com/castles-in-the-sand/devlog/why-your-castle-melts/",
+  "image": "https://hexmonger.com/assets/img/cits-og.jpg",
+  "author": { "@type": "Person", "name": "Nathaniel Voorhies" },
+  "publisher": { "@type": "Organization", "name": "Hexmonger", "url": "https://hexmonger.com/" },
+  "about": { "@type": "VideoGame", "name": "Castles in the Sand", "url": "https://hexmonger.com/castles-in-the-sand/" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="studio-bar">
+  <div class="wrap">
+    <a class="studio-home" href="/" aria-label="Hexmonger home">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="22" height="22">
+      <span>Hexmonger</span>
+    </a>
+    <nav class="game-nav" aria-label="Castles in the Sand">
+      <a class="opt" href="/castles-in-the-sand/">The game</a>
+      <a class="opt" href="/castles-in-the-sand/devlog/">Devlog</a>
+      <a class="nav-play" href="https://hexmonger.itch.io/castles-in-the-sand">Play free</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="article">
+<article>
+
+  <header class="article-head measure">
+    <p class="series"><a href="/castles-in-the-sand/devlog/">Devlog</a> · Part 1 · The simulation</p>
+    <h1>Why your castle melts</h1>
+    <p class="dek">How the water and sand in <i>Castles in the Sand</i> actually work: the model, the numbers, the first version that had to be thrown away, and the one line of arithmetic that means the sea can never blow up.</p>
+    <p class="byline"><span>By <b>Nathaniel Voorhies</b></span><span>September 2026</span><span>About 20 minutes</span></p>
+  </header>
+
+  <div class="prose measure">
+
+    <p>The landing page for this game makes one promise, and I wrote it carefully: <em>when the tide eats your tower, it's because the water really did undercut it.</em> There is no animation of a castle falling over. There is a heightfield of sand, a layer of water on top of it, and a set of rules that run sixty times a second. If your wall comes down, those rules are why.</p>
+
+    <p>This post is all of those rules. It is long, because the people who ask "how does the water work?" usually want the real answer, and the real answer has constants in it.</p>
+
+    <nav class="toc" aria-label="Contents">
+      <h4>Contents</h4>
+      <ol>
+        <li><a href="#grid">The beach is a grid</a></li>
+        <li><a href="#first">The first version, and why it went</a></li>
+        <li><a href="#pipes">Water as pipes</a></li>
+        <li><a href="#limiter">The line that means it can't blow up</a></li>
+        <li><a href="#time">Time, in fixed slices</a></li>
+        <li><a href="#sea">Making a sea: sponges and bores</a></li>
+        <li><a href="#sediment">Sand that goes somewhere</a></li>
+        <li><a href="#repose">Why sandcastles work, and how the game cheats</a></li>
+        <li><a href="#together">One wave against one wall</a></li>
+        <li><a href="#after">Scoring, testing, and the GPU</a></li>
+        <li><a href="#numbers">Every number</a></li>
+      </ol>
+    </nav>
+
+    <!-- ======================================================= -->
+    <h2 id="grid">The beach is a grid</h2>
+
+    <p>The whole simulation lives on a <strong>77 × 77 grid</strong> laid over a beach about 25 units on a side, so each cell is roughly a third of a unit across. A castle wall is two or three cells thick. That sounds coarse, and it is — the mesh you actually see is 256 × 256 and is displaced from the simulation by a vertex shader — but coarse is what lets the sim run on a phone, and sand turns out to be forgiving about it.</p>
+
+    <p>Each cell stores a handful of numbers:</p>
+
+    <ul>
+      <li><strong>height</strong> — how high the sand is;</li>
+      <li><strong>depth</strong> — how much water is sitting on it;</li>
+      <li><strong>wetness</strong> — how soaked the sand is, from 0 (dry) to 2;</li>
+      <li><strong>sediment</strong> — sand currently suspended in the water above it;</li>
+      <li><strong>foam</strong>, for the look, and <strong>packed</strong>, for sand a bucket mold has pressed;</li>
+      <li><strong>bedrock</strong> — a floor sand can be dug down to and never through.</li>
+    </ul>
+
+    <p>And between each pair of neighbouring cells, on the <em>face</em> they share, there is a signed <strong>flow</strong>: how much water is moving across that face, and which way. The faces are where the interesting part happens.</p>
+
+    <p>Every 1/60 of a second, ten things happen in a fixed order:</p>
+
+    <figure class="diagram bleed">
+      <div class="steps-narrow">
+        <p class="steps-label water">Water</p>
+        <ol class="steps">
+          <li>Sponge &amp; bore</li><li>Face flow</li><li>Flux viscosity</li>
+          <li class="key">Joint limiter</li><li>Continuity</li><li>Edges relax</li>
+        </ol>
+        <p class="steps-label sand">Sand</p>
+        <ol class="steps sand" start="7">
+          <li>Advect sediment</li><li>Erode &amp; settle</li><li>Slump</li><li>Wick</li>
+        </ol>
+        <p class="steps-note">…then again, every 1/60 s. The player's brush is applied once per frame, before the first substep.</p>
+      </div>
+      <svg class="steps-wide" viewBox="0 0 880 210" role="img" aria-labelledby="pipe-title pipe-desc">
+        <title id="pipe-title">The order of one simulation substep</title>
+        <desc id="pipe-desc">Six water steps — sponge and bore, face flow, viscosity, flux limiter, continuity, edges — followed by four sand steps: advect sediment, erode and deposit, slump, wick.</desc>
+        <g font-family="Inter, system-ui, sans-serif">
+          <text x="10" y="22" font-size="12" font-weight="700" letter-spacing="1.6" fill="#3f8f9a">WATER</text>
+          <text x="570" y="22" font-size="12" font-weight="700" letter-spacing="1.6" fill="#8a4b12">SAND</text>
+          <g font-size="13" fill="#1c3553" text-anchor="middle">
+            <rect x="10"  y="36" width="84" height="64" rx="10" fill="#d8eff0" stroke="#3f8f9a"/><text x="52"  y="62">1 · sponge</text><text x="52" y="80">&amp; bore</text>
+            <rect x="104" y="36" width="84" height="64" rx="10" fill="#d8eff0" stroke="#3f8f9a"/><text x="146" y="62">2 · face</text><text x="146" y="80">flow</text>
+            <rect x="198" y="36" width="84" height="64" rx="10" fill="#d8eff0" stroke="#3f8f9a"/><text x="240" y="62">3 · flux</text><text x="240" y="80">viscosity</text>
+            <rect x="292" y="36" width="84" height="64" rx="10" fill="#1c3553" stroke="#1c3553"/><text x="334" y="62" fill="#fff">4 · joint</text><text x="334" y="80" fill="#fff">limiter</text>
+            <rect x="386" y="36" width="84" height="64" rx="10" fill="#d8eff0" stroke="#3f8f9a"/><text x="428" y="62">5 · conti-</text><text x="428" y="80">nuity</text>
+            <rect x="480" y="36" width="84" height="64" rx="10" fill="#d8eff0" stroke="#3f8f9a"/><text x="522" y="62">6 · edges</text><text x="522" y="80">relax</text>
+            <rect x="574" y="36" width="70" height="64" rx="10" fill="#f1e4c6" stroke="#b5904f"/><text x="609" y="62">7 · advect</text><text x="609" y="80">sediment</text>
+            <rect x="652" y="36" width="70" height="64" rx="10" fill="#f1e4c6" stroke="#b5904f"/><text x="687" y="62">8 · erode</text><text x="687" y="80">&amp; settle</text>
+            <rect x="730" y="36" width="66" height="64" rx="10" fill="#f1e4c6" stroke="#b5904f"/><text x="763" y="71">9 · slump</text>
+            <rect x="804" y="36" width="66" height="64" rx="10" fill="#f1e4c6" stroke="#b5904f"/><text x="837" y="71">10 · wick</text>
+          </g>
+          <g stroke="#6b5f52" stroke-width="1.5" fill="none">
+            <path d="M94 68h10M188 68h10M282 68h10M376 68h10M470 68h10M564 68h10M644 68h8M722 68h8M796 68h8"/>
+          </g>
+          <path d="M837 104 v34 H52 v-34" fill="none" stroke="#6b5f52" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <path d="M46 108 l6 -8 l6 8" fill="#6b5f52"/>
+          <text x="444" y="160" font-size="13" fill="#6b5f52" text-anchor="middle">…and again, every 1/60 s. The player's brush is applied once per frame, before the first substep.</text>
+          <text x="444" y="186" font-size="13" fill="#6b5f52" text-anchor="middle">Steps 1–6 move water. Steps 7–10 move sand, using the flows the water steps just computed.</text>
+        </g>
+      </svg>
+      <figcaption>One substep. The dark box is the part that makes the whole thing stable; section 4 is about it.</figcaption>
+    </figure>
+
+    <!-- ======================================================= -->
+    <h2 id="first">The first version, and why it went</h2>
+
+    <p>The first water in this game was the "correct" kind. It integrated the shallow-water equations in their velocity form — depth and velocity per cell, advanced explicitly — one step per rendered frame, using whatever the frame's delta time happened to be.</p>
+
+    <p>That has a well-known failure. Explicit schemes like this are only stable while information can't cross more than about one cell per step (the <abbr title="Courant–Friedrichs–Lewy">CFL</abbr> condition), and shallow-water waves travel fast in deep water. With the gravity constant this game uses (30) and cells a third of a unit wide, the stability limit landed <strong>almost exactly on a 60 fps frame time</strong>. So the sea was stable precisely as long as nothing went wrong. One hitch, one slower phone, and the surface started to ring and then exploded.</p>
+
+    <p>Three more things were wrong with it, and all three are worth knowing if you are about to build one of these:</p>
+
+    <ul>
+      <li><strong>The outflow limiter was per-face, not per-cell.</strong> Each of a cell's four faces was individually prevented from taking more water than the cell had. But four faces can each take <em>almost all</em> of it, which drains the cell below zero; the code then clamped to zero, which quietly <em>created</em> water; and the invented water fed the oscillation.</li>
+      <li><strong>The ocean edge was a wall of water.</strong> The boundary prescribed the water depth outright in its three outermost columns every frame. A wave appeared there as a column that instantly existed at full height and then collapsed, and because the boundary could supply unlimited water, the sea piled up at the shoreline instead of arriving.</li>
+      <li><strong>Eroded sand vanished.</strong> Erosion subtracted height and that was the end of it. A castle under attack shrank in place, like a sugar cube dissolving, instead of washing away and landing somewhere else.</li>
+    </ul>
+
+    <p>The rewrite's guiding line was: <em>stop trying to be correct shallow-water, and use the techniques games actually ship.</em> Everything below follows from that.</p>
+
+    <!-- ======================================================= -->
+    <h2 id="pipes">Water as pipes</h2>
+
+    <p>The replacement is a <strong>virtual pipe model</strong>, the family of methods popularised for terrain erosion by Mei, Decaudin and Hu. Instead of storing a velocity in each cell, imagine every pair of neighbouring cells connected by a short pipe. The water in the pipe is pushed by the difference in <em>water surface height</em> — sand plus water — between the two ends. Water runs downhill, not down-sand.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 640 250" role="img" aria-labelledby="pipes-title pipes-desc">
+        <title id="pipes-title">Water flowing between cells on their shared faces</title>
+        <desc id="pipes-desc">Four columns of sand with water on top. The water surface is highest on the left, so arrows on the faces between columns point right, strongest where the surface drops most.</desc>
+        <g font-family="Inter, system-ui, sans-serif">
+          <line x1="20" y1="226" x2="620" y2="226" stroke="#6b5f52"/>
+          <!-- sand -->
+          <rect x="40"  y="150" width="130" height="76" fill="#d9c193"/>
+          <rect x="180" y="130" width="130" height="96" fill="#d9c193"/>
+          <rect x="320" y="160" width="130" height="66" fill="#d9c193"/>
+          <rect x="460" y="176" width="130" height="50" fill="#d9c193"/>
+          <!-- water -->
+          <rect x="40"  y="70"  width="130" height="80" fill="#7cc3c9" opacity=".85"/>
+          <rect x="180" y="92"  width="130" height="38" fill="#7cc3c9" opacity=".85"/>
+          <rect x="320" y="120" width="130" height="40" fill="#7cc3c9" opacity=".85"/>
+          <rect x="460" y="160" width="130" height="16" fill="#7cc3c9" opacity=".85"/>
+          <!-- surface line -->
+          <path d="M40 70H170M180 92H310M320 120H450M460 160H590" stroke="#1c3553" stroke-width="2" stroke-dasharray="5 4"/>
+          <!-- face arrows -->
+          <g stroke="#1c3553" stroke-width="3" fill="#1c3553">
+            <line x1="152" y1="110" x2="190" y2="110"/><path d="M198 110 l-10 -6 v12z"/>
+            <line x1="292" y1="125" x2="330" y2="125"/><path d="M338 125 l-10 -6 v12z"/>
+            <line x1="432" y1="150" x2="470" y2="150"/><path d="M478 150 l-10 -6 v12z"/>
+          </g>
+          <g font-size="13" fill="#2b2622">
+            <text x="105" y="60" text-anchor="middle">surface η = h + d</text>
+            <text x="105" y="196" text-anchor="middle">sand h</text>
+            <text x="245" y="115" text-anchor="middle">water d</text>
+          </g>
+          <g font-size="12.5" fill="#6b5f52" text-anchor="middle">
+            <text x="175" y="40">flow on the face</text>
+            <line x1="175" y1="46" x2="175" y2="98" stroke="#6b5f52" stroke-dasharray="3 3"/>
+          </g>
+        </g>
+      </svg>
+      <figcaption>Flow lives on faces, not in cells, and is driven by the difference in water <em>surface</em> height. The second column has more sand than the first but a lower surface, so water still runs into it.</figcaption>
+    </figure>
+
+    <p>Each face's flow is kept from one substep to the next — that persistence is what gives a wave momentum — and updated like this:</p>
+
+<pre><code>var cond = minf(maxf(d_c, d_r), 1.0)
+fx = fx * damping + g * (eta_c - eta_r) / dx * dt * cond</code></pre>
+
+    <p>Three details in those two lines matter:</p>
+
+    <ul>
+      <li><strong><code>damping</code> is 0.994 per substep.</strong> That is gentle — it bleeds off about 30% of a flow per second — but without it a disturbed pond sloshes forever.</li>
+      <li><strong><code>cond</code> is a conductance.</strong> It is the deeper of the two cells' water depths, capped at 1. A face between two bone-dry cells carries nothing at all, and a face into a thin film conducts less than one into open water. This is what keeps a dry beach from "leaking" numerically, and what makes water creep across wet sand instead of teleporting.</li>
+      <li><strong>The gradient is of the surface, <code>eta</code>, not the sand.</strong> A deep pool behind a low wall pushes over it; a high dune with no water on it pushes nothing.</li>
+    </ul>
+
+    <p>Staggered grids like this have one classic artefact: a two-cell checkerboard ripple, where alternate cells go up and down in opposition and nothing in the equations notices. The fix is <strong>flux viscosity</strong>: every substep, each face's flow is blended 45% of the way toward the average of its four neighbours. It kills the checkerboard before it can grow, and costs you only a little sharpness in the wave fronts.</p>
+
+    <!-- ======================================================= -->
+    <h2 id="limiter">The line that means it can't blow up</h2>
+
+    <p>This is the most important idea in the simulation, and it is small.</p>
+
+    <p>Before any water moves, every cell adds up <em>all</em> the flow trying to leave it this substep, across every face that drains it. If that total would take more water than the cell holds, the cell computes a single scale factor <code>K</code> that shrinks the total to exactly what it has. (Trimmed of its grid-edge checks:)</p>
+
+<pre><code><span class="c"># how much wants to leave, across every draining face</span>
+var out = 0.0
+if fx[idx] &gt; 0.0:      out += fx[idx]        <span class="c"># right face, flowing right</span>
+if fx[idx - 1] &lt; 0.0:  out -= fx[idx - 1]    <span class="c"># left face, flowing left</span>
+if fz[idx] &gt; 0.0:      out += fz[idx]
+if fz[idx - w] &lt; 0.0:  out -= fz[idx - w]
+
+k[idx] = minf(1.0, (d[idx] * dx / dt) / out)
+
+<span class="c"># then every face is scaled by the K of the cell it drains FROM</span>
+fx[idx] *= k[idx] if fx[idx] &gt; 0.0 else k[idx + 1]</code></pre>
+
+    <p>That is a <strong>joint</strong> limiter: one factor per cell, shared by all of its outflows, and each face scaled by its <em>donor</em> cell's factor. The consequences are strong enough to be worth listing:</p>
+
+    <ul>
+      <li><strong>Depth can never go negative.</strong> A cell can at most empty itself. The <code>max(…, 0)</code> that follows in the continuity step is still there, but it no longer does anything.</li>
+      <li><strong>Interior water mass is conserved exactly.</strong> Every face moves the same amount out of one cell and into the other, and nothing gets clamped into existence.</li>
+      <li><strong>This is true at any timestep.</strong> Make <code>dt</code> huge and the water moves in lurches, but it cannot explode, because no step can move water that isn't there.</li>
+    </ul>
+
+    <p>After the limiter, the <strong>continuity</strong> step is almost an afterthought: each cell's depth changes by the net flow across its four faces, times <code>dt / dx</code>.</p>
+
+    <div class="aside">
+      <h4>Why this beats "just use a smaller timestep"</h4>
+      <p>The old sim could have been made stable by taking many small steps per frame. But the number you need depends on the deepest water on screen and the slowest device you ship to, and it gets paid every frame whether or not anything is happening. The joint limiter makes stability a property of the arithmetic instead of a property of the hardware.</p>
+    </div>
+
+    <!-- ======================================================= -->
+    <h2 id="time">Time, in fixed slices</h2>
+
+    <p>The simulation never sees the frame's delta time directly. It runs in fixed 1/60-second <strong>substeps</strong> behind an accumulator:</p>
+
+<pre><code>_acc += minf(delta, 0.1)
+var steps := 0
+while _acc &gt;= SUB_DT and steps &lt; max_substeps:
+    _substep(tide_y, wave_amplitude, SUB_DT)
+    _acc -= SUB_DT
+    steps += 1
+if steps == max_substeps:
+    _acc = 0.0      <span class="c"># drop the backlog: go slow-motion, don't spiral</span></code></pre>
+
+    <p>This buys two things. The first is that the sea behaves <strong>identically at every frame rate</strong>, which means the twelve levels, tuned once, play the same on a phone at 30 fps and a desktop at 144. The second is the last two lines. If the device falls behind, it runs at most a few catch-up substeps and then <em>throws the rest of the debt away</em>. The sea goes briefly slow-motion instead of trying to catch up, falling further behind, and taking the frame rate down with it. That ceiling is four substeps on desktop and two in the browser, where a slow frame is likelier and more expensive.</p>
+
+    <!-- ======================================================= -->
+    <h2 id="sea">Making a sea: sponges and bores</h2>
+
+    <p>The left edge of the grid is the ocean. Rather than dictating the water depth there — the old wall-of-water mistake — the simulation uses a <strong>sponge</strong>: a strip ten cells wide in which the water is gently <em>relaxed toward</em> a target surface. The pull is strongest at the outer edge and fades quadratically to nothing at the inner edge, and it is rate-limited so depth can never jump. The sponge also damps the flows passing through it, so a wave reflected back out to sea is absorbed instead of bouncing back in again.</p>
+
+    <p>A sponge alone gives you a tide — raise the target and the sea comes in — but not a wave. If the whole ocean edge rises at once, the whole ocean edge spills at once, and it looks like a bathtub overflowing. Real waves arrive as a moving ridge. So during the first 35% of each five-second wave period, the sponge's target is a <strong>traveling bore</strong>: a crest that sweeps shoreward across the strip, with a steep front and a long tail.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 640 230" role="img" aria-labelledby="bore-title bore-desc">
+        <title id="bore-title">The traveling bore profile</title>
+        <desc id="bore-desc">A water surface above the tide line with one sharp peak. Behind the peak the surface decays slowly over about six cells; ahead of it, it drops away within about one cell. An arrow shows the crest moving shoreward.</desc>
+        <g font-family="Inter, system-ui, sans-serif">
+          <rect x="30" y="30" width="360" height="170" fill="#d8eff0" opacity=".55"/>
+          <text x="210" y="50" font-size="12" font-weight="700" letter-spacing="1.4" fill="#3f8f9a" text-anchor="middle">SPONGE STRIP (10 CELLS)</text>
+          <line x1="30" y1="160" x2="620" y2="160" stroke="#3f8f9a" stroke-dasharray="6 5"/>
+          <text x="614" y="152" font-size="12.5" fill="#3f8f9a" text-anchor="end">tide level</text>
+          <path d="M30 150 C 120 142, 200 126, 262 92 L 268 88 C 272 110, 276 140, 290 158 L 620 160"
+                fill="none" stroke="#1c3553" stroke-width="3"/>
+          <path d="M30 160 L30 150 C 120 142, 200 126, 262 92 L 268 88 C 272 110, 276 140, 290 158 L 620 160 Z" fill="#7cc3c9" opacity=".5"/>
+          <g font-size="12.5" fill="#2b2622">
+            <text x="150" y="112" text-anchor="middle">long tail: e^(Δ/6)</text>
+            <text x="340" y="104">steep front: e^(−Δ/0.8)</text>
+            <line x1="336" y1="100" x2="276" y2="104" stroke="#6b5f52"/>
+          </g>
+          <g stroke="#c9473b" stroke-width="2.5" fill="#c9473b">
+            <line x1="236" y1="70" x2="300" y2="70"/><path d="M308 70 l-10 -6 v12z"/>
+          </g>
+          <text x="268" y="62" font-size="12.5" fill="#c9473b" text-anchor="middle">crest moves shoreward</text>
+          <text x="30" y="220" font-size="12.5" fill="#6b5f52">ocean edge</text>
+          <text x="620" y="220" font-size="12.5" fill="#6b5f52" text-anchor="end">toward the beach →</text>
+        </g>
+      </svg>
+      <figcaption>The sponge's target surface during a surge. The crest starts four cells seaward of the strip and finishes four cells past its inner edge, so the wave is already moving when it leaves the forcing.</figcaption>
+    </figure>
+
+    <p>That still isn't quite enough: a crest that exists only as a <em>target</em> inside the sponge stops being pushed the moment it leaves the strip, and it slumps into a flat puddle instead of running up the beach. So the sim also gives it a <strong>momentum kick</strong>. Within two and a half cells of the crest, every face's flow is blended toward the flow a bore <em>would</em> have — its depth times the speed the crest is crossing the strip, a little under 3.4 units a second. The wave leaves the sponge already travelling, and the pipe model carries it the rest of the way.</p>
+
+    <p>The other three edges of the grid face the land, not the sea. They relax <em>weakly</em> toward the tide level over a three-cell ramp, so waves that reach them are soaked up instead of reflecting, but water isn't drained away through them.</p>
+
+    <p>Foam is decorative, but it follows the same rules as everything else: fast water churns it up in proportion to its speed, it rides the face flows exactly like sediment does (next section), and it fades by about 60% a second. That is why it runs up the beach with the swash and back down with the backwash, instead of sitting where it was made.</p>
+
+    <figure>
+      <img src="/assets/img/cits-04-waves.webp" width="1200" height="750" loading="lazy" alt="Foam washing over the sand as the sea breaks against a wall.">
+      <figcaption>Foam is made where water runs fast — the bore front and the backwash — and then goes where the water goes.</figcaption>
+    </figure>
+
+    <!-- ======================================================= -->
+    <h2 id="sediment">Sand that goes somewhere</h2>
+
+    <p>The first version's erosion deleted sand. The rewrite adds a second field alongside the water: <strong>suspended sediment</strong>, measured in the same units as sand height. Sand picked up by the water leaves the heightfield and enters the sediment field, rides the current, and settles back out somewhere else. Height and sediment trade one-for-one, so <strong>the total amount of sand on the beach never changes</strong>.</p>
+
+    <h3>How much sand water can carry</h3>
+
+    <p>At each wet cell, the sim works out the flow speed (the face flows averaged to the cell centre, divided by depth) and from it a <strong>carrying capacity</strong>:</p>
+
+<pre><code>var v_ex = maxf(vmag - v_crit, 0.0)                      <span class="c"># v_crit = 0.5</span>
+var capacity = capacity_k * v_ex * minf(water, 0.5)      <span class="c"># capacity_k = 0.15</span></code></pre>
+
+    <p>Below a critical speed of 0.5 the water moves nothing at all, which is why a calm pool doesn't slowly dissolve your moat. Above it, capacity grows with the excess speed and with depth, up to a point.</p>
+
+    <p>If the water is carrying less than its capacity, it <strong>picks up</strong> sand, closing the gap at a rate of three per second — most of the way within a second. If it is carrying more, because it has just slowed down, the excess <strong>settles</strong> out at the same rate. And a cell that dries out entirely drops everything it was holding at once, which is how a retreating wave leaves a line of deposited sand behind it.</p>
+
+    <h3>The undercut</h3>
+
+    <p>Carrying capacity alone makes sand wash off <em>flat</em> ground. It doesn't make castles fall, because the most important thing that happens to a castle is not fast water running past it but water running <em>into</em> it. So there is a second term: the <strong>impact</strong> of flow against rising terrain.</p>
+
+<pre><code><span class="c"># flow · terrain slope: positive when water runs uphill into the sand</span>
+var impact = maxf(fx_c * sx + fz_c * sz, 0.0) / depth_floor
+var pickup = impact_k * impact * dt
+if sed &lt; capacity:
+    pickup += (capacity - sed) * pickup_k * dt
+pickup *= erodibility * erosion_strength
+<span class="c"># at most 0.03 per substep, and never through the floor</span>
+pickup = minf(pickup, pickup_cap)
+pickup = minf(pickup, maxf(height - bedrock, 0.0))</code></pre>
+
+    <p>The dot product of the flow with the terrain's slope is large exactly where water is slamming into the seaward face of a wall. That is where the scour happens, at the base, where the waves hit — which is the undercut the landing page promises.</p>
+
+    <p>Two brakes keep it from being too eager. Pickup is capped at 0.03 height units per substep, so a single violent wave can't delete a tower in one frame. And <strong>soaked sand is harder to scour</strong> — erodibility drops to 35% as wetness rises — because the way wet castles fail in this game, like real ones, is not by being scrubbed away grain by grain. It is by collapsing. That is the next section.</p>
+
+    <h3>Moving the sediment</h3>
+
+    <p>Suspended sand moves with the same face flows the water just used, by <strong>donor-cell advection</strong>: across each face, the upstream cell gives up the fraction of its sediment that its water is sending across that face, and the downstream cell receives exactly that amount. Every transfer is symmetric, so it conserves exactly. (Each face may move at most half of a cell's sediment per substep, which keeps the scheme stable in very shallow water.)</p>
+
+    <p>Nobody authored what this produces, and it is my favourite part of the game. Sand scoured from a wall's base travels seaward on the backwash and drops out where the flow slackens, building a small <strong>fan</strong>. Channels you cut silt up at their mouths. A berm forms along the high-water line. None of these are features — they fall out of <em>fast water picks sand up and slow water puts it down</em>.</p>
+
+    <!-- ======================================================= -->
+    <h2 id="repose">Why sandcastles work, and how the game cheats</h2>
+
+    <p>You can't build a castle from dry sand; it pours. You can't build one from soupy sand either; it flows. Every child on a beach learns that the good stuff is in between — sand that is <em>damp</em> — because the thin films of water between grains hold them together. Soak it, and the films become a flood and the grains let go.</p>
+
+    <p>That is the entire game, and it is encoded in how the simulation decides when sand <strong>slumps</strong>.</p>
+
+    <h3>Slumping</h3>
+
+    <p>After erosion, every cell looks at its eight neighbours. If it is higher than a neighbour by more than a threshold slope — scaled by 1.414 for the diagonals — some of the excess slides down. The threshold and the rate both depend on how wet the sand is, in three regimes:</p>
+
+    <div class="regimes">
+      <div class="regime">
+        <svg viewBox="0 0 160 110" role="img" aria-label="A pile with 70 degree sides">
+          <line x1="6" y1="100" x2="154" y2="100" stroke="#6b5f52"/>
+          <path d="M40 100 L69 20 L91 20 L120 100 Z" fill="#e6d5b0" stroke="#b5904f"/>
+          <path d="M98 100 A 22 22 0 0 1 112.5 79.3" fill="none" stroke="#1c3553" stroke-width="1.5"/>
+          <text x="72" y="96" font-size="12" font-family="Inter, sans-serif" fill="#1c3553">70°</text>
+        </svg>
+        <h4>Dry</h4>
+        <p>Wetness under 0.3. Stands at about <b>70°</b>; slides at 0.4% of the excess per substep.</p>
+      </div>
+      <div class="regime">
+        <svg viewBox="0 0 160 110" role="img" aria-label="A pile with 80 degree sides">
+          <line x1="6" y1="100" x2="154" y2="100" stroke="#6b5f52"/>
+          <path d="M50 100 L64 20 L96 20 L110 100 Z" fill="#c9ad7a" stroke="#8f6b36"/>
+          <path d="M88 100 A 22 22 0 0 1 106.2 78.3" fill="none" stroke="#fff8ec" stroke-width="1.5"/>
+          <text x="62" y="96" font-size="12" font-family="Inter, sans-serif" fill="#fff8ec">80°</text>
+        </svg>
+        <h4>Damp</h4>
+        <p>Wetness 0.3–0.9. Stands at about <b>80°</b> and barely moves: 0.1% per substep. <em>This</em> is castle sand.</p>
+      </div>
+      <div class="regime">
+        <svg viewBox="0 0 160 110" role="img" aria-label="A low wide mound with 10 degree sides">
+          <line x1="6" y1="100" x2="154" y2="100" stroke="#6b5f52"/>
+          <path d="M8 100 L68 90 L92 90 L152 100 Z" fill="#a98c5e" stroke="#7a5c2e"/>
+          <rect x="8" y="94" width="144" height="6" fill="#7cc3c9" opacity=".6"/>
+          <path d="M122 100 A 30 30 0 0 1 122.4 95.1" fill="none" stroke="#1c3553" stroke-width="1.5"/>
+          <text x="112" y="80" font-size="12" font-family="Inter, sans-serif" fill="#1c3553">10°</text>
+        </svg>
+        <h4>Soaked</h4>
+        <p>Wetness 0.9 and up. Stands at about <b>10°</b>, and moves fast: 2% per substep. This is the melt.</p>
+      </div>
+    </div>
+
+<pre><code>if wet &lt; 0.3:        <span class="c"># dry</span>
+    slump_max = 2.75 * dx;   slump_flow = 0.004
+elif wet &lt; 0.9:      <span class="c"># damp — castles hold</span>
+    slump_max = 5.67 * dx;   slump_flow = 0.001
+else:                <span class="c"># saturated — soaked walls melt</span>
+    slump_max = 0.18 * dx;   slump_flow = melt_flow   <span class="c"># 0.02</span></code></pre>
+
+    <p>The three slopes are tangents: 2.75, 5.67 and 0.18 are the tangents of 70°, 80° and 10°.</p>
+
+    <div class="aside">
+      <h4>The honest part</h4>
+      <p>Real dry sand rests at something nearer 35°, not 70°. If the game used the real number, every channel you scooped would immediately fill itself back in and the game would be unplayable. So the <em>magnitudes</em> are tuned for play. What is real is the <em>ordering</em> — damp stands steepest, dry pours, soaked flows — and the ordering is what the player learns and what the levels are built on. This is the "techniques games ship" principle again: keep the behaviour that carries the meaning, and cheat on the rest.</p>
+    </div>
+
+    <p>Slumping is also where the second joint limiter lives. Like the water, a cell adds up everything it wants to shed across all eight neighbours, and if that would take it below its bedrock, one factor scales it all back. And the exchange is <strong>pairwise</strong>: when two cells trade sand, both sides use the <em>uphill</em> cell's wetness and the <em>uphill</em> cell's limiter, so both compute exactly the same transfer. Without that, a dry cell next to a soaked one would disagree with it about how much had moved, and sand would be created or destroyed at every waterline on the beach.</p>
+
+    <h3>Wetting, drying, and wicking</h3>
+
+    <p>Sand under water gets wetter quickly — its wetness rises by half the water depth every substep, up to 2. Sand out of the water dries by 0.005 per substep, about 0.3 a second.</p>
+
+    <p>And wetness <strong>wicks</strong>. Every substep, each cell's wetness creeps toward its wettest neighbour's, minus a margin of 0.15, at a rate of 0.6 per second. So saturation doesn't stay at the waterline; it climbs up into the base of a wall that water is touching, slowly turning damp castle sand into soaked melting sand from the bottom up. That creeping front is why a wall can survive the first wave and fall to the fourth.</p>
+
+    <h3>Bucket molds</h3>
+
+    <p>Sand pressed out of a bucket is marked <em>packed</em>. Packed sand doesn't slump and doesn't dry, so a stamped tower keeps its crisp shape indefinitely — until water reaches it. Then it unpacks at a rate of four per second, and from there it's ordinary wet sand, subject to everything above. Digging into a molded wall breaks the mold too.</p>
+
+    <!-- ======================================================= -->
+    <h2 id="together">One wave against one wall</h2>
+
+    <p>Put it all together and follow one wave:</p>
+
+    <ol>
+      <li>The <strong>bore</strong> crosses the sponge, gets its momentum kick, and leaves the strip as a moving ridge.</li>
+      <li>The <strong>pipe model</strong> carries it up the beach. The <strong>limiter</strong> guarantees that however steep the front, no cell gives up water it doesn't have.</li>
+      <li>The swash reaches the wall. The base cells go under water and their wetness jumps toward saturated.</li>
+      <li>Flow running into the wall's seaward face scores a large <strong>impact</strong> term. Sand is scoured from the base and becomes <strong>sediment</strong>.</li>
+      <li>Meanwhile the saturated base cells have switched to the <strong>10° regime</strong> and are slumping outward, fast.</li>
+      <li><strong>Wicking</strong> carries saturation a little higher up the wall with each wave.</li>
+      <li>Eventually the damp upper wall is standing over a base that has scoured and slumped away, at a slope steeper than even 80° allows. It comes down.</li>
+      <li>The backwash carries the sediment seaward and drops it where the flow slows. A small <strong>fan</strong> of the tower you built appears on the beach below it.</li>
+    </ol>
+
+    <p>Nothing in that sequence is scripted. It is the same ten steps, sixty times a second, on every cell.</p>
+
+    <figure>
+      <img src="/assets/img/cits-03-tide.webp" width="1200" height="750" loading="lazy" alt="The tide rolling up the beach toward a sculpted mound with a red flag.">
+      <figcaption>The tide coming for a flag. Whether it gets there depends on the walls, the moat, and how wet everything is by the time it arrives.</figcaption>
+    </figure>
+
+    <!-- ======================================================= -->
+    <h2 id="after">Scoring, testing, and the GPU</h2>
+
+    <h3>The score falls out of the sim</h3>
+
+    <p>Because sand is conserved, there is a natural measure of how much a player has <em>disturbed</em> the beach: the total absolute change in height from the starting beach, plus any sand still suspended in the water (it's going to land somewhere), times the cell area. Stars go to whoever moves the least. The best builders do the least — and the sim can tell exactly how little that was.</p>
+
+    <h3>Testing a thing that has no right answer</h3>
+
+    <p>You can't unit-test a fluid sim frame by frame; there is no correct frame to compare against. What you can test is its <em>invariants</em> and its <em>shapes</em>. So the game's CI runs headless suites that assert things like: castles melt between 20% and 90% in 60 seconds (both "didn't melt" and "vaporised" are bugs); sand plus sediment is conserved within half a percent; waves arrive as moving crests rather than as a rising edge; fans form; still water settles and puddles keep their mass. That deserves its own post, and will get one.</p>
+
+    <h3>It had to leave the CPU</h3>
+
+    <p>Everything above was first written in GDScript, and it is still there as the reference implementation. But at 77 × 77 it costs around 33 ms a substep even on a fast desktop core — more than a frame — and on a phone the catch-up loop took the native build down to about five frames a second. The shipping game runs the identical model as a chain of fragment-shader passes on the GPU, on phones and in the browser, and a CI test holds the two implementations to each other field by field. That port — and the three renderer surprises it ran into, one of which produced a beach you could not dig — is <a href="/castles-in-the-sand/devlog/">Part 2</a>, coming next.</p>
+
+    <!-- ======================================================= -->
+    <h2 id="numbers">Every number</h2>
+
+    <p>For anyone building their own. World units are the game's; a cell is about 0.33 of them. "Per substep" means per 1/60 s.</p>
+
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>Parameter</th><th>Value</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>SIM_GRID</code></td><td>77 × 77</td><td>Simulation cells over a ~25-unit beach</td></tr>
+        <tr><td><code>SUB_DT</code></td><td>1/60 s</td><td>Fixed substep</td></tr>
+        <tr><td><code>max_substeps</code></td><td>4 (2 on web)</td><td>Catch-up ceiling before the backlog is dropped</td></tr>
+        <tr><td><code>gravity</code></td><td>30</td><td>Drives face flow from the surface gradient</td></tr>
+        <tr><td><code>damping</code></td><td>0.994</td><td>Face flow kept per substep (~30% lost per second)</td></tr>
+        <tr><td><code>viscosity</code></td><td>0.45</td><td>Blend of each face flow toward its neighbours' average</td></tr>
+        <tr><td><code>sponge_width</code></td><td>10 cells</td><td>Ocean forcing strip</td></tr>
+        <tr><td><code>inject_rate</code></td><td>3 / s</td><td>Maximum depth change the sponge may make</td></tr>
+        <tr><td><code>wave_period</code></td><td>5 s</td><td>Time between waves</td></tr>
+        <tr><td><code>surge_frac</code></td><td>0.35</td><td>Share of the period the bore takes to cross the strip</td></tr>
+        <tr><td><code>bore_tail</code> / <code>bore_front</code></td><td>6 / 0.8 cells</td><td>Decay lengths behind and ahead of the crest</td></tr>
+        <tr><td><code>kick_rate</code></td><td>6 / s</td><td>Blend of face flow toward bore speed near the crest</td></tr>
+        <tr><td><code>edge_relax</code></td><td>0.08</td><td>Weak pull of land edges toward the tide level</td></tr>
+        <tr><td><code>v_crit</code></td><td>0.5</td><td>Flow speed below which no sand moves</td></tr>
+        <tr><td><code>capacity_k</code></td><td>0.15</td><td>Carrying capacity per unit of excess speed and depth</td></tr>
+        <tr><td><code>pickup_k</code> / <code>settle_k</code></td><td>3 / s</td><td>Rates toward capacity, up and down</td></tr>
+        <tr><td><code>impact_k</code></td><td>0.05</td><td>Extra scour where flow meets rising sand</td></tr>
+        <tr><td><code>pickup_cap</code></td><td>0.03</td><td>Most height eroded from a cell per substep</td></tr>
+        <tr><td>erodibility</td><td>1 − 0.65 × wetness</td><td>Soaked sand resists scour</td></tr>
+        <tr><td>slump (dry)</td><td>tan 70°, 0.004</td><td>Wetness &lt; 0.3</td></tr>
+        <tr><td>slump (damp)</td><td>tan 80°, 0.001</td><td>Wetness 0.3–0.9</td></tr>
+        <tr><td>slump (soaked)</td><td>tan 10°, 0.02</td><td>Wetness ≥ 0.9 — <code>melt_flow</code></td></tr>
+        <tr><td><code>wick_rate</code></td><td>0.6 / s</td><td>Creep of wetness toward the wettest neighbour, minus 0.15</td></tr>
+        <tr><td><code>drying_rate</code></td><td>0.005</td><td>Wetness lost per substep out of water</td></tr>
+        <tr><td><code>pack_release</code></td><td>4 / s</td><td>How fast water unpacks molded sand</td></tr>
+        <tr><td><code>foam_gain</code> / <code>foam_decay</code></td><td>0.15 / 0.985</td><td>Foam from speed; foam kept per substep</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>If you build something with these, I would love to see it.</p>
+
+    <aside class="play-card">
+      <h3>Go and break a wall</h3>
+      <p>It's free in the browser — no account, no download, no ads. Dig a moat, build a wall, and watch the fourth wave do what the first one couldn't.</p>
+      <a class="btn btn-play" href="https://hexmonger.itch.io/castles-in-the-sand">Play Castles in the Sand</a>
+    </aside>
+
+  </div>
+</article>
+</main>
+
+<footer class="game-footer">
+  <div class="wrap">
+    <div class="by-studio">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="34" height="34">
+      <span><b>A Hexmonger game</b><a href="/">More from the studio</a></span>
+    </div>
+    <div>
+      <h4>Castles in the Sand</h4>
+      <ul>
+        <li><a href="/castles-in-the-sand/">The game</a></li>
+        <li><a href="/castles-in-the-sand/devlog/">Devlog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <ul>
+        <li><a href="https://policies.hexmonger.com/castles-in-the-sand/">Support &amp; FAQ</a></li>
+        <li><a href="https://policies.hexmonger.com/castles-in-the-sand/privacy.html">Privacy policy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
