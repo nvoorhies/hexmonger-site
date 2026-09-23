@@ -1,0 +1,53 @@
+{% extends "_layout.html" %}
+{% block title %}{{ post.meta.title }} — Hexmonger{% endblock %}
+{% block description %}{{ post.meta.summary or post.meta.title }}{% endblock %}
+{% block canonical %}{{ page_url }}{% endblock %}
+{% block head %}
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="{{ post.meta.title }}">
+<meta property="og:description" content="{{ post.meta.summary or post.meta.title }}">
+<meta property="og:url" content="{{ page_url }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="article:published_time" content="{{ post.meta.date }}">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.meta.title,
+  "description": post.meta.summary,
+  "datePublished": post.meta.date,
+  "url": page_url,
+  "image": og_image,
+  "publisher": {"@type": "Organization", "name": "Hexmonger", "url": site_url + "/"},
+} | tojson(indent=2) }}
+</script>
+{% endblock %}
+{% block main %}
+  <article class="post" aria-labelledby="post-title">
+    <header class="post-head">
+      <p class="eyebrow"><a href="/blog/">Blog</a> · <time datetime="{{ post.meta.date }}">{{ post.meta.date | longdate }}</time></p>
+      <h1 id="post-title">{{ post.meta.title }}</h1>
+{% if post.meta.summary %}
+      <p class="post-dek">{{ post.meta.summary }}</p>
+{% endif %}
+    </header>
+
+    <div class="prose">
+{{ body }}
+    </div>
+
+    <nav class="post-nav" aria-label="More posts">
+{% if newer %}
+      <a class="newer" rel="next" href="/blog/{{ newer.slug }}/"><span>Newer</span>{{ newer.meta.title }}</a>
+{% endif %}
+{% if older %}
+      <a class="older" rel="prev" href="/blog/{{ older.slug }}/"><span>Older</span>{{ older.meta.title }}</a>
+{% endif %}
+      <a class="all" href="/blog/"><span>Blog</span>All posts</a>
+    </nav>
+  </article>
+{% endblock %}

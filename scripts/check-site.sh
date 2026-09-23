@@ -4,7 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 fail=0
-pages=$(find . -name '*.html' -not -path './.git/*' -not -path './_site/*')
+pages=$(find . -name '*.html' -not -path './.git/*' -not -path './_site/*' -not -path './blog-editor/*')
 for p in $pages; do
   grep -q '<title>[^<]\+</title>' "$p" || { echo "no <title>: $p"; fail=1; }
   dir=$(dirname "$p")

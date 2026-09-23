@@ -16,6 +16,16 @@ Fonts: Fraunces and Inter variable woff2, Latin subset, from Fontsource.
 Both are under the SIL Open Font License; the license files are in
 `assets/fonts/`.
 
+## Blog
+
+| file | source | notes |
+| --- | --- | --- |
+| `fonts/stix-two-math.woff2` | STIX Two Math, from Fontsource (`@fontsource/stix-two-math` 5.3.0) | SIL OFL (`LICENSE-stix-two.txt`). The whole font, with its MATH table, for the MathML in blog posts. `blog.css` loads it, and browsers only fetch it on a page that has math |
+
+Images and videos in posts live with each post's Markdown in
+`blog-editor/posts/<slug>/`; publishing copies the ones a post uses to
+`blog/<slug>/`. Edit or replace them there, not in `blog/`.
+
 ## Castles in the Sand page
 
 | file | source | notes |
