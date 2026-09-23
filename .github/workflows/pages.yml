@@ -35,10 +35,12 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: actions/configure-pages@v5
-      # Serve the site and nothing else: no scripts/, no README.
+      # Serve the site and nothing else: no scripts/, no README, and not the
+      # blog editor (which holds the Markdown sources and unpublished drafts).
       - run: |
           mkdir _site
           tar -cf - --exclude=./.git --exclude=./.github --exclude=./scripts \
+                    --exclude=./blog-editor \
                     --exclude=./_site --exclude=./README.md --exclude=./ASSETS.md . |
             tar -xf - -C _site
       - uses: actions/upload-pages-artifact@v3

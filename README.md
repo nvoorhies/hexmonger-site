@@ -2,7 +2,9 @@
 
 The studio website at **https://hexmonger.com** — plain static HTML and CSS,
 no build step and no JavaScript. What is in this repo is exactly what is
-served.
+served. Blog posts are the one generated part: they are written in Markdown
+with `blog-editor/`, which writes their HTML into `blog/`, and that HTML is
+committed like everything else.
 
 Privacy policies and support pages are **not** here. They live in
 [nvoorhies/hexmonger-policies](https://github.com/nvoorhies/hexmonger-policies)
@@ -16,12 +18,15 @@ store reviewers saw. This site only links to them.
 | `index.html` | the home page: featured game, coming-soon games, studio, contact |
 | `castles-in-the-sand/index.html` | the Castles in the Sand page, styled like the game (`assets/castles.css`) |
 | `goblin-hunt/index.html` | the Goblin Hunt page, set like an old printed rulebook (`assets/goblin-hunt.css`) |
+| `blog/` | the blog: an index, a feed, and a folder per post. **Generated** by `blog-editor/` — edit posts there, not here |
 | `404.html` | the not-found page (Pages serves it for any missing path) |
-| `assets/site.css` | all styles |
+| `assets/site.css` | the shared styles |
+| `assets/blog.css` | blog posts and the blog index, on top of `site.css` |
 | `assets/fonts/` | Fraunces + Inter, self-hosted (SIL OFL) so no page load goes to a third party |
 | `assets/img/` | web-sized art; see `ASSETS.md` for where each file came from |
 | `CNAME` | `hexmonger.com` — tells Pages which domain to serve |
 | `scripts/check-site.sh` | fails on a page without a title, a broken local link, or a wrong CNAME |
+| `blog-editor/` | the Markdown blog editor (Python, run with uv) and the posts' sources. Not deployed |
 
 Preview locally:
 
@@ -34,6 +39,9 @@ failing check does not deploy.
 
 ## Common edits
 
+- **Write a blog post** — `cd blog-editor && uv run blog-editor`, write, then
+  *Publish*. That writes the HTML into `blog/` and updates `sitemap.xml`; it
+  doesn't commit. See `blog-editor/README.md`.
 - **A store listing goes live** — in `index.html` and in `castles-in-the-sand/index.html` (which has it in two places: the hero and the closing section), replace the matching
   `<span class="btn btn-soon">…</span>` with
   `<a class="btn btn-ghost" href="…">App Store</a>` (the comment above the
@@ -46,7 +54,8 @@ failing check does not deploy.
 ## Publishing
 
 `.github/workflows/pages.yml` deploys to GitHub Pages on every push to
-`main`, serving the repo minus `scripts/`, `.github/` and the docs.
+`main`, serving the repo minus `scripts/`, `.github/`, `blog-editor/` and the
+docs.
 
 One-time setup:
 

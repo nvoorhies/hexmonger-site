@@ -1,0 +1,31 @@
+[project]
+name = "blog-editor"
+version = "0.1.0"
+description = "Write Hexmonger blog posts in Markdown, preview them as the site will show them, and publish them into the site."
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=3.1.3",
+    "latex2mathml>=3.81.1",
+    "markdown-it-py>=4.2.0",
+    "mdit-py-plugins>=0.6.1",
+    "pillow>=12.3.0",
+    "pyyaml>=6.0.3",
+]
+
+[project.scripts]
+blog-editor = "blog_editor.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/blog_editor"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

@@ -1,0 +1,40 @@
+{% extends "_layout.html" %}
+{% block title %}Blog — Hexmonger{% endblock %}
+{% block description %}Notes from the Hexmonger workshop: the games we are making, and how they work.{% endblock %}
+{% block canonical %}{{ site_url }}/blog/{% endblock %}
+{% block head %}
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="Blog — Hexmonger">
+<meta property="og:description" content="Notes from the Hexmonger workshop: the games we are making, and how they work.">
+<meta property="og:url" content="{{ site_url }}/blog/">
+<meta property="og:image" content="{{ site_url }}/assets/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+{% block main %}
+  <section class="blog-index" aria-labelledby="blog-title">
+    <div class="blog-col">
+      <p class="eyebrow">From the workshop</p>
+      <h1 id="blog-title">Blog</h1>
+      <p class="blog-lede">Notes on the games we are making, and how they work.</p>
+
+      <ol class="post-list">
+{% for post in posts %}
+        <li class="post-item{% if post.meta.cover %} has-cover{% endif %}">
+          <div class="post-item-text">
+            <time datetime="{{ post.meta.date }}">{{ post.meta.date | longdate }}</time>
+            <h2><a class="post-item-link" href="/blog/{{ post.slug }}/">{{ post.meta.title }}</a></h2>
+{% if post.meta.summary %}
+            <p>{{ post.meta.summary }}</p>
+{% endif %}
+          </div>
+{% if post.meta.cover %}
+          <img src="/blog/{{ post.slug }}/{{ post.meta.cover }}" alt="" loading="lazy">
+{% endif %}
+        </li>
+{% endfor %}
+      </ol>
+    </div>
+  </section>
+{% endblock %}

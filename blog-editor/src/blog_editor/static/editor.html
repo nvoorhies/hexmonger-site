@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog editor — Hexmonger</title>
+<link rel="icon" href="/assets/img/hexmonger-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/_editor/editor.css">
+<script src="/_editor/editor.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/" target="_blank" title="Open the site (served from this folder)">
+    <img src="/assets/img/hexmonger-mark.svg" alt="" width="22" height="22">
+    <span>Blog editor</span>
+  </a>
+  <button type="button" id="btn-posts" class="btn">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" /></svg>
+    Posts
+  </button>
+  <span id="chip" class="chip" hidden></span>
+  <span class="grow"></span>
+  <details class="menu" id="more">
+    <summary class="btn" aria-label="More actions">More <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg></summary>
+    <div class="menu-items">
+      <a id="m-live" target="_blank">Open the published page</a>
+      <a id="m-preview" target="_blank">Open the preview in a new tab</a>
+      <button type="button" id="m-discard">Discard unpublished changes…</button>
+      <button type="button" id="m-unpublish">Unpublish…</button>
+    </div>
+  </details>
+  <button type="button" id="btn-save" class="btn" title="Save the draft to disk (Ctrl+S)">Save draft</button>
+  <button type="button" id="btn-publish" class="btn primary" title="Write the post into the site folder">Publish</button>
+</header>
+
+<main class="split" id="split">
+  <section class="pane editor-pane" aria-label="Markdown">
+    <div class="meta">
+      <input id="f-title" class="title-input" placeholder="Post title" aria-label="Title" autocomplete="off">
+      <details id="details" open>
+        <summary>Details</summary>
+        <div class="meta-grid">
+          <label>Date <input id="f-date" type="date"></label>
+          <label>Address
+            <span class="slug-row">
+              <span class="slug-prefix">/blog/</span><input id="f-slug" autocomplete="off" spellcheck="false" aria-label="Slug">
+              <button type="button" id="btn-rename" class="btn small" hidden>Rename</button>
+            </span>
+          </label>
+          <label>Cover image <select id="f-cover"><option value="">None</option></select></label>
+          <label class="span-3">Summary <textarea id="f-summary" rows="2" placeholder="One or two sentences: shown under the title, on the blog index, in the feed and in link previews."></textarea></label>
+        </div>
+      </details>
+    </div>
+
+    <div class="toolbar" role="toolbar" aria-label="Formatting">
+      <button type="button" data-cmd="h2" title="Heading">H2</button>
+      <button type="button" data-cmd="h3" title="Subheading">H3</button>
+      <span class="sep"></span>
+      <button type="button" data-cmd="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+      <button type="button" data-cmd="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+      <button type="button" data-cmd="link" title="Link (Ctrl+K)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" /></svg>
+      </button>
+      <button type="button" data-cmd="quote" title="Quote">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4c0 3-2 5-4 6M14 7h4v4c0 3-2 5-4 6" /></svg>
+      </button>
+      <button type="button" data-cmd="list" title="Bulleted list">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01" /></svg>
+      </button>
+      <button type="button" data-cmd="code" title="Code">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5" /></svg>
+      </button>
+      <button type="button" data-cmd="footnote" title="Footnote">[¹]</button>
+      <span class="sep"></span>
+      <button type="button" data-cmd="image" title="Insert an image (or paste / drop one into the text)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><circle cx="9" cy="10" r="1.6" /><path d="m21 16-5-5-8 8" /></svg>
+        Image
+      </button>
+      <button type="button" data-cmd="video" title="Insert a video file, or a YouTube or Vimeo link">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2" /><path d="m16 10 5-3v10l-5-3" /></svg>
+        Video
+      </button>
+      <span class="sep"></span>
+      <button type="button" data-cmd="math-inline" class="mono" title="Inline math (LaTeX between single dollars)">$x$</button>
+      <button type="button" data-cmd="math-block" class="mono" title="Display math (LaTeX between $$ lines)">$$</button>
+      <span class="grow"></span>
+      <button type="button" data-cmd="help" title="Markdown, media and math cheat sheet">?</button>
+    </div>
+
+    <div class="src-wrap">
+      <textarea id="src" spellcheck="true" aria-label="Post body in Markdown"
+        placeholder="Write the post in Markdown. Paste or drop images and videos straight in."></textarea>
+      <div class="drop-hint" aria-hidden="true">Drop to add to this post</div>
+    </div>
+  </section>
+
+  <div class="divider" id="divider" role="separator" aria-orientation="vertical" tabindex="0" title="Drag to resize"></div>
+
+  <section class="pane preview-pane" aria-label="Preview">
+    <div class="previewbar">
+      <span class="label">Preview</span>
+      <button type="button" id="btn-issues" class="issues ok" aria-expanded="false">No problems</button>
+      <span class="grow"></span>
+      <div class="seg" role="group" aria-label="Preview width">
+        <button type="button" data-width="desktop" aria-pressed="true" title="Desktop width">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5" /><path d="M8 20h8M12 16v4" /></svg>
+        </button>
+        <button type="button" data-width="phone" aria-pressed="false" title="Phone width (390px)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2" /><path d="M11 18h2" /></svg>
+        </button>
+      </div>
+      <button type="button" id="btn-reload" class="icon" title="Reload the preview">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6" /></svg>
+      </button>
+    </div>
+    <ul id="issues" class="issue-list" hidden></ul>
+    <div class="frame-wrap" id="frame-wrap">
+      <iframe id="preview" title="Preview of the post as it will appear on the site"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer class="statusbar">
+  <span id="status" role="status" aria-live="polite">Loading…</span>
+  <span class="grow"></span>
+  <span id="where"></span>
+  <span id="words"></span>
+</footer>
+
+<!-- Posts -->
+<dialog id="dlg-posts" class="dlg">
+  <form method="dialog" class="dlg-body">
+    <h2>Posts</h2>
+    <div class="new-post">
+      <input id="new-title" placeholder="Title of a new post" autocomplete="off">
+      <button type="button" id="btn-new" class="btn primary">New post</button>
+    </div>
+    <ul id="post-list" class="post-list"></ul>
+    <menu><button class="btn" value="close">Close</button></menu>
+  </form>
+</dialog>
+
+<!-- Insert image / video -->
+<dialog id="dlg-media" class="dlg wide">
+  <form method="dialog" class="dlg-body" id="media-form">
+    <h2 id="media-heading">Insert image</h2>
+    <label class="dropzone" id="m-drop">
+      <input type="file" id="m-file">
+      <span id="m-drop-text">Choose a file, or drop one here</span>
+    </label>
+    <div id="m-link-row" class="field">
+      <label for="m-url">…or a YouTube or Vimeo link</label>
+      <input id="m-url" placeholder="https://www.youtube.com/watch?v=…" autocomplete="off">
+    </div>
+    <div class="field">
+      <span class="field-label">…or one already in this post</span>
+      <div id="m-existing" class="thumbs"></div>
+    </div>
+    <div class="field-grid">
+      <label>Alt text <input id="m-alt" autocomplete="off"><small id="m-alt-help">What the image shows, for people who can't see it.</small></label>
+      <label>Caption <input id="m-caption" autocomplete="off"><small>Shown under it. Optional.</small></label>
+    </div>
+    <div class="checks">
+      <label id="m-websize-row"><input type="checkbox" id="m-websize" checked> Web-size it <small>(PNG/JPEG → WebP, at most 1600 px wide)</small></label>
+      <label><input type="checkbox" id="m-wide"> Wide <small>(breaks out of the text column)</small></label>
+      <label id="m-pixel-row"><input type="checkbox" id="m-pixel"> Pixel art <small>(no smoothing)</small></label>
+      <label id="m-loop-row"><input type="checkbox" id="m-loop"> Loop silently, like a GIF</label>
+    </div>
+    <menu>
+      <button type="button" class="btn" id="m-cancel">Cancel</button>
+      <button class="btn primary" id="m-insert">Insert</button>
+    </menu>
+  </form>
+</dialog>
+
+<!-- Publish result -->
+<dialog id="dlg-result" class="dlg wide">
+  <form method="dialog" class="dlg-body">
+    <h2 id="r-heading">Published</h2>
+    <div id="r-body"></div>
+    <menu>
+      <a class="btn" id="r-view" target="_blank">View the page</a>
+      <button class="btn primary" value="close">Done</button>
+    </menu>
+  </form>
+</dialog>
+
+<!-- Cheat sheet -->
+<dialog id="dlg-help" class="dlg wide">
+  <form method="dialog" class="dlg-body help">
+    <h2>Cheat sheet</h2>
+    <div class="help-grid">
+      <section>
+        <h3>Text</h3>
+        <pre>## Heading       ### Subheading
+**bold**  *italic*  ~~struck~~
+[a link](https://…)   `code`
+> a quote
+- a list          1. numbered
+A footnote.[^1]
+[^1]: The note itself.
+---               (a rule)</pre>
+        <h3>Tables</h3>
+        <pre>| Level | Stars |
+|-------|------:|
+| 1     |     3 |</pre>
+      </section>
+      <section>
+        <h3>Images</h3>
+        <pre>![what it shows](castle.webp)
+![alt](castle.webp "A caption")
+![alt](castle.webp){.wide}
+![alt](sprite.png){.pixel width=256}
+![a](one.webp) ![b](two.webp)   (side by side)</pre>
+        <p>An image on a line of its own becomes a figure; its title is the caption. Paste or drop files into the text to upload them into the post's folder.</p>
+        <h3>Video</h3>
+        <pre>![](clip.mp4 "A caption")
+![](clip.webm){.loop}      (silent, loops like a GIF)
+![](clip.mp4){poster=still.webp}
+![Trailer](https://youtu.be/…)
+![Talk](https://vimeo.com/…)</pre>
+      </section>
+      <section>
+        <h3>Math</h3>
+        <pre>Inline: $E = mc^2$
+Display:
+$$
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+$$</pre>
+        <p>LaTeX becomes MathML when the page is built, so readers need no JavaScript. A dollar sign followed by a space or digit is left alone, so “$5 and $10” is safe. Write <code>\$</code> for a literal dollar.</p>
+        <h3>Keys</h3>
+        <pre>Ctrl+S  save draft     Ctrl+B  bold
+Ctrl+I  italic         Ctrl+K  link</pre>
+      </section>
+    </div>
+    <menu><button class="btn primary" value="close">Close</button></menu>
+  </form>
+</dialog>
+
+</body>
+</html>

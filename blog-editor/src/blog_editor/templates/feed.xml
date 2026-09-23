@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexmonger blog</title>
+  <subtitle>Notes on the games we are making, and how they work.</subtitle>
+  <link href="{{ site_url }}/blog/"/>
+  <link rel="self" href="{{ site_url }}/blog/feed.xml"/>
+  <id>{{ site_url }}/blog/</id>
+  <updated>{{ posts[0].meta.date }}T00:00:00Z</updated>
+  <author><name>Hexmonger</name></author>
+  <generator>{{ generator }}</generator>
+{% for post, content in entries %}
+  <entry>
+    <title>{{ post.meta.title }}</title>
+    <link href="{{ site_url }}/blog/{{ post.slug }}/"/>
+    <id>{{ site_url }}/blog/{{ post.slug }}/</id>
+    <published>{{ post.meta.date }}T00:00:00Z</published>
+    <updated>{{ post.meta.date }}T00:00:00Z</updated>
+{% if post.meta.summary %}
+    <summary>{{ post.meta.summary }}</summary>
+{% endif %}
+    <content type="html">{{ content }}</content>
+  </entry>
+{% endfor %}
+</feed>
