@@ -97,6 +97,22 @@
     </svg>
   </section>
 
+  <!-- ============ Trailer ============
+       Nothing loads from YouTube until someone presses play: srcdoc shows a
+       local poster whose link swaps in the player. To change the video,
+       change the ID in both src and the srcdoc link. -->
+  <section class="trailer" aria-label="Trailer">
+    <div class="wrap">
+      <div class="trailer-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/_sMItYFR6MU?autoplay=1"
+                srcdoc="<style>*{margin:0}html,body{height:100%;overflow:hidden;background:#1c3553}a{position:absolute;inset:0;display:grid;place-items:center}img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}span{position:relative;display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:#1c3553;box-shadow:0 5px 0 #0f2036;transition:transform .12s,background .15s}a:hover span{background:#274a72;transform:translateY(-2px)}a:focus-visible{outline:none}a:focus-visible span{outline:4px solid #fff8ec;outline-offset:3px}svg{width:34px;height:34px;margin-left:5px;fill:#fff}</style><a href='https://www.youtube-nocookie.com/embed/_sMItYFR6MU?autoplay=1' aria-label='Play the trailer'><img src='/assets/img/cits-trailer.webp' alt=''><span><svg viewBox='0 0 24 24' aria-hidden='true'><path d='M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z'/></svg></span></a>"
+                title="Castles in the Sand trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ The three verbs ============ -->
   <section id="how" aria-labelledby="how-title">
     <div class="wrap">
@@ -253,11 +269,12 @@
         <circle cx="36" cy="58" r="3.5" fill="#e9a8a0"/><circle cx="84" cy="58" r="3.5" fill="#8fc9a3"/>
       </svg>
       <h2 id="get-title">Go build a beach</h2>
+      <!-- itch.io's own widget; it loads from itch.io when scrolled into view -->
+      <div class="itch-widget">
+        <iframe src="https://itch.io/embed/4526875?bg_color=FFF8EC&amp;fg_color=2B2622&amp;link_color=8A4B12&amp;border_color=c1b59a"
+                width="552" height="167" loading="lazy" title="Castles in the Sand on itch.io"><a href="https://hexmonger.itch.io/castles-in-the-sand">Castles in the Sand by Hexmonger</a></iframe>
+      </div>
       <div class="btns">
-        <a class="btn btn-play" href="https://hexmonger.itch.io/castles-in-the-sand">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>
-          Play free in your browser
-        </a>
         <span class="btn btn-soon" aria-disabled="true">App Store <small>SOON</small></span>
         <span class="btn btn-soon" aria-disabled="true">Google Play <small>SOON</small></span>
       </div>

@@ -46,8 +46,10 @@ failing check does not deploy.
   `<span class="btn btn-soon">…</span>` with
   `<a class="btn btn-ghost" href="…">App Store</a>` (the comment above the
   buttons has the shape). Update the eyebrow line ("Coming soon to …").
-- **YouTube** — uncomment the YouTube line under *Elsewhere* and fix the
-  handle; add the URL to `sameAs` in the JSON-LD block too.
+- **The trailer** — the Castles page plays it from YouTube, but loads nothing
+  from YouTube until someone presses play (the iframe's `srcdoc` is a local
+  poster). To change the video, change its ID in both the iframe's `src` and
+  the link inside `srcdoc`, and re-export `assets/img/cits-trailer.webp`.
 - **A game gets its own page** — make `<game>/index.html` using the same
   header/footer, link the card to it, and add it to `sitemap.xml`.
 
