@@ -33,6 +33,7 @@ Images and videos in posts live with each post's Markdown in
 | `cits-key-tall*.webp` | castles-in-the-sand `icon.png`, rows 60–900 | Leaves out the watermark in the bottom-right corner |
 | `cits-app-icon.webp` | same, cropped square from the castle and child | Also used as the page favicon. The Play Store icon has the watermark, so it isn't used here |
 | `cits-03-tide.webp`, `cits-05-result.webp` | `store/screenshots/android-tablet/` | 1200×750, WebP quality 80 |
+| `cits-trailer.webp` | The trailer's YouTube thumbnail (`i.ytimg.com/vi/_sMItYFR6MU/maxresdefault.jpg`), a frame of the game | 1280×720, WebP quality 80. The poster shown until the trailer is played. Replace it with the new thumbnail if the trailer changes |
 | `cits-og.jpg` | `store/feature_graphic_1024x500.png` on a sand-coloured 1200×630 canvas | Social preview |
 | `fonts/lilita-one.ttf` | castles-in-the-sand `fonts/` | The game's own display font (SIL OFL). Served unmodified, because the font's name is reserved and a converted copy would need a new name |
 
