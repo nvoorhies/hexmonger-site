@@ -42,13 +42,8 @@ Images and videos in posts live with each post's Markdown in
 | file | source | notes |
 | --- | --- | --- |
 | `cn-wood.webp`, `cn-square.webp`, `cn-chatter.webp` | Captured from the game: [nvoorhies/cute-fantasy](https://github.com/nvoorhies/cute-fantasy) `scripts/capture_promo.sh` (shots `wood`, `village`, `chatter`) | 1200px-wide crops of 1920×1080 grabs, taken with the foliage turned up past its shipping values (3D trees to 150 m, impostors to 700, shell grass on) — the harness does that itself, so a re-run reproduces them. Edit the harness, not the images |
-| `cn-key.webp`, `cn-key-560.webp` | cute-fantasy `icon.png` | The game's key art, resized. **Model-generated, like the character portraits in `sprites/portraits/`** — so nothing on the page describes the art as painted or drawn by hand. `necro-key.webp` on the home page is the same source |
+| `cn-key.webp`, `cn-key-560.webp` | cute-fantasy `icon.png` | The game's key art, resized. **Model-generated** — so nothing on the page describes it as painted or drawn by hand. `necro-key.webp` on the home page is the same source |
 | `cn-og.jpg` | The key art on a dusk field | 1200×630 social preview |
-
-The in-game character portraits are deliberately **not** used on the
-page: they are model-generated, and a strip of them presented as artwork
-implied a provenance the studio has not claimed. Screenshots of the
-running game carry that section instead.
 
 ## Goblin Hunt page
 
