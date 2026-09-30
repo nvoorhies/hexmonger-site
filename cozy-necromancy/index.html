@@ -88,6 +88,22 @@
     </div>
   </section>
 
+  <!-- ============ Trailer ============
+       Nothing loads from YouTube until someone presses play: srcdoc shows a
+       local poster whose link swaps in the player. To change the video,
+       change the ID in both src and the srcdoc link. -->
+  <section class="trailer" aria-label="Trailer">
+    <div class="wrap">
+      <div class="trailer-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/wZKHR_hgbv0?autoplay=1"
+                srcdoc="<style>*{margin:0}html,body{height:100%;overflow:hidden;background:#17121f}a{position:absolute;inset:0;display:grid;place-items:center}img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}span{position:relative;display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:#f2b45a;box-shadow:0 0 0 8px rgba(23,18,31,.4),0 0 60px 6px rgba(242,180,90,.45);transition:transform .12s,background .15s}a:hover span{background:#ffd98a;transform:scale(1.05)}a:focus-visible{outline:none}a:focus-visible span{outline:3px solid #ece6da;outline-offset:6px}svg{width:34px;height:34px;margin-left:5px;fill:#241a06}</style><a href='https://www.youtube-nocookie.com/embed/wZKHR_hgbv0?autoplay=1' aria-label='Play the trailer'><img src='/assets/img/cn-trailer.webp' alt=''><span><svg viewBox='0 0 24 24' aria-hidden='true'><path d='M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z'/></svg></span></a>"
+                title="Cozy Necromancy trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
   <hr class="rule">
 
   <!-- ============ The look ============ -->
@@ -99,20 +115,20 @@
         <p>Willowmere is soft cel shading under an ink outline, seen over your shoulder as you walk it: timber and thatch, a chapel, a market, a wood that gets darker than it should at the far end.</p>
       </div>
       <div class="shots">
-        <figure class="shot hero">
+        <figure class="shot wide">
           <img src="/assets/img/cn-wood.webp" width="1400" height="788" loading="lazy"
-               alt="In-game: the necromancer in her wide purple hat standing in deep grass among the trees east of Willowmere, trunks and canopy on every side, cottages visible past the treeline.">
-          <figcaption>The wood east of the village</figcaption>
+               alt="In-game: the necromancer, seen from behind in her wide purple hat, standing in deep grass among the trees at the edge of the wood. Past the trunks are the village's houses — a white hall with a clock in its gable, a timbered cottage, a small shingled one — and an old man in a straw hat at the treeline.">
+          <figcaption>Where the wood meets the village</figcaption>
         </figure>
         <figure class="shot">
-          <img src="/assets/img/cn-square.webp" width="1200" height="488" loading="lazy"
-               alt="In-game: the market square — stalls with red awnings, timbered houses, and the wood standing behind the roofs.">
+          <img src="/assets/img/cn-square.webp" width="1180" height="621" loading="lazy"
+               alt="In-game: the market square — the necromancer among villagers going about their day, a market stall, timbered houses under thatch and red tile, and the wood behind the roofs.">
           <figcaption>The market square</figcaption>
         </figure>
         <figure class="shot">
-          <img src="/assets/img/cn-chatter.webp" width="1200" height="519" loading="lazy"
-               alt="In-game: the square, with a rounded speech bubble beside a villager reading &ldquo;Old Jasper: What a lovely day.&rdquo;">
-          <figcaption>A villager says something unprompted</figcaption>
+          <img src="/assets/img/cn-chatter.webp" width="1180" height="621" loading="lazy"
+               alt="In-game: on a path through the trees, the necromancer stands beside Thimble, a villager in goggles and a leather apron, whose rounded speech bubble reads &ldquo;Thimble: The wind sighs, a forgotten song.&rdquo;">
+          <figcaption>A line the on-device model wrote for Thimble</figcaption>
         </figure>
       </div>
     </div>

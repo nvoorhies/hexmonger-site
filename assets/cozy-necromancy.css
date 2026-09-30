@@ -124,6 +124,15 @@ section { padding: 78px 0; }
   .lede, .hero .sub { max-width: none; }
 }
 
+/* ---------- trailer ---------- */
+.trailer { padding: 0 0 78px; }
+.trailer-frame {
+  max-width: 960px; margin: 0 auto; aspect-ratio: 16 / 9;
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--dusk);
+  box-shadow: 0 30px 70px -30px rgba(0,0,0,.9), 0 0 90px -40px rgba(242,180,90,.4);
+}
+.trailer-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+
 /* ---------- section furniture ---------- */
 .intro { max-width: 640px; margin: 0 0 42px; }
 .intro p { color: var(--muted); font-size: 17.5px; margin-top: 14px; }
@@ -136,7 +145,7 @@ section { padding: 78px 0; }
    them, rather than both being squeezed into half the page each. */
 .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .shot { margin: 0; }
-.shot.hero { grid-column: 1 / -1; }
+.shot.wide { grid-column: 1 / -1; }
 .shot img {
   width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line);
   box-shadow: 0 22px 50px -30px rgba(0,0,0,.9);

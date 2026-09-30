@@ -56,10 +56,11 @@ failing check does not deploy.
   Apple redirects to the visitor's own storefront. The Castles page also
   carries an `apple-itunes-app` meta tag, which puts Safari's Smart App
   Banner (Get / Open) on top of the page on iPhone and iPad.
-- **The trailer** — the Castles page plays it from YouTube, but loads nothing
-  from YouTube until someone presses play (the iframe's `srcdoc` is a local
-  poster). To change the video, change its ID in both the iframe's `src` and
-  the link inside `srcdoc`, and re-export `assets/img/cits-trailer.webp`.
+- **The trailers** — the Castles and Cozy Necromancy pages play theirs from
+  YouTube, but load nothing from YouTube until someone presses play (each
+  iframe's `srcdoc` is a local poster). To change a video, change its ID in
+  both the iframe's `src` and the link inside `srcdoc`, and re-export its
+  poster (`assets/img/cits-trailer.webp`, `assets/img/cn-trailer.webp`).
 - **A game gets its own page** — make `<game>/index.html` using the same
   header/footer, link the card to it, and add it to `sitemap.xml`.
 
