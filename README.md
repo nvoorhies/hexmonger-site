@@ -42,10 +42,20 @@ failing check does not deploy.
 - **Write a blog post** — `cd blog-editor && uv run blog-editor`, write, then
   *Publish*. That writes the HTML into `blog/` and updates `sitemap.xml`; it
   doesn't commit. See `blog-editor/README.md`.
-- **A store listing goes live** — in `index.html` and in `castles-in-the-sand/index.html` (which has it in two places: the hero and the closing section), replace the matching
-  `<span class="btn btn-soon">…</span>` with
-  `<a class="btn btn-ghost" href="…">App Store</a>` (the comment above the
-  buttons has the shape). Update the eyebrow line ("Coming soon to …").
+- **Google Play goes live** — the App Store listing is live (as of 2026-09-30),
+  so its links are the pattern to copy. In `index.html`, uncomment the
+  Google Play button beside the App Store one and drop "Android soon" from
+  the eyebrow and "Google Play soon" from the platforms line. In
+  `castles-in-the-sand/index.html` (the hero and the closing section),
+  replace each `<span class="btn btn-soon">Google Play …</span>` with
+  `<a class="btn btn-store" href="…">Google Play</a>`, add a Play `Offer`
+  to the JSON-LD, and fix the platform note. Both pages' meta descriptions
+  say "coming soon to Android" too.
+- **The App Store link** — the site links the region-free
+  `https://apps.apple.com/app/castles-in-the-sand/id6767951967`, which
+  Apple redirects to the visitor's own storefront. The Castles page also
+  carries an `apple-itunes-app` meta tag, which puts Safari's Smart App
+  Banner (Get / Open) on top of the page on iPhone and iPad.
 - **The trailer** — the Castles page plays it from YouTube, but loads nothing
   from YouTube until someone presses play (the iframe's `srcdoc` is a local
   poster). To change the video, change its ID in both the iframe's `src` and
