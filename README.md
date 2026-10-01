@@ -18,6 +18,7 @@ store reviewers saw. This site only links to them.
 | `index.html` | the home page: featured game, coming-soon games, studio, contact |
 | `castles-in-the-sand/index.html` | the Castles in the Sand page, styled like the game (`assets/castles.css`) |
 | `goblin-hunt/index.html` | the Goblin Hunt page, set like an old printed rulebook (`assets/goblin-hunt.css`) |
+| `tin-coffins/index.html` | the Tin Coffins page, dressed like the game's briefing terminal (`assets/tin-coffins.css`) |
 | `blog/` | the blog: an index, a feed, and a folder per post. **Generated** by `blog-editor/` — edit posts there, not here |
 | `404.html` | the not-found page (Pages serves it for any missing path) |
 | `assets/site.css` | the shared styles |

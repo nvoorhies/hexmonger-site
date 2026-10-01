@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tin Coffins — a mech roguelite shooter where the pilot is a version number</title>
+<meta name="description" content="Tin Coffins is a cel-shaded mech roguelite shooter. You are Talon-22, a combat clone printed this shift: short, lethal squad fights through war-torn cities against enemy squads that flank, suppress and hold the line. When you die, the next you wakes up. In development for Windows, macOS and Linux.">
+<link rel="canonical" href="https://hexmonger.com/tin-coffins/">
+<meta name="theme-color" content="#0e100c">
+<link rel="icon" href="/assets/img/hexmonger-mark.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/roboto-condensed-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/tin-coffins.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="Tin Coffins — the pilot is a version number">
+<meta property="og:description" content="A cel-shaded mech roguelite shooter. You are Talon-22. Twenty-one of you didn't come home. In development.">
+<meta property="og:url" content="https://hexmonger.com/tin-coffins/">
+<meta property="og:image" content="https://hexmonger.com/assets/img/tc-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Tin Coffins",
+  "url": "https://hexmonger.com/tin-coffins/",
+  "description": "A cel-shaded third-person mech roguelite shooter: short, lethal squad battles through procedurally generated war-torn cities, as a combat clone whose death wakes the next iteration.",
+  "genre": ["Action", "Shooter", "Roguelite"],
+  "gamePlatform": ["Windows", "macOS", "Linux"],
+  "publisher": { "@type": "Organization", "name": "Hexmonger", "url": "https://hexmonger.com/" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Shared studio chrome, kept quiet so the game leads -->
+<header class="studio-bar">
+  <div class="wrap">
+    <a class="studio-home" href="/" aria-label="Hexmonger home">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="22" height="22">
+      <span>Hexmonger</span>
+    </a>
+    <nav class="game-nav" aria-label="Tin Coffins">
+      <a class="opt" href="#war">The war</a>
+      <a class="opt" href="#squads">Squads</a>
+      <a class="opt" href="#echoes">Echoes</a>
+      <span class="chip">In development</span>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" aria-labelledby="title">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">A mech roguelite shooter</p>
+        <h1 id="title" class="wordmark">
+          <img src="/assets/img/tc-wordmark.webp" width="1240" height="271" alt="">
+          <span class="sr">Tin Coffins</span>
+        </h1>
+        <p class="lede">You are Talon-22, a combat clone printed this shift. Twenty-one of you didn’t come home.</p>
+        <p class="sub">Short, lethal squad fights through war-torn cities in a four-meter armored mech, against enemy squads that flank, suppress and hold the line. When you die, the war doesn’t rewind. The next you wakes up and keeps fighting.</p>
+        <ul class="chips">
+          <li class="now">In development</li>
+          <li>Windows · macOS · Linux</li>
+          <li>Steam Early Access, planned</li>
+          <li>Full controller support</li>
+        </ul>
+      </div>
+      <figure class="hero-art">
+        <img src="/assets/img/tc-hero.webp" width="880" height="1100"
+             srcset="/assets/img/tc-hero-480.webp 480w, /assets/img/tc-hero.webp 880w"
+             sizes="(max-width: 900px) 420px, 40vw"
+             alt="In-game: a camouflaged mech faces the camera in a city street, firing its autocannon past the lens in a burst of orange flame and a green tracer, while a rocket from its shoulder pod arcs up over the blue-and-orange office block behind it on a trail of cartoon smoke.">
+        <figcaption>Captured from the game: autocannon and rocket pod.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ The wake protocol, as the game shows it ============ -->
+  <section class="console-wrap" aria-labelledby="wake-title">
+    <div class="wrap">
+      <div class="console">
+        <h2 id="wake-title">Wake protocol</h2>
+        <p class="hot">Wake protocol — Line Talon, iteration 22.</p>
+        <p>You are a combat clone. Your body was printed this shift; your engram — reflexes, doctrine, the feel of the stick — was restored from the Talon template Command keeps on file.</p>
+        <p>What did not come back: your memories. Each iteration is scrubbed clean before it flies.</p>
+        <p class="hot">So the number on your hull is not a callsign. It is a version. You are Talon-22. There were 21 before you. They flew this same city. Most did not come home.</p>
+        <p>Deploy when ready, pilot. <span class="cursor" aria-hidden="true"></span></p>
+      </div>
+      <p class="console-note">The opening screen of a new campaign, word for word.</p>
+    </div>
+  </section>
+
+  <!-- ============ The war ============ -->
+  <section id="war" aria-labelledby="war-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">The war</p>
+        <h2 id="war-title">Infantry in someone else’s war</h2>
+        <p>You are not a god in a giant robot. You are a soldier in an armored suit, four meters tall and one bad decision from dead. Cover, sightlines and reload windows decide fights. Peek, fire, displace.</p>
+      </div>
+      <div class="shots">
+        <figure class="shot wide">
+          <img src="/assets/img/tc-firefight.webp" width="1400" height="788" loading="lazy"
+               alt="In-game, over the pilot’s shoulder with the full HUD: the squad spread across a city street between ruined facades, two wingmates firing down the road as green tracers converge on red enemy mechs in the distance, a radio subtitle reading “Warden — enemy spotted, west!”">
+          <figcaption>First contact. Radar, ammunition and the radio along the bottom; the squad’s callsigns over their heads.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/img/tc-dropship.webp" width="1400" height="788" loading="lazy"
+               alt="In-game: a dropship flares overhead against the sky, rotors spinning and jets lit, with the squad’s mechs hanging from its belly.">
+          <figcaption>Every sortie starts with a drop.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/img/tc-smoke.webp" width="1400" height="788" loading="lazy"
+               alt="In-game: the enemy has popped smoke across the street; a rocket trails orange exhaust into the cloud while the squad fires on either side.">
+          <figcaption>They pop smoke. You lose them.</figcaption>
+        </figure>
+      </div>
+      <p class="wip"><b>Work in progress</b>The pictures on this page are captured from the current build. The mechs, the city and the sound are getting their final pass, and the pictures will be re-taken when they do.</p>
+    </div>
+  </section>
+
+  <!-- ============ Squads ============ -->
+  <section class="band" id="squads" aria-labelledby="squads-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">Squads</p>
+        <h2 id="squads-title">They fight as a squad. So do you.</h2>
+      </div>
+      <div class="dossier">
+        <article class="file" data-tag="Enemy">
+          <h3>A commander and its pilots</h3>
+          <ul>
+            <li>Every enemy squad has a commander handing out roles — anchor, flank, suppress, overwatch, retreat — to pilots who decide for themselves when to peek, push, reload and fall back.</li>
+            <li>They only shoot at you when they can see you. Pop smoke and they lose you; break line of sight and they search where you were.</li>
+            <li>Rookies lose their nerve under fire and drop off comms. Veterans hold the order.</li>
+          </ul>
+        </article>
+        <article class="file" data-tag="Yours">
+          <h3>Three wingmates</h3>
+          <ul>
+            <li>Ping a target or a position, or open the comms radial: tag, flank left or right, overwatch, follow, disengage.</li>
+            <li>They answer on the radio and move, and they check their line of fire before they shoot. Friendly fire is real — check yours.</li>
+            <li>Lose an arm or your head and keep fighting. Lose your torso or your legs and you go down.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="shots" style="margin-top:30px">
+        <figure class="shot">
+          <img src="/assets/img/tc-orders.webp" width="1400" height="788" loading="lazy"
+               alt="In-game: the comms radial open around the crosshair with its seven orders — Tag, Move/Assault, Flank Right highlighted in yellow, Overwatch, Disengage, Follow Me, Flank Left — and the squad standing either side of the pilot in the street.">
+          <figcaption>Flank right, over the comms radial.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/img/tc-salvo.webp" width="1400" height="788" loading="lazy"
+               alt="In-game: a mech faces the camera in a city street, autocannon firing, a rocket arcing up from its shoulder pod on a smoke trail.">
+          <figcaption>One primary, two shoulder hardpoints.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ The campaign ============ -->
+  <section aria-labelledby="campaign-title">
+    <div class="wrap feature">
+      <div>
+        <p class="eyebrow">The campaign</p>
+        <h2 id="campaign-title">One life. The war keeps the score.</h2>
+        <p style="color:var(--muted);margin-top:14px">A run is four sorties on one life, with no respawns. Purge, sabotage, extraction, seize and defense missions, and multi-stage operations that chain them — each fought in its own procedurally generated city, by day, at dusk, at night or under a toxic haze.</p>
+        <p style="color:var(--muted)">The front line moves with every sortie, across three acts that each end in a finale operation. Let it collapse and you hold the line. The salvage you bank buys weapons that outlast you; the casualty board keeps the names of the ones who didn’t.</p>
+        <p class="aside">After a sortie, open the Tactical Replay and scrub through the fight: what each enemy pilot knew about you against where you really were, and what their commander told them to do about it.</p>
+      </div>
+      <img src="/assets/img/tc-arrival.webp" width="1400" height="788" loading="lazy"
+           alt="In-game, from street level: a dropship comes in low over the road between office blocks with the squad slung beneath it.">
+    </div>
+  </section>
+
+  <!-- ============ Echoes ============ -->
+  <section class="band" id="echoes" aria-labelledby="echoes-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">Echoes</p>
+        <h2 id="echoes-title">Listen to yourself</h2>
+        <p>The iterations before you learned to leave things in the world, off the route, where the scrub can’t reach: dead drops where earlier clones fell, and transmissions on a channel Command doesn’t log. The messages in your journal are from you. Follow them if you want to know why you keep waking up.</p>
+      </div>
+      <div class="citations" aria-label="Some of the citations Command awards">
+        <figure class="citation">
+          <img src="/assets/img/tc-combat-effective.webp" width="176" height="176" alt="" loading="lazy">
+          <figcaption>Combat Effective<span>First sortie won. The line notices.</span></figcaption>
+        </figure>
+        <figure class="citation">
+          <img src="/assets/img/tc-benchmark.webp" width="176" height="176" alt="" loading="lazy">
+          <figcaption>Benchmark<span>An S-rated sortie. Somewhere, a threshold updates.</span></figcaption>
+        </figure>
+        <figure class="citation">
+          <img src="/assets/img/tc-calibrated.webp" width="176" height="176" alt="" loading="lazy">
+          <figcaption>Calibrated<span>Ninety percent accuracy across a winning sortie.</span></figcaption>
+        </figure>
+        <figure class="citation">
+          <img src="/assets/img/tc-no-contact.webp" width="176" height="176" alt="" loading="lazy">
+          <figcaption>No Contact<span>A sortie won without taking a single hit.</span></figcaption>
+        </figure>
+        <figure class="citation">
+          <img src="/assets/img/tc-line-held.webp" width="176" height="176" alt="" loading="lazy">
+          <figcaption>The Line Held<span>A desperation operation, held.</span></figcaption>
+        </figure>
+        <figure class="citation">
+          <img src="/assets/img/tc-longevity-protocol.webp" width="176" height="176" alt="" loading="lazy">
+          <figcaption>Longevity Protocol<span>Ten consecutive sorties survived on one iteration.</span></figcaption>
+        </figure>
+      </div>
+      <p class="aside">Eleven citations in all, each a Steam achievement. Every one reads as a commendation — until you know what the war is.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="game-footer">
+  <div class="wrap">
+    <div class="by-studio">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="34" height="34">
+      <span><b>A Hexmonger game</b><a href="/">More from the studio</a></span>
+    </div>
+    <div>
+      <h4>Status</h4>
+      <ul>
+        <li>In development — no release date yet</li>
+        <li>Planned for Steam Early Access</li>
+        <li>Windows, macOS and Linux · English and Japanese</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a href="mailto:support@hexmonger.com">support@hexmonger.com</a></li>
+        <li><a href="/">The rest of the workshop</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

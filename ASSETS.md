@@ -46,6 +46,20 @@ Images and videos in posts live with each post's Markdown in
 | `cn-key.webp`, `cn-key-560.webp` | cute-fantasy `icon.png` | The game's key art, resized. **Model-generated** — so nothing on the page describes it as painted or drawn by hand. `necro-key.webp` on the home page is the same source |
 | `cn-og.jpg` | The key art on a dusk field | 1200×630 social preview |
 
+## Tin Coffins page
+
+Everything here is captured from the game by its own harness — [nvoorhies/robot-fps](https://github.com/nvoorhies/robot-fps) `tools/promo/capture.sh` (see that repo's `tools/promo/README.md`) — so a graphics update is a re-capture, not a redraw. The game's art is a first pass (mechs, city and sound are all due to be replaced), and the page says so; re-derive every file below when that repo re-captures.
+
+| file | source | notes |
+| --- | --- | --- |
+| `tc-firefight.webp`, `tc-dropship.webp`, `tc-orders.webp`, `tc-salvo.webp`, `tc-smoke.webp`, `tc-arrival.webp` | robot-fps `store/screenshots/desktop/0N-*.png` (the Steam screenshots) | 1400×788, WebP quality 82 |
+| `tc-hero.webp`, `tc-hero-480.webp` | robot-fps `capture.sh art` frame `04-salvo.png` (3840×2160, HUD hidden) | 4:5 crop around the mech, 880×1100 and 480×600 |
+| `tc-card.webp` | `capture.sh art` frame `06-arrival.png` | 960×600, for the home page card |
+| `tc-og.jpg` | `capture.sh art` frame `02-dropship.png` with the wordmark, as `tools/promo/steam_art.py` lays it on the capsules | 1200×630 social preview |
+| `tc-wordmark.webp` | robot-fps `store/steam/library_logo.png` (drawn by `tools/promo/brand.py`) | Cropped to the ink, 1240 wide, with alpha |
+| `tc-combat-effective.webp` and five more citation badges | robot-fps `store/steam/achievements/large/` (`tools/promo/achievement_icons.py`) | 176×176. The hidden achievement and the act finales are left off — they name the story |
+| `fonts/roboto-condensed-bold.woff2` | Roboto Condensed Bold, the logotype's face (robot-fps `store/fonts/`) | Latin subset, converted with fontTools. Apache 2.0 (`LICENSE-roboto-condensed.txt`) |
+
 ## Goblin Hunt page
 
 | file | source | notes |
