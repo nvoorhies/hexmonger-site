@@ -187,6 +187,8 @@ section { padding: 88px 0; }
 /* Cozy Necromancy art */
 .art-necro { background: #2a2540; }
 .art-necro img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+.art-tin { background: #0e100c; }
+.art-tin img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 
 /* Goblin Hunt art — pen-and-ink on paper, built from the game's own sprites */
 .art-goblin {
