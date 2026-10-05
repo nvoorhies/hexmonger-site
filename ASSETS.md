@@ -48,14 +48,14 @@ Images and videos in posts live with each post's Markdown in
 
 ## Tin Coffins page
 
-Everything here is captured from the game by its own harness — [nvoorhies/robot-fps](https://github.com/nvoorhies/robot-fps) `tools/promo/capture.sh` (see that repo's `tools/promo/README.md`) — so a graphics update is a re-capture, not a redraw. The game's art is a first pass (mechs, city and sound are all due to be replaced), and the page says so; re-derive every file below when that repo re-captures.
+Everything here is captured from the game by its own harness — [nvoorhies/robot-fps](https://github.com/nvoorhies/robot-fps) `tools/promo/capture.sh` (see that repo's `tools/promo/README.md`) — so a graphics update is a re-capture, not a redraw. The game's art is still in progress, and the page says so; re-derive every file below when that repo re-captures. Last re-captured 2026-10-05 from robot-fps master `8b05569`: the restyled city and the Blender-built mechs.
 
 | file | source | notes |
 | --- | --- | --- |
 | `tc-firefight.webp`, `tc-dropship.webp`, `tc-orders.webp`, `tc-salvo.webp`, `tc-smoke.webp`, `tc-arrival.webp` | robot-fps `store/screenshots/desktop/0N-*.png` (the Steam screenshots) | 1400×788, WebP quality 82 |
-| `tc-hero.webp`, `tc-hero-480.webp` | robot-fps `capture.sh art` frame `04-salvo.png` (3840×2160, HUD hidden) | 4:5 crop around the mech, 880×1100 and 480×600 |
-| `tc-card.webp` | `capture.sh art` frame `06-arrival.png` | 960×600, for the home page card |
-| `tc-og.jpg` | `capture.sh art` frame `02-dropship.png` with the wordmark, as `tools/promo/steam_art.py` lays it on the capsules | 1200×630 social preview |
+| `tc-hero.webp`, `tc-hero-480.webp` | robot-fps `capture.sh art` frame `04-salvo.png` (3840×2160, HUD hidden) | 4:5 crop around the mech, x 1400–2720, y 480–2130, so the muzzle flash and the rocket's trail are in frame. 880×1100 and 480×600, WebP quality 82 |
+| `tc-card.webp` | `capture.sh art` frame `06-arrival.png` | 16:10 at full height, centred; 960×600, for the home page card |
+| `tc-og.jpg` | `capture.sh art` frame `02-dropship.png` with the wordmark, as `tools/promo/steam_art.py` lays it on the capsules | 1200×630 social preview: cut and graded like the header capsule (`_cover` focus 0.5, 0.42, then `_grade`), the wordmark along the bottom at 66% of the width |
 | `tc-wordmark.webp` | robot-fps `store/steam/library_logo.png` (drawn by `tools/promo/brand.py`) | Cropped to the ink, 1240 wide, with alpha |
 | `tc-combat-effective.webp` and five more citation badges | robot-fps `store/steam/achievements/large/` (`tools/promo/achievement_icons.py`) | 176×176. The hidden achievement and the act finales are left off — they name the story |
 | `fonts/roboto-condensed-bold.woff2` | Roboto Condensed Bold, the logotype's face (robot-fps `store/fonts/`) | Latin subset, converted with fontTools. Apache 2.0 (`LICENSE-roboto-condensed.txt`) |
