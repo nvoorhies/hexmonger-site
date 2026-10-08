@@ -57,6 +57,19 @@ failing check does not deploy.
   Apple redirects to the visitor's own storefront. The Castles page also
   carries an `apple-itunes-app` meta tag, which puts Safari's Smart App
   Banner (Get / Open) on top of the page on iPhone and iPad.
+- **The Steam pages** — Cozy Necromancy (`app/5349910`) and Tin Coffins
+  (`app/4943260`) are up on Steam as "coming soon", and each game's page
+  asks for a wishlist in four places: the nav button, the hero, the
+  closing section and the footer. The home page's cards and its *Elsewhere*
+  list link them too. Every one of those links carries UTM tags
+  (`utm_source=hexmonger.com&utm_medium=website`, `utm_campaign` = the page,
+  `utm_content` = where on it: `nav`, `hero`, `closing`, `footer`, `card`,
+  `elsewhere`), so Steamworks' UTM traffic report shows which button
+  brought each visit; a new Steam link should get the same tags. The
+  JSON-LD `sameAs` keeps the bare URL. When a game launches, change
+  "Wishlist on Steam" to "Buy on Steam" (or "Play on Steam"), retitle the
+  closing section, drop "In development", and add an `Offer` to the page's
+  JSON-LD.
 - **The trailers** — the Castles and Cozy Necromancy pages play theirs from
   YouTube, but load nothing from YouTube until someone presses play (each
   iframe's `srcdoc` is a local poster). To change a video, change its ID in
