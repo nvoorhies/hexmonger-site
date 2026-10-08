@@ -81,7 +81,28 @@ section { padding: 78px 0; }
   border: 1px solid var(--line); color: var(--muted); border-radius: 999px;
   padding: 6px 13px; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase;
 }
+.game-nav .nav-cta {
+  background: var(--lantern); color: #241a06; border-radius: 999px;
+  padding: 8px 15px; font-size: 13.5px;
+}
+.game-nav .nav-cta:hover { background: var(--lantern-2); color: #241a06; }
 @media (max-width: 680px) { .game-nav .opt { display: none; } .studio-home span { display: none; } }
+
+/* ---------- buttons ---------- */
+.btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 24px; border-radius: 999px;
+  font: 700 16px/1 var(--sans); text-decoration: none; white-space: nowrap;
+  transition: transform .12s, background .15s, box-shadow .15s;
+}
+.btn svg { width: 19px; height: 19px; flex: none; }
+.btn-lantern {
+  background: var(--lantern); color: #241a06;
+  box-shadow: 0 0 0 6px rgba(242,180,90,.12), 0 14px 40px -12px rgba(242,180,90,.55);
+}
+.btn-lantern:hover { background: var(--lantern-2); color: #241a06; transform: translateY(-1px); }
+.btn-lantern:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
 
 /* ---------- hero ---------- */
 .hero { position: relative; overflow: hidden; padding: 64px 0 82px; }
@@ -238,6 +259,18 @@ section { padding: 78px 0; }
 .well { text-align: center; }
 .well .intro { margin-left: auto; margin-right: auto; }
 .well-art { margin: 6px auto 0; width: min(100%, 420px); }
+
+/* ---------- wishlist ---------- */
+.wishlist { position: relative; overflow: hidden; text-align: center; }
+.wishlist::before {
+  /* the same lantern light as the hero, low on the page */
+  content: ""; position: absolute; left: 50%; bottom: -380px; width: 760px; height: 760px; transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(242,180,90,.16), rgba(163,102,196,.10) 42%, transparent 68%);
+  pointer-events: none;
+}
+.wishlist .wrap { position: relative; }
+.wishlist .intro { margin-bottom: 0; }
+.wishlist .btns { justify-content: center; }
 
 /* ---------- footer ---------- */
 .game-footer {
