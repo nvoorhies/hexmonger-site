@@ -48,7 +48,7 @@ Images and videos in posts live with each post's Markdown in
 
 ## Tin Coffins page
 
-Everything here is captured from the game by its own harness — [nvoorhies/robot-fps](https://github.com/nvoorhies/robot-fps) `tools/promo/capture.sh` (see that repo's `tools/promo/README.md`) — so a graphics update is a re-capture, not a redraw. The game's art is still in progress, and the page says so; re-derive every file below when that repo re-captures. Last re-captured 2026-10-05 from robot-fps master `8b05569`: the restyled city and the Blender-built mechs.
+Everything here is captured from the game by its own harness — [nvoorhies/robot-fps](https://github.com/nvoorhies/robot-fps) `tools/promo/capture.sh` (see that repo's `tools/promo/README.md`) — so a graphics update is a re-capture, not a redraw. The game's art is still in progress, and the page says so; re-derive every file below when that repo re-captures. Last re-captured 2026-10-08 from robot-fps `ae27f54` (nvoorhies/robot-fps#550, on master `3f494da`): the city with its hero landmarks, and the arrival shot back at street level.
 
 | file | source | notes |
 | --- | --- | --- |
