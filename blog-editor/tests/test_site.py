@@ -45,6 +45,15 @@ def test_publish_writes_the_blog_and_passes_the_site_check(site):
     assert site.store.status(slug) == "published"
 
 
+def test_the_analytics_beacon_is_on_published_pages_but_not_the_preview(site):
+    slug, meta, body = new_post(site)
+    site.publish(slug, meta, body, run_check=False)
+    for page in ("blog/index.html", f"blog/{slug}/index.html"):
+        assert "c70e203b565e403fb495942f9dd584ec" in (site.root / page).read_text(), page
+    preview, _ = site.render_post(site.store.load(slug), site.store.published(), preview=True)
+    assert "cloudflareinsights" not in preview
+
+
 def test_rebuilding_changes_nothing(site):
     slug, meta, body = new_post(site)
     site.publish(slug, meta, body, run_check=False)

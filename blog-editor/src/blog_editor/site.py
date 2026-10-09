@@ -104,6 +104,7 @@ class Site:
             newer=timeline[i - 1] if i > 0 else None,
             older=timeline[i + 1] if i + 1 < len(timeline) else None,
             og_image=f"{self.post_url(post.slug)}{cover}" if cover else f"{self.url}/assets/img/og-image.jpg",
+            preview=preview,
         )
         return page, body
 

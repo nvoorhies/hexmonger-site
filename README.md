@@ -1,10 +1,11 @@
 # hexmonger-site
 
 The studio website at **https://hexmonger.com** — plain static HTML and CSS,
-no build step and no JavaScript. What is in this repo is exactly what is
-served. Blog posts are the one generated part: they are written in Markdown
-with `blog-editor/`, which writes their HTML into `blog/`, and that HTML is
-committed like everything else.
+no build step. The only JavaScript is the Cloudflare Web Analytics beacon in
+every page's `<head>`, which counts visits without cookies. What is in this
+repo is exactly what is served. Blog posts are the one generated part: they
+are written in Markdown with `blog-editor/`, which writes their HTML into
+`blog/`, and that HTML is committed like everything else.
 
 Privacy policies and support pages are **not** here. They live in
 [nvoorhies/hexmonger-policies](https://github.com/nvoorhies/hexmonger-policies)
@@ -23,7 +24,7 @@ store reviewers saw. This site only links to them.
 | `404.html` | the not-found page (Pages serves it for any missing path) |
 | `assets/site.css` | the shared styles |
 | `assets/blog.css` | blog posts and the blog index, on top of `site.css` |
-| `assets/fonts/` | Fraunces + Inter, self-hosted (SIL OFL) so no page load goes to a third party |
+| `assets/fonts/` | Fraunces + Inter, self-hosted (SIL OFL) rather than loaded from Google Fonts |
 | `assets/img/` | web-sized art; see `ASSETS.md` for where each file came from |
 | `CNAME` | `hexmonger.com` — tells Pages which domain to serve |
 | `scripts/check-site.sh` | fails on a page without a title, a broken local link, or a wrong CNAME |
@@ -76,7 +77,15 @@ failing check does not deploy.
   both the iframe's `src` and the link inside `srcdoc`, and re-export its
   poster (`assets/img/cits-trailer.webp`, `assets/img/cn-trailer.webp`).
 - **A game gets its own page** — make `<game>/index.html` using the same
-  header/footer, link the card to it, and add it to `sitemap.xml`.
+  header/footer and the analytics beacon in the `<head>`, link the card to it,
+  and add it to `sitemap.xml`.
+- **Analytics** — Cloudflare Web Analytics (dashboard → Web Analytics →
+  hexmonger.com). It sets no cookies and stores nothing on the visitor's
+  device, so the site needs no cookie banner; keep it that way. Every page
+  carries the same one-line beacon right after the viewport meta; blog
+  pages get it from `blog-editor/src/blog_editor/templates/_layout.html`,
+  which leaves it out of the editor's live preview so drafting doesn't
+  count as visits.
 
 ## Publishing
 
