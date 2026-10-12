@@ -48,17 +48,17 @@ Images and videos in posts live with each post's Markdown in
 
 ## Tin Coffins page
 
-Everything here is captured from the game by its own harness — [nvoorhies/robot-fps](https://github.com/nvoorhies/robot-fps) `tools/promo/capture.sh` (see that repo's `tools/promo/README.md`) — so a graphics update is a re-capture, not a redraw. The game's art is still in progress, and the page says so; re-derive every file below when that repo re-captures. Last re-captured 2026-10-08 from robot-fps `ae27f54` (nvoorhies/robot-fps#550, on master `3f494da`): the city with its hero landmarks, and the arrival shot back at street level.
+Everything here is captured from the game by its own harness — [nvoorhies/robot-fps](https://github.com/nvoorhies/robot-fps) `tools/promo/capture.sh` (see that repo's `tools/promo/README.md`) — so a graphics update is a re-capture, not a redraw. The game's art is still in progress, and the page says so; re-derive every file below when that repo re-captures. Last re-captured 2026-10-12 from robot-fps `2261787` (nvoorhies/robot-fps#632, on master `2de1f5b`): the cartouche HUD, the opening force at today's density. The Steam set is seven stills now, so the page's old `salvo` and `smoke` slots took `05-exchange` and `07-wreck`.
 
 | file | source | notes |
 | --- | --- | --- |
-| `tc-firefight.webp`, `tc-dropship.webp`, `tc-orders.webp`, `tc-salvo.webp`, `tc-smoke.webp`, `tc-arrival.webp` | robot-fps `store/screenshots/desktop/0N-*.png` (the Steam screenshots) | 1400×788, WebP quality 82 |
-| `tc-hero.webp`, `tc-hero-480.webp` | robot-fps `capture.sh art` frame `04-salvo.png` (3840×2160, HUD hidden) | 4:5 crop around the mech, x 1400–2720, y 480–2130, so the muzzle flash and the rocket's trail are in frame. 880×1100 and 480×600, WebP quality 82 |
+| `tc-firefight.webp`, `tc-dropship.webp`, `tc-orders.webp`, `tc-exchange.webp`, `tc-arrival.webp`, `tc-wreck.webp` | robot-fps `store/screenshots/desktop/` `01-firefight`, `02-dropship`, `03-orders`, `05-exchange`, `06-arrival`, `07-wreck` (the Steam screenshots) | 1400×788, WebP quality 82. `04-hero` is the page's hero below, so it isn't used twice |
+| `tc-hero.webp`, `tc-hero-480.webp` | robot-fps `capture.sh art` frame `04-hero-tall.png` (2160×2880, HUD hidden): the key-art frame the Steam tall capsules are cut from | 4:5 at full width, y 100–2800 (less sky). 880×1100 and 480×600, WebP quality 82 |
 | `tc-card.webp` | `capture.sh art` frame `06-arrival.png` | 16:10 at full height, centred; 960×600, for the home page card |
-| `tc-og.jpg` | `capture.sh art` frame `02-dropship.png` with the wordmark, as `tools/promo/steam_art.py` lays it on the capsules | 1200×630 social preview: cut and graded like the header capsule (`_cover` focus 0.5, 0.42, then `_grade`), the wordmark along the bottom at 66% of the width |
-| `tc-wordmark.webp` | robot-fps `store/steam/library_logo.png` (drawn by `tools/promo/brand.py`) | Cropped to the ink, 1240 wide, with alpha |
+| `tc-og.jpg` | `capture.sh art` frame `02-dropship.png` with the wordmark, as `tools/promo/steam_art.py` lays it on the capsules | 1200×630 social preview: cut and graded like the header capsule (`_cover` focus 0.5, 0.42, then `_grade`), the wordmark along the bottom at 66% of the width on the header's ink band (`_with_logo`, band 0.42), JPEG quality 88 |
+| `tc-wordmark.webp` | robot-fps `store/steam/library_logo.png` (drawn by `tools/promo/brand.py`: Michroma since 2026-10-09) | Cropped to the ink, 1240 wide (1240×175), with alpha, WebP quality 90 |
 | `tc-combat-effective.webp` and five more citation badges | robot-fps `store/steam/achievements/large/` (`tools/promo/achievement_icons.py`) | 176×176. The hidden achievement and the act finales are left off — they name the story |
-| `fonts/roboto-condensed-bold.woff2` | Roboto Condensed Bold, the logotype's face (robot-fps `store/fonts/`) | Latin subset, converted with fontTools. Apache 2.0 (`LICENSE-roboto-condensed.txt`) |
+| `fonts/roboto-condensed-bold.woff2` | Roboto Condensed Bold, the page's heading face (robot-fps `store/fonts/`, where it sets the icons' stencil and the trailer's cards) | Latin subset, converted with fontTools. Apache 2.0 (`LICENSE-roboto-condensed.txt`) |
 
 ## Goblin Hunt page
 
