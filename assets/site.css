@@ -58,6 +58,7 @@ a:hover { color: #fff; }
 
 .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
 .skip { position: absolute; left: -999px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip:focus { left: 16px; top: 12px; z-index: 10; background: var(--gold); color: var(--ink); padding: 8px 12px; }
 
 h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.08; letter-spacing: -.01em; margin: 0; }
@@ -120,13 +121,21 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.08; let
     linear-gradient(90deg, rgba(15,13,20,.94) 0%, rgba(15,13,20,.78) 34%, rgba(15,13,20,.15) 66%, rgba(15,13,20,0) 100%),
     linear-gradient(0deg, var(--ink) 0%, rgba(15,13,20,0) 30%);
 }
+.hero-tin::after {
+  background:
+    linear-gradient(90deg, rgba(15,13,20,.95) 0%, rgba(15,13,20,.86) 38%, rgba(15,13,20,.2) 70%, rgba(15,13,20,0) 100%),
+    linear-gradient(0deg, var(--ink) 0%, rgba(15,13,20,0) 30%);
+}
+.hero-tin .hero-art img { object-position: 40% 35%; }
 .hero-copy { position: relative; z-index: 1; padding: 120px 0 72px; max-width: 600px; }
 .hero h1 { font-size: clamp(44px, 7vw, 80px); font-weight: 650; }
-.hero .tagline {
+.hero h1.wordmark { line-height: 0; }
+.hero h1.wordmark img { width: min(100%, 560px); margin-left: calc(min(100%, 560px) * -.024); } /* the T's side bearing */
+.hero .tagline, .spotlight .tagline {
   font: italic 400 clamp(20px, 2.4vw, 26px)/1.3 var(--serif);
   color: var(--gold-2); margin: 14px 0 18px;
 }
-.hero p.lede { color: #d6d0c5; margin: 0; font-size: 17.5px; max-width: 34em; }
+.hero p.lede, .spotlight p.lede { color: #d6d0c5; margin: 0; font-size: 17.5px; max-width: 34em; }
 .platforms { margin-top: 18px; font-size: 13.5px; color: var(--muted); letter-spacing: .02em; }
 .platforms b { color: var(--text); font-weight: 600; }
 
@@ -163,10 +172,29 @@ section { padding: 88px 0; }
 .shots-note { grid-column: 1 / -1; font-size: 13px; color: var(--faint); margin: 2px 0 0; }
 @media (max-width: 860px) { .feature-grid { grid-template-columns: 1fr; gap: 40px; } }
 
+/* ---------- spotlights: the games after the hero, copy beside pictures ---------- */
+.spotlight + .spotlight { border-top: 1px solid var(--line); }
+.spotlight-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 56px; align-items: center; }
+.spotlight-flip .spotlight-copy { order: 2; }
+.spotlight h2 { font-size: clamp(36px, 4.4vw, 58px); font-weight: 650; }
+.spotlight .btns { margin-top: 26px; }
+.shots img.key-necro { object-position: 50% 42%; }
+@media (max-width: 860px) {
+  .spotlight-grid { grid-template-columns: 1fr; gap: 36px; }
+  .spotlight-flip .spotlight-copy { order: 0; }
+}
+
 /* ---------- in development ---------- */
 .upcoming { background: linear-gradient(180deg, rgba(31,27,40,.0), rgba(31,27,40,.55) 30%, rgba(31,27,40,.55) 70%, rgba(31,27,40,0)); }
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+/* one card on its own row: art beside the text */
+.cards-one { grid-template-columns: 1fr; }
+@media (min-width: 861px) {
+  .card.card-wide { flex-direction: row; }
+  .card-wide .card-art { flex: 0 0 52%; }
+  .card-wide .card-body { padding: 34px 36px; justify-content: center; }
+}
 .card {
   position: relative; display: flex; flex-direction: column;
   border-radius: var(--radius); overflow: hidden;
@@ -177,12 +205,15 @@ section { padding: 88px 0; }
 .card h3 { font-size: 32px; }
 .card p { margin: 0; color: #cfc8bd; }
 .card .meta { margin-top: auto; padding-top: 10px; font-size: 13.5px; color: var(--muted); }
-.badge {
-  position: absolute; top: 16px; left: 16px; z-index: 2;
+.badge, .tag {
   font: 600 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
   padding: 8px 11px; border-radius: 999px;
   background: rgba(15,13,20,.82); color: var(--gold-2); border: 1px solid rgba(226,181,103,.35);
 }
+.badge { position: absolute; top: 16px; left: 16px; z-index: 2; }
+/* the same pill at the head of an eyebrow; the words beside it wrap as one */
+.eyebrow.tagged { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+.eyebrow.tagged > span:last-child { white-space: nowrap; }
 
 /* Cozy Necromancy art */
 .art-necro { background: #2a2540; }

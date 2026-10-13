@@ -16,7 +16,7 @@ store reviewers saw. This site only links to them.
 
 | path | what it is |
 | --- | --- |
-| `index.html` | the home page: featured game, coming-soon games, studio, contact |
+| `index.html` | the home page: the games in order (Tin Coffins as the hero, then Cozy Necromancy and Castles in the Sand side by side with their pictures, then Goblin Hunt in the workshop), studio, contact |
 | `castles-in-the-sand/index.html` | the Castles in the Sand page, styled like the game (`assets/castles.css`) |
 | `goblin-hunt/index.html` | the Goblin Hunt page, set like an old printed rulebook (`assets/goblin-hunt.css`) |
 | `tin-coffins/index.html` | the Tin Coffins page, dressed like the game's briefing terminal (`assets/tin-coffins.css`) |
@@ -45,9 +45,10 @@ failing check does not deploy.
   *Publish*. That writes the HTML into `blog/` and updates `sitemap.xml`; it
   doesn't commit. See `blog-editor/README.md`.
 - **Google Play goes live** — the App Store listing is live (as of 2026-09-30),
-  so its links are the pattern to copy. In `index.html`, uncomment the
-  Google Play button beside the App Store one and drop "Android soon" from
-  the eyebrow and "Google Play soon" from the platforms line. In
+  so its links are the pattern to copy. In `index.html`'s Castles section,
+  uncomment the Google Play button beside the App Store one and drop
+  "Android soon" from the eyebrow and "Google Play soon" from the
+  platforms line. In
   `castles-in-the-sand/index.html` (the hero and the closing section),
   replace each `<span class="btn btn-soon">Google Play …</span>` with
   `<a class="btn btn-store" href="…">Google Play</a>`, add a Play `Offer`
@@ -61,11 +62,14 @@ failing check does not deploy.
 - **The Steam pages** — Cozy Necromancy (`app/5349910`) and Tin Coffins
   (`app/4943260`) are up on Steam as "coming soon", and each game's page
   asks for a wishlist in four places: the nav button, the hero, the
-  closing section and the footer. The home page's cards and its *Elsewhere*
-  list link them too. Every one of those links carries UTM tags
+  closing section and the footer. The home page links them too, as "Play
+  the demo on Steam" (both games have a demo up, and carry a *Demo
+  available* tag there): Tin Coffins from the hero, Cozy Necromancy from
+  its section below it, and both from the *Elsewhere* list. Every one of
+  those links carries UTM tags
   (`utm_source=hexmonger.com&utm_medium=website`, `utm_campaign` = the page,
-  `utm_content` = where on it: `nav`, `hero`, `closing`, `footer`, `card`,
-  `elsewhere`), so Steamworks' UTM traffic report shows which button
+  `utm_content` = where on it: `nav`, `hero`, `closing`, `footer`,
+  `spotlight`, `elsewhere`), so Steamworks' UTM traffic report shows which button
   brought each visit; a new Steam link should get the same tags. The
   JSON-LD `sameAs` keeps the bare URL. When a game launches, change
   "Wishlist on Steam" to "Buy on Steam" (or "Play on Steam"), retitle the
