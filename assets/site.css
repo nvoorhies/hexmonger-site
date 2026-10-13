@@ -178,7 +178,6 @@ section { padding: 88px 0; }
 .spotlight-flip .spotlight-copy { order: 2; }
 .spotlight h2 { font-size: clamp(36px, 4.4vw, 58px); font-weight: 650; }
 .spotlight .btns { margin-top: 26px; }
-.shots img.key-necro { object-position: 50% 42%; }
 @media (max-width: 860px) {
   .spotlight-grid { grid-template-columns: 1fr; gap: 36px; }
   .spotlight-flip .spotlight-copy { order: 0; }
@@ -205,15 +204,19 @@ section { padding: 88px 0; }
 .card h3 { font-size: 32px; }
 .card p { margin: 0; color: #cfc8bd; }
 .card .meta { margin-top: auto; padding-top: 10px; font-size: 13.5px; color: var(--muted); }
-.badge, .tag {
+.badge, .tag, .kind {
   font: 600 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
-  padding: 8px 11px; border-radius: 999px;
-  background: rgba(15,13,20,.82); color: var(--gold-2); border: 1px solid rgba(226,181,103,.35);
+  padding: 8px 11px; border-radius: 999px; border: 1px solid transparent;
 }
-.badge { position: absolute; top: 16px; left: 16px; z-index: 2; }
-/* the same pill at the head of an eyebrow; the words beside it wrap as one */
-.eyebrow.tagged { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
-.eyebrow.tagged > span:last-child { white-space: nowrap; }
+.badge {
+  position: absolute; top: 16px; left: 16px; z-index: 2;
+  background: rgba(15,13,20,.82); color: var(--gold-2); border-color: rgba(226,181,103,.35);
+}
+/* At the head of a game's copy, two labels: its status as a filled tag,
+   and what kind of game it is as a quiet outlined one beside it */
+.eyebrow.tagged { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.tag { background: var(--gold); color: #1a1408; border-color: var(--gold); }
+.kind { white-space: nowrap; color: var(--text); background: rgba(15,13,20,.45); border-color: rgba(236,230,218,.24); }
 
 /* Cozy Necromancy art */
 .art-necro { background: #2a2540; }

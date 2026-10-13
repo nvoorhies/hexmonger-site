@@ -107,7 +107,7 @@ section { padding: 78px 0; }
 /* ---------- hero ---------- */
 .hero { position: relative; overflow: hidden; padding: 64px 0 82px; }
 .hero::before {
-  /* lantern light, thrown from behind the key art */
+  /* lantern light, thrown from behind the picture */
   content: ""; position: absolute; inset: -30% -10% auto auto; width: 760px; height: 760px;
   background: radial-gradient(circle, rgba(242,180,90,.20), rgba(163,102,196,.14) 42%, transparent 68%);
   pointer-events: none;
@@ -128,10 +128,10 @@ section { padding: 78px 0; }
 .chips li.now { border-color: rgba(242,180,90,.5); color: var(--lantern-2); }
 .key-art { position: relative; }
 .key-art img {
-  width: 100%; border-radius: 26px; border: 1px solid var(--line);
+  width: 100%; height: auto; border-radius: 26px; border: 1px solid var(--line);
   box-shadow: 0 30px 70px -30px rgba(0,0,0,.9), 0 0 90px -40px rgba(242,180,90,.5);
 }
-/* Two small ghosts drifting past the art, as on the key art itself. */
+/* Two small ghosts drifting past the picture. */
 .ghost { position: absolute; width: 34px; height: 40px; opacity: .85; animation: drift 7s ease-in-out infinite; }
 .ghost.g1 { left: -14px; top: 22%; animation-delay: -1.5s; }
 .ghost.g2 { right: -10px; bottom: 16%; width: 26px; height: 31px; animation-delay: -4s; }
