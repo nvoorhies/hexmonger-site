@@ -178,10 +178,6 @@ section { padding: 80px 0; }
 .shot.wide { grid-column: 1 / -1; }
 .shot img { width: 100%; height: auto; border: 1px solid var(--line); box-shadow: 0 22px 50px -30px rgba(0,0,0,.9); }
 @media (max-width: 760px) { .shots { grid-template-columns: 1fr; } }
-.wip {
-  margin: 28px 0 0; padding: 14px 18px; border: 1px dashed var(--line); color: var(--muted); font-size: 15px;
-}
-.wip b { color: var(--hazard); font: 700 13px/1 var(--head); letter-spacing: .12em; text-transform: uppercase; margin-right: 8px; }
 
 /* ---------- dossier ---------- */
 .dossier { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
