@@ -58,6 +58,19 @@ Everything here is captured from the game by its own harness — [nvoorhies/robo
 | `tc-combat-effective.webp` and five more citation badges | robot-fps `store/steam/achievements/large/` (`tools/promo/achievement_icons.py`) | 176×176. The hidden achievement and the act finales are left off — they name the story |
 | `fonts/roboto-condensed-bold.woff2` | Roboto Condensed Bold, the page's heading face (robot-fps `store/fonts/`, where it sets the icons' stencil and the trailer's cards) | Latin subset, converted with fontTools. Apache 2.0 (`LICENSE-roboto-condensed.txt`) |
 
+## Tin Coffins press kit
+
+`tin-coffins/press/` is built whole by robot-fps `tools/promo/build_presskit.py`
+(`store/presskit/README.md` there): the page from `store/presskit/index.html`;
+`img/` as WebP thumbnails (800 wide for stills, 600 for art, 1280 for the trailer
+poster, quality 80); and `files/` with the downloads, from robot-fps
+`store/screenshots/desktop/`, `japanese/` and `4k/`, `store/presskit/art/`,
+`store/steam/` and `store/igdb/cover.png`. The 1080p screenshots, logos, icon and
+small capsules are copied as PNG; the 4K stills, key art, cover and library hero are
+re-encoded as JPEG at quality 95. `tin-coffins-presskit.zip` holds all of `files/`.
+Rebuild there and copy the directory over rather than editing it here. The page
+also uses `tc-wordmark.webp` and `tc-og.jpg` from the Tin Coffins page above.
+
 ## Goblin Hunt page
 
 | file | source | notes |
