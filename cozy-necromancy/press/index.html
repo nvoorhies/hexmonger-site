@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c70e203b565e403fb495942f9dd584ec"}'></script><!-- End Cloudflare Web Analytics -->
+<title>Cozy Necromancy press kit</title>
+<meta name="description" content="Press kit for Cozy Necromancy, a cozy mystery RPG from Hexmonger about a journeyman necromancer laying a village's ghosts to rest, with no combat. Coming to Steam in late October 2026, with a free demo now. Fact sheet, descriptions, screenshots, 4K stills, logos, key art and the trailer, and how to reach the developer.">
+<link rel="canonical" href="https://hexmonger.com/cozy-necromancy/press/">
+<meta name="theme-color" content="#17121f">
+<link rel="icon" href="/assets/img/hexmonger-mark.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/cozy-necromancy.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="Cozy Necromancy press kit">
+<meta property="og:description" content="Fact sheet, screenshots, logos, key art and the trailer for Cozy Necromancy, a cozy mystery RPG with no combat, coming to Steam in late October 2026.">
+<meta property="og:url" content="https://hexmonger.com/cozy-necromancy/press/">
+<meta property="og:image" content="https://hexmonger.com/assets/img/cn-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* Press-kit layout on top of the game page's palette and chrome.
+     Built by cute-fantasy tools/promo/build_presskit.py from store/presskit/index.html. */
+  .press section { padding: 64px 0; }
+  .press h2 { font-size: clamp(28px, 3.6vw, 40px); margin-bottom: 22px; }
+  .press h3 { font-size: 21px; margin: 34px 0 14px; }
+  .press .hero { padding: 54px 0 64px; }
+  @media (min-width: 901px) { .press .hero .wrap { grid-template-columns: 1.2fr .8fr; } }
+  @media (max-width: 520px) { .press .btn { white-space: normal; text-align: center; padding: 12px 20px; } }
+  .press .key-art { margin: 0; }
+  .key-art figcaption { margin-top: 12px; font-size: 13.5px; color: var(--faint); text-align: center; }
+  .btn-plain { border: 1px solid var(--lantern); color: var(--lantern); }
+  .btn-plain:hover { background: rgba(242,180,90,.08); }
+  .btn-plain:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
+  .cols { display: grid; grid-template-columns: 320px 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 860px) { .cols { grid-template-columns: 1fr; gap: 30px; } }
+  .facts { margin: 0; padding: 20px 22px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+  .facts dt { font: 700 11.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--rose); margin-top: 16px; }
+  .facts dt:first-child { margin-top: 0; }
+  .facts dd { margin: 6px 0 0; font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+  .copy p, .copy li { color: #ded6e6; }
+  .copy ul { padding-left: 1.2rem; }
+  .copy li { margin: .45rem 0; }
+  .copy li::marker { color: var(--lantern); }
+  .blurb { margin: 0 0 8px; padding: 16px 20px; background: var(--card); border-left: 3px solid var(--plum); border-radius: 0 10px 10px 0; font-size: 16px; }
+  .label { font: 700 11.5px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin: 26px 0 10px; }
+  .label:first-child { margin-top: 0; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+  @media (max-width: 420px) { .gallery { grid-template-columns: 1fr; } }
+  .gallery figure { margin: 0; }
+  .gallery img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+  .gallery figure.tall img { object-fit: contain; }
+  .gallery figure.logo img { object-fit: contain; padding: 18px; background: repeating-conic-gradient(#2c2440 0 25%, #241d33 0 50%) 0 0 / 18px 18px; }
+  .gallery figcaption { margin-top: 8px; font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+  .gallery .dl { display: block; margin-top: 3px; font: 700 12px/1.4 var(--sans); letter-spacing: .08em; text-transform: uppercase; }
+  .gallery .dl a { margin-right: 12px; text-decoration: none; }
+  .gallery .dl a:hover { text-decoration: underline; }
+  .note { color: var(--faint); font-size: 15px; max-width: 760px; }
+  .press .trailer-frame { max-width: none; }
+  .downloads { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 8px; }
+  .downloads li { padding: 10px 14px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; font-size: 15px; color: var(--muted); }
+  .downloads a { font-weight: 600; }
+  .downloads .meta { color: var(--faint); margin-left: 6px; }
+  .policy > * { max-width: 760px; }
+  .studio-facts { display: grid; grid-template-columns: 180px 1fr; gap: 8px 22px; margin: 22px 0; font-size: 15px; }
+  .studio-facts dt { font: 700 11.5px/1.7 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--rose); }
+  .studio-facts dd { margin: 0; color: #ded6e6; }
+  @media (max-width: 640px) { .studio-facts { grid-template-columns: 1fr; gap: 2px; } .studio-facts dd { margin-bottom: 10px; } }
+  .contact-list { list-style: none; padding: 0; margin: 22px auto 0; display: grid; gap: 8px; max-width: 520px; font-size: 17px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="studio-bar">
+  <div class="wrap">
+    <a class="studio-home" href="/" aria-label="Hexmonger home">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="22" height="22">
+      <span>Hexmonger</span>
+    </a>
+    <nav class="game-nav" aria-label="Press kit">
+      <a class="opt" href="../">The game</a>
+      <a class="opt" href="#facts">Facts</a>
+      <a class="opt" href="#video">Video</a>
+      <a class="opt" href="#media">Media</a>
+      <a class="opt" href="#contact">Contact</a>
+      <span class="chip">Press kit</span>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="press">
+
+  <section class="hero" aria-labelledby="title">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Press kit</p>
+        <h1 id="title">Cozy <em>Necromancy</em></h1>
+        <p class="lede">A gentle mystery about a village that cannot let go of its dead. No combat, no timers, no fail states.</p>
+        <div class="btns">
+          <a class="btn btn-lantern" href="cozy-necromancy-presskit.zip">Download everything (.zip, 43 MB)</a>
+          <a class="btn btn-plain" href="files/cozy-necromancy-factsheet.md">Fact sheet (.md)</a>
+        </div>
+        <ul class="chips">
+          <li class="now">Steam · late October 2026</li>
+          <li>US$9.99</li>
+          <li>Free demo out now</li>
+          <li>Windows · macOS · Linux</li>
+          <li>Single player</li>
+        </ul>
+      </div>
+      <figure class="key-art">
+        <img src="img/cozy-necromancy-key-art-1x1.webp" width="600" height="600"
+             alt="Key art: the necromancer, in her wide purple hat, stands in deep sunlit grass among the trees of the wood, the village's roofs between the trunks, with the Cozy Necromancy logotype in gold along the bottom.">
+        <figcaption>Key art cut from a 4K frame of the running game.</figcaption>
+        <svg class="ghost g1" viewBox="0 0 34 40" aria-hidden="true">
+          <path d="M17 2c8 0 13 6 13 14v20l-4-4-4 4-5-4-5 4-4-4-4 4V16C4 8 9 2 17 2Z" fill="#e9f3f0" opacity=".9"/>
+          <circle cx="12" cy="17" r="2.2" fill="#2a2233"/><circle cx="22" cy="17" r="2.2" fill="#2a2233"/>
+        </svg>
+        <svg class="ghost g2" viewBox="0 0 34 40" aria-hidden="true">
+          <path d="M17 2c8 0 13 6 13 14v20l-4-4-4 4-5-4-5 4-4-4-4 4V16C4 8 9 2 17 2Z" fill="#e9f3f0" opacity=".75"/>
+          <circle cx="12" cy="17" r="2.2" fill="#2a2233"/><circle cx="22" cy="17" r="2.2" fill="#2a2233"/>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ Facts and copy ============ -->
+  <section class="look" id="facts" aria-labelledby="facts-title">
+    <div class="wrap cols">
+      <dl class="facts">
+        <dt>Developer</dt><dd>Nathaniel Voorhies, working as <a href="/">Hexmonger</a> (solo developer)</dd>
+        <dt>Publisher</dt><dd>Hexmonger (self-published)</dd>
+        <dt>Release</dt><dd>Late October 2026 on Steam<br>Free demo on Steam now: the opening and Luna’s story</dd>
+        <dt>Price</dt><dd>US$9.99</dd>
+        <dt>Platforms</dt><dd>Windows, macOS and Linux (Steam)<br>iOS and Android later</dd>
+        <dt>Genre</dt><dd>Cozy mystery RPG, with no combat</dd>
+        <dt>Players</dt><dd>Single player</dd>
+        <dt>Input</dt><dd>Controller, or keyboard and mouse</dd>
+        <dt>Languages</dt><dd>English (text; there is no voice acting)</dd>
+        <dt>Engine</dt><dd>Godot 4.6</dd>
+        <dt>Steam</dt><dd><a href="https://store.steampowered.com/app/5349910/Cozy_Necromancy/?utm_source=hexmonger.com&amp;utm_medium=website&amp;utm_campaign=cozy-necromancy-press&amp;utm_content=facts">store.steampowered.com/app/5349910</a></dd>
+        <dt>Website</dt><dd><a href="../">hexmonger.com/cozy-necromancy</a></dd>
+        <dt>Press contact</dt><dd><a href="mailto:press@hexmonger.com">press@hexmonger.com</a></dd>
+      </dl>
+
+      <div class="copy">
+        <h2 id="facts-title">About the game</h2>
+        <p class="label">In one sentence</p>
+        <p class="blurb">Cozy Necromancy is a cozy 3D mystery RPG with no combat, in which a journeyman necromancer lays a village’s restless dead to rest by listening to them, finding out what holds them, and making the case with three objects in a ritual circle.</p>
+        <p class="label">Short description (about 50 words)</p>
+        <p class="blurb">A gentle mystery about a village that cannot let go of its dead. As a journeyman necromancer, you lay six spirits to rest by listening to them, investigating what holds them, and making your case with three objects in a ritual circle. No combat, no timers, no fail states.</p>
+
+        <p class="label">Long description</p>
+        <p>You are a journeyman necromancer, freshly graduated and posted to Willowmere on your first assignment. The spirit waypoint beneath the village, the Moonwell, was sealed thirty-five years ago, and the dead have been collecting behind it ever since. None of them are hostile. All of them are stuck.</p>
+        <p>There is no combat in this game. You cannot fight a ghost into peace.</p>
+        <p>Every bound spirit is a person with an unfinished sentence: a twin who blames herself for a fire, a knight who kept the wrong oath, a hedge witch the village burned and later thanked. You travel with them, watch what they react to, read the archive someone misfiled, and ask the living about the things they would rather not say.</p>
+        <p>When you think you know what binds a spirit, you say it with objects: three items placed in the ritual circle. What matters is what they mean. A locket, a scorched hinge, a letter never sent. Get it right and they can move on. Get it half right and they will tell you so. Nothing is ever consumed, so you can always try again.</p>
+        <p>Six companion stories, each resolvable on its own, and one older question under all of them: who sealed the Moonwell, and what were they protecting?</p>
+
+        <h3>Features</h3>
+        <ul>
+          <li><b>No combat.</b> A haunting gets solved once you understand it.</li>
+          <li><b>Six spirits, six stories.</b> A ghost twin, a silent knight, a burned hedge witch, a 212-year-old golem, a vampire missing sixty years of memory, and an assassin who cannot picture the faces.</li>
+          <li><b>The ritual is an argument.</b> Three symbolic items, four possible outcomes, and nothing lost for being wrong.</li>
+          <li><b>A village that talks.</b> Villagers with their own gossip and their own reasons to keep a secret, and a square full of neighbors running errands and talking among themselves.</li>
+          <li><b>Quiet by design.</b> No timers, no fail states, no resource management. Optional packing puzzles, hints, and a journal that remembers what you have worked out.</li>
+          <li><b>Offline, no account.</b> No ads and no microtransactions on Steam. Steam achievements, and nothing collected about the player.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Video ============
+       Nothing loads from YouTube until someone presses play: srcdoc shows a
+       local poster whose link swaps in the player. -->
+  <section id="video" aria-labelledby="video-title">
+    <div class="wrap">
+      <h2 id="video-title">Trailer</h2>
+      <div class="trailer-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/wZKHR_hgbv0?autoplay=1"
+                srcdoc="<style>*{margin:0}html,body{height:100%;overflow:hidden;background:#17121f}a{position:absolute;inset:0;display:grid;place-items:center}img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}span{position:relative;display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:#f2b45a;box-shadow:0 0 0 8px rgba(23,18,31,.4),0 0 60px 6px rgba(242,180,90,.45);transition:transform .12s,background .15s}a:hover span{background:#ffd98a;transform:scale(1.05)}a:focus-visible{outline:none}a:focus-visible span{outline:3px solid #ece6da;outline-offset:6px}svg{width:34px;height:34px;margin-left:5px;fill:#241a06}</style><a href='https://www.youtube-nocookie.com/embed/wZKHR_hgbv0?autoplay=1' aria-label='Play the trailer'><img src='/assets/img/cn-trailer.webp' alt=''><span><svg viewBox='0 0 24 24' aria-hidden='true'><path d='M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z'/></svg></span></a>"
+                title="Cozy Necromancy trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="note" style="margin-top:14px">94 seconds, filmed from the running game, with the game’s own music. <a href="https://www.youtube.com/watch?v=wZKHR_hgbv0">Watch it on YouTube</a> to embed or share it. For the 1080p master, email <a href="mailto:press@hexmonger.com?subject=Cozy%20Necromancy%20video">press@hexmonger.com</a>.</p>
+
+    </div>
+  </section>
+
+  <!-- ============ Screenshots and art ============ -->
+  <section class="look" id="media" aria-labelledby="media-title">
+    <div class="wrap">
+      <h2 id="media-title">Screenshots</h2>
+      <p class="note">1920×1080 PNG, captured from the running game, and the same six pictures as the Steam page. No watermarks or logos: crop them freely.</p>
+      <div class="gallery">
+      <figure><a href="files/screenshots/cozy-necromancy-01-dialogue.png"><img src="img/01-dialogue.webp" loading="lazy" alt="Screenshot: Luna, the first of the six spirits, in conversation with the necromancer"></a><figcaption>Luna, the first of the six spirits, in conversation with the necromancer<span class="dl"><a href="files/screenshots/cozy-necromancy-01-dialogue.png" download>PNG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/cozy-necromancy-02-village.png"><img src="img/02-village.webp" loading="lazy" alt="Screenshot: The market square, the villagers going about their day"></a><figcaption>The market square, the villagers going about their day<span class="dl"><a href="files/screenshots/cozy-necromancy-02-village.png" download>PNG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/cozy-necromancy-03-wood.png"><img src="img/03-wood.webp" loading="lazy" alt="Screenshot: The necromancer in the wood east of Willowmere"></a><figcaption>The necromancer in the wood east of Willowmere<span class="dl"><a href="files/screenshots/cozy-necromancy-03-wood.png" download>PNG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/cozy-necromancy-04-puzzle.png"><img src="img/04-puzzle.webp" loading="lazy" alt="Screenshot: An optional packing puzzle, Soren&#x27;s tool rack, with a hint showing"></a><figcaption>An optional packing puzzle, Soren&#x27;s tool rack, with a hint showing<span class="dl"><a href="files/screenshots/cozy-necromancy-04-puzzle.png" download>PNG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/cozy-necromancy-05-chatter.png"><img src="img/05-chatter.webp" loading="lazy" alt="Screenshot: Georg and Driver Kess at the graveyard gate. Her line is the on-device model&#x27;s; his is written"></a><figcaption>Georg and Driver Kess at the graveyard gate. Her line is the on-device model&#x27;s; his is written<span class="dl"><a href="files/screenshots/cozy-necromancy-05-chatter.png" download>PNG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/cozy-necromancy-06-moonwell.png"><img src="img/06-moonwell.webp" loading="lazy" alt="Screenshot: The Moonwell, sealed thirty-five years ago"></a><figcaption>The Moonwell, sealed thirty-five years ago<span class="dl"><a href="files/screenshots/cozy-necromancy-06-moonwell.png" download>PNG 1920×1080</a></span></figcaption></figure>
+      </div>
+
+      <h3>4K stills</h3>
+      <p class="note">The same places captured at 3840×2160, as JPEG.</p>
+      <div class="gallery">
+      <figure><a href="files/screenshots-4k/cozy-necromancy-4k-02-village.jpg"><img src="img/4k-02-village.webp" loading="lazy" alt="4K still: The market square"></a><figcaption>The market square<span class="dl"><a href="files/screenshots-4k/cozy-necromancy-4k-02-village.jpg" download>JPEG 3840×2160</a></span></figcaption></figure>
+      <figure><a href="files/screenshots-4k/cozy-necromancy-4k-03-wood.jpg"><img src="img/4k-03-wood.webp" loading="lazy" alt="4K still: The wood east of Willowmere: the frame the key art is cut from"></a><figcaption>The wood east of Willowmere: the frame the key art is cut from<span class="dl"><a href="files/screenshots-4k/cozy-necromancy-4k-03-wood.jpg" download>JPEG 3840×2160</a></span></figcaption></figure>
+      <figure><a href="files/screenshots-4k/cozy-necromancy-4k-06-moonwell.jpg"><img src="img/4k-06-moonwell.webp" loading="lazy" alt="4K still: The Moonwell"></a><figcaption>The Moonwell<span class="dl"><a href="files/screenshots-4k/cozy-necromancy-4k-06-moonwell.jpg" download>JPEG 3840×2160</a></span></figcaption></figure>
+      <figure><a href="files/screenshots-4k/cozy-necromancy-4k-04-puzzle.jpg"><img src="img/4k-04-puzzle.webp" loading="lazy" alt="4K still: A packing puzzle, with the interface at 4K"></a><figcaption>A packing puzzle, with the interface at 4K<span class="dl"><a href="files/screenshots-4k/cozy-necromancy-4k-04-puzzle.jpg" download>JPEG 3840×2160</a></span></figcaption></figure>
+      </div>
+
+      <h3>Logo, icon and key art</h3>
+      <p class="note">The logos are transparent PNG, set in Cinzel. The key art and the Steam capsules are frames from the game with the logo laid on them; the large ones are JPEG at quality 95. The icon is the game’s icon on Steam, and its art is AI-generated.</p>
+      <div class="gallery">
+      <figure class="logo"><a href="files/logo/cozy-necromancy-logo.png"><img src="img/cozy-necromancy-logo.webp" loading="lazy" alt="Logo, one line"></a><figcaption>Logo, one line<span class="dl"><a href="files/logo/cozy-necromancy-logo.png" download>PNG 4022×414</a></span></figcaption></figure>
+      <figure class="logo"><a href="files/logo/cozy-necromancy-logo-stacked.png"><img src="img/cozy-necromancy-logo-stacked.webp" loading="lazy" alt="Logo, two lines"></a><figcaption>Logo, two lines<span class="dl"><a href="files/logo/cozy-necromancy-logo-stacked.png" download>PNG 2868×680</a></span></figcaption></figure>
+      <figure class="tall"><a href="files/logo/cozy-necromancy-icon-1024.png"><img src="img/cozy-necromancy-icon-1024.webp" loading="lazy" alt="Icon (AI-generated art: see below)"></a><figcaption>Icon (AI-generated art: see below)<span class="dl"><a href="files/logo/cozy-necromancy-icon-1024.png" download>PNG 1024×1024</a></span></figcaption></figure>
+      <figure><a href="files/key-art/cozy-necromancy-key-art-16x9.jpg"><img src="img/cozy-necromancy-key-art-16x9.webp" loading="lazy" alt="Key art, 16:9"></a><figcaption>Key art, 16:9<span class="dl"><a href="files/key-art/cozy-necromancy-key-art-16x9.jpg" download>JPEG 3840×2160</a></span></figcaption></figure>
+      <figure class="tall"><a href="files/key-art/cozy-necromancy-key-art-1x1.jpg"><img src="img/cozy-necromancy-key-art-1x1.webp" loading="lazy" alt="Key art, 1:1"></a><figcaption>Key art, 1:1<span class="dl"><a href="files/key-art/cozy-necromancy-key-art-1x1.jpg" download>JPEG 2160×2160</a></span></figcaption></figure>
+      <figure><a href="files/steam/cozy-necromancy-steam-header-capsule.png"><img src="img/cozy-necromancy-steam-header-capsule.webp" loading="lazy" alt="Steam header capsule"></a><figcaption>Steam header capsule<span class="dl"><a href="files/steam/cozy-necromancy-steam-header-capsule.png" download>PNG 920×430</a></span></figcaption></figure>
+      <figure><a href="files/steam/cozy-necromancy-steam-main-capsule.png"><img src="img/cozy-necromancy-steam-main-capsule.webp" loading="lazy" alt="Steam main capsule"></a><figcaption>Steam main capsule<span class="dl"><a href="files/steam/cozy-necromancy-steam-main-capsule.png" download>PNG 1232×706</a></span></figcaption></figure>
+      <figure class="tall"><a href="files/steam/cozy-necromancy-steam-vertical-capsule.png"><img src="img/cozy-necromancy-steam-vertical-capsule.webp" loading="lazy" alt="Steam vertical capsule"></a><figcaption>Steam vertical capsule<span class="dl"><a href="files/steam/cozy-necromancy-steam-vertical-capsule.png" download>PNG 748×896</a></span></figcaption></figure>
+      <figure class="tall"><a href="files/steam/cozy-necromancy-steam-library-capsule.png"><img src="img/cozy-necromancy-steam-library-capsule.webp" loading="lazy" alt="Steam library capsule"></a><figcaption>Steam library capsule<span class="dl"><a href="files/steam/cozy-necromancy-steam-library-capsule.png" download>PNG 600×900</a></span></figcaption></figure>
+      <figure><a href="files/steam/cozy-necromancy-steam-library-hero.jpg"><img src="img/cozy-necromancy-steam-library-hero.webp" loading="lazy" alt="Steam library hero, no text"></a><figcaption>Steam library hero, no text<span class="dl"><a href="files/steam/cozy-necromancy-steam-library-hero.jpg" download>JPEG 3840×1240</a></span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Generative AI ============ -->
+  <section id="ai" aria-labelledby="ai-title">
+    <div class="wrap copy policy">
+      <h2 id="ai-title">Generative AI, stated plainly</h2>
+      <p><b>Made with AI tools:</b> the key art behind the game’s icon, and the first versions of many 3D models (the villagers and spirits, the ritual items and several buildings). Each model was generated from our own written description, then cleaned up, re-shaded, rigged and animated by hand. The achievement icons are pictures of those models.</p>
+      <p><b>Written by a person:</b> the story, quests and dialogue. AI tools helped edit them. None of the game’s writing, music or sound was generated: the music and sound effects come from human-made libraries.</p>
+      <p><b>Generated while you play:</b> a small language model (Google’s Gemma 3 270M) runs entirely on the player’s own machine, with no network connection. It writes short lines of villager small talk, the oracle’s one- or two-sentence hint after a failed ritual, and routine filler records in the in-game archive. It also picks which of the pre-written dialogue lines fits the moment. The player never types to it. It never writes story. It can be switched off in Settings, and the game plays the same on written lines alone.</p>
+    </div>
+  </section>
+
+  <!-- ============ Keys and video policy ============ -->
+  <section class="look" id="keys" aria-labelledby="keys-title">
+    <div class="wrap copy policy">
+      <h2 id="keys-title">Keys, streaming and video</h2>
+      <p><b>The demo is free on Steam now:</b> the opening and Luna’s story, from <a href="https://store.steampowered.com/app/5349910/Cozy_Necromancy/?utm_source=hexmonger.com&amp;utm_medium=website&amp;utm_campaign=cozy-necromancy-press&amp;utm_content=keys">Cozy Necromancy’s Steam page</a>.</p>
+      <p><b>Steam keys for the full game</b> go to press, streamers and video creators. Email <a href="mailto:press@hexmonger.com?subject=Cozy%20Necromancy%20key%20request">press@hexmonger.com</a> with a link to your outlet or channel.</p>
+      <p><b>Streaming and monetization:</b> you are welcome to stream, record and monetize video of Cozy Necromancy on any platform, and you do not need to ask first. Screenshots and art from this kit may be used in coverage of the game. We’d appreciate a link to the Steam page.</p>
+    </div>
+  </section>
+
+  <!-- ============ Credits ============ -->
+  <section id="credits" aria-labelledby="credits-title">
+    <div class="wrap copy">
+      <h2 id="credits-title">Credits</h2>
+      <ul>
+        <li>Design, programming and writing: Nathaniel Voorhies</li>
+        <li>3D assets: KayKit by Kay Lousberg (CC0), Quaternius (CC0), and models generated with MeshForge and Meshy, then reworked by hand</li>
+        <li>Music: Ovani Sound</li>
+        <li>Sound effects: Ovani Sound, the Sonniss GDC Game Audio Bundles, and Kenney (CC0)</li>
+        <li>Fonts: Cinzel by Natanael Gama (the logotype), Alegreya by Huerta Tipográfica</li>
+        <li>On-device language model: Gemma 3 270M, by Google, run with llama.cpp</li>
+        <li>Engine: Godot 4</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ The studio ============ -->
+  <section class="look" id="studio" aria-labelledby="studio-title">
+    <div class="wrap copy policy">
+      <h2 id="studio-title">About Hexmonger</h2>
+      <p>Hexmonger is the independent game studio of Nathaniel Voorhies, who worked on GPU architecture at NVIDIA and on machine-learning accelerators and their compilers at Google before turning to games. It makes small games with deep systems underneath: sand that behaves like sand, cities that generate themselves, and stories that ask you to understand rather than fight.</p>
+      <dl class="studio-facts">
+        <dt>Founder</dt><dd>Nathaniel Voorhies, solo developer (design, programming, writing and music)</dd>
+        <dt>Business</dt><dd>Sole proprietorship: Nathaniel Voorhies, doing business as Hexmonger</dd>
+        <dt>Based in</dt><dd>San Mateo County, California, USA</dd>
+        <dt>Games</dt><dd><a href="/castles-in-the-sand/">Castles in the Sand</a>, a cozy beach-building game with real water, out now on iPhone and iPad<br><a href="../">Cozy Necromancy</a>, coming to Steam in late October 2026<br><a href="/tin-coffins/">Tin Coffins</a>, a cel-shaded mech roguelite shooter, coming to Steam in December 2026<br><a href="/goblin-hunt/">Goblin Hunt</a>, a pen-and-ink fantasy RPG, in development</dd>
+        <dt>Principles</dt><dd>No accounts. Ads never interrupt play and can always be declined. Every privacy policy is published and versioned in the open.</dd>
+      </dl>
+      <p>Cozy Necromancy went into production in January 2026, as a mystery about helping a village’s restless dead move on by listening rather than fighting. Its villagers’ small talk comes from a language model small enough to run on the player’s own machine, while every line of the story is written by hand. Its free demo, the opening and Luna’s story, came to Steam in October 2026.</p>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section class="wishlist" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="intro mid">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">Talk to the developer</h2>
+        <p>Interviews, keys, questions, or a picture you can’t find here: email Nathaniel directly. There is no form.</p>
+      </div>
+      <ul class="contact-list">
+        <li><a href="mailto:press@hexmonger.com">press@hexmonger.com</a></li>
+        <li><a href="https://store.steampowered.com/app/5349910/Cozy_Necromancy/?utm_source=hexmonger.com&amp;utm_medium=website&amp;utm_campaign=cozy-necromancy-press&amp;utm_content=contact">Cozy Necromancy on Steam</a></li>
+        <li><a href="https://www.youtube.com/@hexmonger">youtube.com/@hexmonger</a></li>
+        <li><a href="/">hexmonger.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="game-footer">
+  <div class="wrap">
+    <div class="by-studio">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="34" height="34">
+      <span><b>A Hexmonger game</b><a href="/">More from the studio</a></span>
+    </div>
+    <div>
+      <h4>Press</h4>
+      <ul>
+        <li><a href="mailto:press@hexmonger.com">press@hexmonger.com</a></li>
+        <li><a href="cozy-necromancy-presskit.zip">Download the kit</a></li>
+        <li><a href="/press-kit/">All Hexmonger press kits</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>The game</h4>
+      <ul>
+        <li><a href="../">Cozy Necromancy</a></li>
+        <li><a href="https://policies.hexmonger.com/cozy-necromancy/">Support page</a></li>
+        <li>Windows, macOS and Linux · English</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -21,6 +21,7 @@ store reviewers saw. This site only links to them.
 | `goblin-hunt/index.html` | the Goblin Hunt page, set like an old printed rulebook (`assets/goblin-hunt.css`) |
 | `tin-coffins/index.html` | the Tin Coffins page, dressed like the game's briefing terminal (`assets/tin-coffins.css`) |
 | `tin-coffins/press/` | the Tin Coffins press kit: the page, thumbnails, every download in `files/` and the zip (~60 MB). **Generated** in nvoorhies/robot-fps (`tools/promo/build_presskit.py`) |
+| `cozy-necromancy/press/` | the Cozy Necromancy press kit, laid out the same way (~85 MB, the zip 43 MB). **Generated** in nvoorhies/cute-fantasy (`tools/promo/build_presskit.py`) |
 | `press-kit/index.html` | the studio's press page: the kits there are, studio facts and the press address. Linked from the home page's contact section and footer |
 | `blog/` | the blog: an index, a feed, and a folder per post. **Generated** by `blog-editor/` — edit posts there, not here |
 | `404.html` | the not-found page (Pages serves it for any missing path) |
@@ -89,6 +90,11 @@ failing check does not deploy.
   history, so refresh it when the pictures change. Video isn't in it: the
   trailer and the uncut gameplay are on YouTube, and the page links them.
   robot-fps `store/presskit/README.md` has the details.
+- **The Cozy Necromancy press kit** — the same, built in
+  nvoorhies/cute-fantasy: `python3 tools/promo/build_presskit.py` there
+  writes `build/presskit/press/`; replace `cozy-necromancy/press/` with it.
+  About 85 MB with a 43 MB zip, so refresh it when the pictures change.
+  cute-fantasy `store/presskit/README.md` has the details.
 - **A game gets its own page** — make `<game>/index.html` using the same
   header/footer and the analytics beacon in the `<head>`, link the card to it,
   and add it to `sitemap.xml`.
