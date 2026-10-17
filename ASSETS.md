@@ -71,6 +71,23 @@ re-encoded as JPEG at quality 95. `tin-coffins-presskit.zip` holds all of `files
 Rebuild there and copy the directory over rather than editing it here. The page
 also uses `tc-wordmark.webp` and `tc-og.jpg` from the Tin Coffins page above.
 
+## Cozy Necromancy press kit
+
+`cozy-necromancy/press/` is built whole by cute-fantasy `tools/promo/build_presskit.py`
+(`store/presskit/README.md` there), in the same layout as Tin Coffins': the page from
+`store/presskit/index.html`; `img/` as WebP thumbnails (800 wide for stills, 600 for
+art, quality 80); and `files/` with the downloads, from cute-fantasy
+`store/screenshots/desktop/` and `desktop-4k/`, `store/presskit/art/`, `store/steam/`
+and `icon.png`. The 1080p screenshots, logos, icon and small capsules are copied as
+PNG; the 4K stills (captured at 3840×2160 on Oct 17 2026) and the key art (cut from
+the 4K `03-wood` by `tools/promo/steam_art.py press`) are the JPEG masters as they
+are; the library hero is re-encoded as JPEG at quality 95.
+`cozy-necromancy-presskit.zip` holds all of `files/`. Rebuild there and copy the
+directory over rather than editing it here. The icon is the one picture in it that is
+model-generated: the kit offers it because it is the game's icon on Steam, and says
+so beside it and in its AI statement. The page also uses `cn-trailer.webp` and
+`cn-og.jpg` from the Cozy Necromancy page above.
+
 ## Goblin Hunt page
 
 | file | source | notes |
