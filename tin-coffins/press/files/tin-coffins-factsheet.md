@@ -12,7 +12,7 @@ A mech roguelite shooter where the pilot is a version number.
 | Genre | Third-person mech roguelite shooter |
 | Players | Single-player campaign; online co-op for up to four players (Steam, or LAN) |
 | Input | Controller (full support, adjustable aim assist), or keyboard and mouse |
-| Languages | English (interface, voice and subtitles) and Japanese (interface and subtitles) |
+| Languages | English (interface, voice and subtitles); Japanese, Simplified and Traditional Chinese, Korean, Russian, Ukrainian, Polish, Spanish and Brazilian Portuguese (interface and subtitles) |
 | Engine | Godot 4.6 |
 | Website | https://hexmonger.com/tin-coffins/ |
 | Steam | https://store.steampowered.com/app/4943260/Tin_Coffins/ |
@@ -47,9 +47,8 @@ the next iteration of you wakes up to keep fighting.
 
 This is not a game about being a god in a giant robot. You are a soldier in an
 armored suit. Cover, sightlines and reload windows decide fights, and mechs
-die in seconds under sustained fire, you included. Lose an arm and keep
-fighting. Lose your head and your radar and radio go with it. Lose your torso or
-your legs and you go down.
+die in seconds under sustained fire, you included. Lose an arm, even your head,
+and keep fighting. Only your hit points decide when you go down.
 
 The enemy fights as squads. Each one has a commander handing out roles (anchor,
 flank, suppress, overwatch, retreat) to pilots who decide for themselves when
@@ -88,8 +87,8 @@ strangers, and talk over push-to-talk voice chat. The free demo has co-op too.
   trouble: the light's boost-dash and jump pack, the medium's dive-roll, the
   heavy's thruster lurch and braced stance. Nine weapons, from autocannons and a
   marksman rifle to guided missiles, siege rockets and smoke walls.
-- **Per-limb damage.** Arms and the head can be lost without dying; the torso
-  and legs cannot. A paper-doll HUD shows what's left.
+- **Limbs come off.** Arms and the head can be shot off and the pilot fights on;
+  only hit points decide a death. A paper-doll HUD shows where every hit landed.
 - **A war that keeps score.** Five mission types (purge, sabotage, extraction,
   seize and defense) and multi-stage operations that chain them. Each one is
   fought in its own procedurally generated city, by day, at dusk, at night or
@@ -101,8 +100,8 @@ strangers, and talk over push-to-talk voice chat. The free demo has co-op too.
 - **Echoes.** Dead drops left where earlier clones fell, and transmissions on a
   channel Command doesn't log, signed by earlier Talons.
 - **No account, no telemetry.** The campaign plays fully offline. Fourteen
-  achievements, English and Japanese, colorblind modes, subtitles, and a
-  scalable UI and HUD.
+  achievements, ten languages, colorblind modes, subtitles, and a scalable UI
+  and HUD.
 
 ## Generative AI, stated plainly
 
@@ -111,7 +110,8 @@ concept designs made with AI image tools, and the HUD's damage diagram is traced
 from those designs. The collision shapes of some city buildings started as
 AI-generated 3D models; the city you see is built from a hand-scripted kit. AI
 tools helped draft and edit the game's text, including mission briefings and
-story transmissions, and its Japanese translation.
+story transmissions, and translated it into every language the game offers
+besides English.
 
 **Made by people:** the enemy mechs, the dropship, the drop drones, the siege
 tank and the weapons, all modelled by script in Blender with no concept art.
