@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c70e203b565e403fb495942f9dd584ec"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Not announced yet: no link from the home page, not in sitemap.xml, and kept
+     out of search until the Steam page is public. Drop this line at the reveal. -->
+<meta name="robots" content="noindex">
+<title>False Edge — a co-op dungeon crawler where every cut is drawn</title>
+<meta name="description" content="False Edge is a co-op dungeon crawler with sword fighting built on physics, not animations. Draw your cut across the enemy with the mouse and the simulation decides the wound. Fight down through generated dungeons alone or with up to three friends online. Coming to Steam Early Access for Windows and Linux.">
+<link rel="canonical" href="https://hexmonger.com/false-edge/">
+<meta name="theme-color" content="#0c0d11">
+<link rel="icon" href="/assets/img/hexmonger-mark.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/false-edge.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="False Edge — every cut is drawn">
+<meta property="og:description" content="A co-op dungeon crawler where every blow is simulated. Up to four players online. Coming to Steam Early Access.">
+<meta property="og:url" content="https://hexmonger.com/false-edge/">
+<meta property="og:image" content="https://hexmonger.com/assets/img/fe-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Add "sameAs": ["https://store.steampowered.com/app/5493480/…/"] once the Steam page is public. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "False Edge",
+  "url": "https://hexmonger.com/false-edge/",
+  "description": "A co-op dungeon crawler with physics-simulated sword fighting: draw each cut with the mouse through generated dungeons, alone or with up to three friends online.",
+  "genre": ["Action", "Roguelike", "Dungeon Crawler"],
+  "gamePlatform": ["Windows", "Linux"],
+  "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 4 },
+  "publisher": { "@type": "Organization", "name": "Hexmonger", "url": "https://hexmonger.com/" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Shared studio chrome, kept quiet so the game leads -->
+<header class="studio-bar">
+  <div class="wrap">
+    <a class="studio-home" href="/" aria-label="Hexmonger home">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="22" height="22">
+      <span>Hexmonger</span>
+    </a>
+    <nav class="game-nav" aria-label="False Edge">
+      <a class="opt" href="#fight">The fight</a>
+      <a class="opt" href="#dungeon">The dungeon</a>
+      <a class="opt" href="#classes">Classes</a>
+      <a class="opt" href="press/">Press</a>
+      <!-- At the reveal: <a class="nav-cta" href="https://store.steampowered.com/app/5493480/False_Edge/?utm_source=hexmonger.com&amp;utm_medium=website&amp;utm_campaign=false-edge&amp;utm_content=nav">Wishlist on Steam</a> -->
+      <span class="nav-cta" aria-disabled="true">Steam soon</span>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" aria-labelledby="title">
+    <figure class="hero-bg">
+      <img src="/assets/img/fe-hero.webp" width="1920" height="1080"
+           srcset="/assets/img/fe-hero-960.webp 960w, /assets/img/fe-hero.webp 1920w"
+           sizes="100vw" fetchpriority="high"
+           alt="In-game, low and close in a stone hall: a fighter in a plumed hat and long coat takes a skeleton’s sword on his red cross shield as the skeleton raises its own shield to strike, a man-at-arms behind them and a portcullis in the wall.">
+    </figure>
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">A co-op dungeon crawler</p>
+        <h1 id="title" class="wordmark"><span>False</span> <span>Edge</span></h1>
+        <hr class="edge-rule">
+        <p class="tagline">Every cut is drawn</p>
+        <p class="lede">Sword fighting built on physics, not animations. Drag the mouse across your enemy, and that is the cut you throw.</p>
+        <p class="sub">Where it lands, how fast and with which edge decides the wound. Fight down through generated dungeons alone, or with up to three friends online.</p>
+        <div class="btns">
+          <!-- At the reveal: <a class="btn btn-edge" href="https://store.steampowered.com/app/5493480/False_Edge/?utm_source=hexmonger.com&amp;utm_medium=website&amp;utm_campaign=false-edge&amp;utm_content=hero">Wishlist on Steam</a> -->
+          <span class="btn btn-soon" aria-disabled="true">Wishlist on Steam <small>SOON</small></span>
+        </div>
+        <ul class="chips">
+          <li class="now">Coming to Steam Early Access</li>
+          <li>1–4 players online</li>
+          <li>Windows · Linux</li>
+        </ul>
+      </div>
+    </div>
+    <p class="hero-caption">Captured from the game.</p>
+  </section>
+
+  <!-- ============ Trailer (placeholder) ============
+       There is no trailer yet (dungeon-crawl steam/trailer.md is the plan).
+       When there is, replace this .trailer-frame with the YouTube pattern from
+       cozy-necromancy/index.html: an iframe whose srcdoc is a local poster
+       (/assets/img/fe-trailer.webp, re-exported from the trailer's thumbnail),
+       so nothing loads from YouTube until someone presses play. -->
+  <section class="trailer" aria-label="Trailer">
+    <div class="wrap">
+      <div class="trailer-frame placeholder">
+        <img src="/assets/img/fe-trailer.webp" width="1280" height="720" loading="lazy" alt="">
+        <div class="card"><span>Early Access trailer</span><b>Coming soon</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ The fight ============
+       Copy here and below is drawn from dungeon-crawl steam/store_page.md
+       (Claude's draft for the Steam page): keep the two saying the same. -->
+  <section id="fight" aria-labelledby="fight-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">The fight</p>
+        <h2 id="fight-title">Every blow is simulated</h2>
+        <hr class="edge-rule">
+        <p>Your fighter has muscles, balance and a sword with weight. A backhand to the neck, a rising cut under the shield, a thrust from the feet: you draw it, and the physics decides what it does. Mail turns an edge. A gambeson soaks a club. A shield splinters plank by plank. A goblin with a broken leg goes down and stays down.</p>
+      </div>
+      <div class="shots">
+        <figure class="shot wide">
+          <img src="/assets/img/fe-hud.webp" width="1400" height="788" loading="lazy"
+               alt="In-game, from the game’s own camera with the HUD on: the party fights an orc band in a flagstone hall with the gates shut, the target’s health bar at the top, and an injury feed down the right listing broken bones and a lodged blade.">
+          <figcaption>As played: the gates shut behind you, and the injury feed counts what each blow broke.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/img/fe-minotaur.webp" width="1400" height="788" loading="lazy"
+               alt="In-game, low and close: a minotaur raises a great axe over its head above a fighter on the flagstones.">
+          <figcaption>A minotaur’s axe, coming down.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/img/fe-aftermath.webp" width="1400" height="788" loading="lazy"
+               alt="In-game: a crowded melee with orcs among the party, blood spattered across the flagstones under a wall torch.">
+          <figcaption>The floor remembers the fight.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Co-op ============ -->
+  <section class="band" id="party" aria-labelledby="party-title">
+    <div class="wrap feature">
+      <div>
+        <p class="eyebrow">Down with your friends</p>
+        <h2 id="party-title">Up to four, online</h2>
+        <p style="margin-top:20px">Invite friends from the game and take on the dungeon as a party, through Steam. Every player’s own fighter runs on their own machine, so your blows land when you throw them.</p>
+        <p>Playing alone? Three hired men-at-arms go down with you.</p>
+        <p class="aside">See it again: every fight is recorded. Press P for an instant replay at full, half or quarter speed, and move the camera anywhere to watch that backhand land again.</p>
+      </div>
+      <figure class="shot">
+        <img src="/assets/img/fe-orcs.webp" width="1400" height="788" loading="lazy"
+             alt="In-game, low among the fighters: the party in long coats and hoods with red shields faces a band of green-skinned orcs in leather, swords raised on both sides.">
+        <figcaption>The party against an orc band.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ The dungeon ============ -->
+  <section id="dungeon" aria-labelledby="dungeon-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">A new dungeon every run</p>
+        <h2 id="dungeon-title">The deeper you go</h2>
+        <hr class="edge-rule">
+        <p>Every floor is generated: masonry halls with portcullises that drop behind you, winding caves, flooded sewers on several levels. Throw levers, drag crates onto pressure plates, find what opens the vault, and listen when the walls themselves start to talk. The deeper you go, the worse it gets. Die, and the run is over.</p>
+      </div>
+      <div class="shots">
+        <figure class="shot">
+          <img src="/assets/img/fe-court.webp" width="1400" height="788" loading="lazy"
+               alt="In-game: a melee in the Sunken Court, fighters in red and orange crowding a man on the flagstones, a spear crossing the frame and a portcullis behind.">
+          <figcaption>The Sunken Court, one of the dungeon’s set rooms.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/img/fe-skeletons.webp" width="1400" height="788" loading="lazy"
+               alt="In-game: the party fights three skeletons in a stone hall, one skeleton lunging with a sword from the left, another with a spear on the right.">
+          <figcaption>Skeletons shed limbs instead of blood.</figcaption>
+        </figure>
+      </div>
+      <h3 style="margin:54px 0 18px">Things that live down there</h3>
+      <ul class="bestiary">
+        <li>Goblins<small>Packs that fight together.</small></li>
+        <li>Orcs<small>Warbands.</small></li>
+        <li>Skeletons<small>No blood to lose.</small></li>
+        <li>Rats<small>Swarms.</small></li>
+        <li>Giant spiders</li>
+        <li>Mimics</li>
+        <li>Hounds</li>
+        <li>Ogres</li>
+        <li>Minotaurs</li>
+        <li>Stone golems<small>Only a thrust at the joints will open one.</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ Classes ============ -->
+  <section class="band" id="classes" aria-labelledby="classes-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">Fighter, wizard or cleric</p>
+        <h2 id="classes-title">Choose how you go down</h2>
+        <hr class="edge-rule">
+      </div>
+      <div class="classes">
+        <article class="class">
+          <h3>The fighter</h3>
+          <p class="arms">Sword and shield</p>
+          <p>Fences with drawn cuts and parries, and wraps the blade round a shield.</p>
+        </article>
+        <article class="class">
+          <h3>The wizard</h3>
+          <p class="arms">A staff and quick fingers</p>
+          <p>Types spells as quick directional codes under pressure: a missile, a ward, a push that knocks everyone flat, a sleep that drops a room.</p>
+        </article>
+        <article class="class">
+          <h3>The cleric</h3>
+          <p class="arms">Mace and prayer</p>
+          <p>Heals the party, and is no swordsman.</p>
+        </article>
+      </div>
+      <div class="shots">
+        <figure class="shot">
+          <img src="/assets/img/fe-sleep.webp" width="1400" height="788" loading="lazy"
+               alt="In-game: the wizard, staff levelled, sends lavender streams of the sleep spell over a cutthroat who has fallen on the flagstones.">
+          <figcaption>Sleep: a cutthroat goes down.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/img/fe-slimes.webp" width="1400" height="788" loading="lazy"
+               alt="In-game, in dark brickwork: the wizard in a green hooded robe with a staff among green slimes, a fighter beside them.">
+          <figcaption>Slimes in the deep brickwork.</figcaption>
+        </figure>
+      </div>
+      <p class="aside">Enchanted weapons turn up in the chests: frost that slows, fire that sears, lightning, venom, and wounds that will not stop bleeding.</p>
+    </div>
+  </section>
+
+  <!-- ============ The character creator ============ -->
+  <section aria-labelledby="creator-title">
+    <div class="wrap feature flip">
+      <div>
+        <p class="eyebrow">Your own fighter</p>
+        <h2 id="creator-title">Who goes down into the dark?</h2>
+        <p style="margin-top:20px">Build your character in a full creator: face, brows, eyes, hair, beard, skin, and clothes in the colours you choose. The fights leave their marks on them: torn cloth, blood, scars.</p>
+      </div>
+      <div class="shots" style="grid-template-columns:1fr">
+        <figure class="shot">
+          <img src="/assets/img/fe-face.webp" width="1400" height="788" loading="lazy"
+               alt="The character creator, close on a young man’s face with swept grey hair, the creator’s panel of hair, beard, skin and eye options down the right.">
+          <figcaption>The creator, close on a face.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="/assets/img/fe-cleric.webp" width="1400" height="788" loading="lazy"
+               alt="The character creator: a cleric in a white coif and a white tabard with a red sun, red hose and boots, the creator’s options down the right.">
+          <figcaption>A cleric in tabard and coif.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Closing ============ -->
+  <section class="closing band" aria-labelledby="closing-title">
+    <div class="wrap">
+      <hr class="edge-rule">
+      <p class="eyebrow">Coming to Early Access</p>
+      <h2 id="closing-title">Draw your blade</h2>
+      <p>False Edge is coming to Steam Early Access for Windows and Linux. The dungeon crawl is what it offers first, and it will keep growing.</p>
+      <div class="btns">
+        <!-- At the reveal: <a class="btn btn-edge" href="https://store.steampowered.com/app/5493480/False_Edge/?utm_source=hexmonger.com&amp;utm_medium=website&amp;utm_campaign=false-edge&amp;utm_content=closing">Wishlist on Steam</a> -->
+        <span class="btn btn-soon" aria-disabled="true">Wishlist on Steam <small>SOON</small></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="game-footer">
+  <div class="wrap">
+    <div class="by-studio">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="34" height="34">
+      <span><b>A Hexmonger game</b><a href="/">More from the studio</a></span>
+    </div>
+    <div>
+      <h4>Status</h4>
+      <ul>
+        <li>In development · coming to Steam Early Access</li>
+        <li>Windows and Linux · 1–4 players online</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a href="mailto:support@hexmonger.com">support@hexmonger.com</a></li>
+        <li><a href="press/">Press kit</a> · <a href="mailto:press@hexmonger.com">press@hexmonger.com</a></li>
+        <li><a href="/">The rest of the workshop</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c70e203b565e403fb495942f9dd584ec"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- A skeleton, not announced: drop noindex at the reveal, with the game page's. -->
+<meta name="robots" content="noindex">
+<title>False Edge press kit</title>
+<meta name="description" content="Press kit for False Edge, a co-op dungeon crawler from Hexmonger with physics-simulated sword fighting, coming to Steam Early Access. Fact sheet, descriptions, screenshots and how to reach the developer.">
+<link rel="canonical" href="https://hexmonger.com/false-edge/press/">
+<meta name="theme-color" content="#0c0d11">
+<link rel="icon" href="/assets/img/hexmonger-mark.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/false-edge.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hexmonger">
+<meta property="og:title" content="False Edge press kit">
+<meta property="og:description" content="Fact sheet, screenshots and descriptions for False Edge, a co-op dungeon crawler where every cut is drawn.">
+<meta property="og:url" content="https://hexmonger.com/false-edge/press/">
+<meta property="og:image" content="https://hexmonger.com/assets/img/fe-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* Press-kit layout on top of the game page's palette and chrome, as the other
+     two kits have it. Hand-made here for now; Tin Coffins' and Cozy Necromancy's
+     are generated in their game repos (tools/promo/build_presskit.py), and this
+     one should be too once there is key art, logos and a trailer to put in it. */
+  .press section { padding: 64px 0; }
+  .press h2 { font-size: clamp(30px, 3.8vw, 42px); margin-bottom: 22px; }
+  .press h3 { font-size: 21px; margin: 34px 0 14px; }
+  .press .hero { min-height: 0; padding: 54px 0 64px; display: block; }
+  .press .hero::after { display: none; }
+  .press .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  .press .wordmark { font-size: clamp(56px, 7.5vw, 96px); }
+  @media (max-width: 900px) { .press .hero .wrap { grid-template-columns: 1fr; } .press .hero .wrap { margin-top: 0; } }
+  @media (max-width: 520px) { .press .btn { white-space: normal; text-align: center; padding: 12px 20px; } }
+  .key-art { margin: 0; }
+  .key-art img { width: 100%; height: auto; border: 1px solid var(--line); }
+  .key-art figcaption { margin-top: 10px; font-size: 13px; color: var(--faint); }
+  .cols { display: grid; grid-template-columns: 320px 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 860px) { .cols { grid-template-columns: 1fr; gap: 30px; } }
+  .facts { margin: 0; padding: 20px 22px; background: var(--panel); border: 1px solid var(--line); }
+  .facts dt { font: 700 11.5px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--torch); margin-top: 16px; }
+  .facts dt:first-child { margin-top: 0; }
+  .facts dd { margin: 6px 0 0; font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+  .copy p, .copy li { color: #ddd7c8; }
+  .copy ul { padding-left: 1.2rem; }
+  .copy li { margin: .45rem 0; }
+  .copy li::marker { color: var(--edge); }
+  .blurb { margin: 0 0 8px; padding: 16px 20px; background: var(--panel); border-left: 3px solid var(--edge-dim); font-size: 16px; }
+  .label { font: 700 11.5px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin: 26px 0 10px; }
+  .label:first-child { margin-top: 0; }
+  /* Not written yet: a dashed box saying what goes here. */
+  .tbd { border: 1px dashed #4a4b55; color: var(--faint); padding: 14px 18px; font-size: 14.5px; margin: 0 0 16px; }
+  .tbd b { color: var(--torch); font: 700 11px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; margin-right: 8px; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+  @media (max-width: 420px) { .gallery { grid-template-columns: 1fr; } }
+  .gallery figure { margin: 0; }
+  .gallery img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); background: var(--panel); }
+  .gallery figcaption { margin-top: 8px; font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+  .gallery .dl { display: block; margin-top: 3px; font: 700 12px/1.4 var(--sans); letter-spacing: .08em; text-transform: uppercase; }
+  .gallery .dl a { margin-right: 12px; text-decoration: none; }
+  .gallery .dl a:hover { text-decoration: underline; }
+  .slot { aspect-ratio: 16 / 9; display: grid; place-content: center; text-align: center; gap: 6px; border: 1px dashed #4a4b55; color: var(--faint); font-size: 13.5px; }
+  .slot b { font: 700 18px/1.1 var(--head); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .slot.tall { aspect-ratio: auto; min-height: 100%; }
+  .note { color: var(--faint); font-size: 15px; max-width: 760px; }
+  .press .trailer-frame { max-width: none; }
+  .policy > * { max-width: 760px; }
+  .studio-facts { display: grid; grid-template-columns: 180px 1fr; gap: 8px 22px; margin: 22px 0; font-size: 15px; }
+  .studio-facts dt { font: 700 11.5px/1.7 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--torch); }
+  .studio-facts dd { margin: 0; color: #ddd7c8; }
+  @media (max-width: 640px) { .studio-facts { grid-template-columns: 1fr; gap: 2px; } .studio-facts dd { margin-bottom: 10px; } }
+  .contact-list { list-style: none; padding: 0; margin: 22px auto 0; display: grid; gap: 8px; max-width: 520px; font-size: 17px; text-align: center; }
+  .intro.mid { margin-left: auto; margin-right: auto; text-align: center; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="studio-bar">
+  <div class="wrap">
+    <a class="studio-home" href="/" aria-label="Hexmonger home">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="22" height="22">
+      <span>Hexmonger</span>
+    </a>
+    <nav class="game-nav" aria-label="Press kit">
+      <a class="opt" href="../">The game</a>
+      <a class="opt" href="#facts">Facts</a>
+      <a class="opt" href="#video">Video</a>
+      <a class="opt" href="#media">Media</a>
+      <a class="opt" href="#contact">Contact</a>
+      <span class="chip">Press kit</span>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="press">
+
+  <section class="hero" aria-labelledby="title">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Press kit</p>
+        <h1 id="title" class="wordmark"><span>False</span> <span>Edge</span></h1>
+        <hr class="edge-rule">
+        <p class="lede" style="margin-top:24px">A co-op dungeon crawler where every cut is drawn and every blow is simulated.</p>
+        <div class="btns">
+          <!-- Once the kit is built: false-edge-presskit.zip (all of files/) and files/false-edge-factsheet.md -->
+          <span class="btn btn-soon" aria-disabled="true">Download everything <small>SOON</small></span>
+          <span class="btn btn-soon" aria-disabled="true">Fact sheet <small>SOON</small></span>
+        </div>
+        <ul class="chips">
+          <li class="now">Steam Early Access · date TBD</li>
+          <li>Price TBD</li>
+          <li>Windows · Linux</li>
+          <li>1–4 players online</li>
+        </ul>
+      </div>
+      <!-- Key art goes here once there is some; until then the hero frame. -->
+      <figure class="key-art">
+        <img src="img/01-skeleton-duel.webp" width="800" height="450"
+             alt="In-game: a fighter in a plumed hat takes a skeleton’s sword on his red cross shield in a stone hall.">
+        <figcaption>Every picture here is captured from the running game. Key art to come.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ Facts and copy ============ -->
+  <section class="band" id="facts" aria-labelledby="facts-title">
+    <div class="wrap cols">
+      <dl class="facts">
+        <dt>Developer</dt><dd>Nathaniel Voorhies, working as <a href="/">Hexmonger</a> (solo developer)</dd>
+        <dt>Publisher</dt><dd>Hexmonger (self-published)</dd>
+        <dt>Release</dt><dd>Steam Early Access, date TBD</dd>
+        <dt>Price</dt><dd>TBD</dd>
+        <dt>Platforms</dt><dd>Windows and Linux / SteamOS (Steam)</dd>
+        <dt>Genre</dt><dd>Co-op action dungeon crawler (roguelike)</dd>
+        <dt>Players</dt><dd>1–4, online co-op through Steam</dd>
+        <dt>Input</dt><dd>Keyboard and mouse; partial controller support</dd>
+        <dt>Languages</dt><dd>English</dd>
+        <dt>Engine</dt><dd>Godot 4.6</dd>
+        <dt>Steam</dt><dd>TBD (the page isn’t public yet)</dd>
+        <dt>Website</dt><dd><a href="../">hexmonger.com/false-edge</a></dd>
+        <dt>Press contact</dt><dd><a href="mailto:press@hexmonger.com">press@hexmonger.com</a></dd>
+      </dl>
+
+      <div class="copy">
+        <h2 id="facts-title">About the game</h2>
+        <p class="label">In one sentence</p>
+        <p class="tbd"><b>To write</b>One sentence a writer can lift whole: what False Edge is and what is new about it.</p>
+        <p class="label">Short description</p>
+        <!-- The Steam page's short description (dungeon-crawl steam/store_page.md), as a starting point. -->
+        <p class="blurb">A co-op dungeon crawler where every blow is simulated. Draw your cut across the enemy with the mouse, and the physics decides what it does: through a gambeson, off a shield, into the bone. Fight down through generated dungeons alone or with up to three friends online.</p>
+
+        <p class="label">Long description</p>
+        <p class="tbd"><b>To write</b>Four or five paragraphs: the drawn cut and the simulation, the party and co-op, the generated dungeon, the classes, Early Access and what comes after.</p>
+
+        <h3>Features</h3>
+        <p class="tbd"><b>To write</b>Six bullets, each a bold claim and a line under it (the fight, co-op, the dungeon, the bestiary, classes and enchantments, the creator and the replay).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Video ============
+       When the trailer is up, this takes the YouTube pattern from
+       cozy-necromancy/press/index.html (srcdoc poster, nothing loaded until play). -->
+  <section id="video" aria-labelledby="video-title">
+    <div class="wrap">
+      <h2 id="video-title">Trailer</h2>
+      <div class="trailer-frame placeholder">
+        <img src="/assets/img/fe-trailer.webp" width="1280" height="720" loading="lazy" alt="">
+        <div class="card"><span>Early Access trailer</span><b>Coming soon</b></div>
+      </div>
+      <p class="note" style="margin-top:14px">The trailer will be here and on YouTube, with the 1080p master on request.</p>
+    </div>
+  </section>
+
+  <!-- ============ Screenshots and art ============ -->
+  <section class="band" id="media" aria-labelledby="media-title">
+    <div class="wrap">
+      <h2 id="media-title">Screenshots</h2>
+      <p class="note">1920×1080, captured from the running game, the same set as the Steam page. No watermarks or logos: crop them freely.</p>
+      <div class="gallery">
+      <figure><a href="files/screenshots/false-edge-01-skeleton-duel.jpg"><img src="img/01-skeleton-duel.webp" width="800" height="450" loading="lazy" alt="Screenshot: The fighter, a man-at-arms behind him, against a skeleton"></a><figcaption>The fighter, a man-at-arms behind him, against a skeleton<span class="dl"><a href="files/screenshots/false-edge-01-skeleton-duel.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-02-orc-band-hud.jpg"><img src="img/02-orc-band-hud.webp" width="800" height="450" loading="lazy" alt="Screenshot: The game as played: the HUD, the target’s bar and the injury feed, the gates shut on an orc band"></a><figcaption>The game as played: the HUD, the target’s bar and the injury feed, the gates shut on an orc band<span class="dl"><a href="files/screenshots/false-edge-02-orc-band-hud.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-03-orc-band.jpg"><img src="img/03-orc-band.webp" width="800" height="450" loading="lazy" alt="Screenshot: The party against an orc band"></a><figcaption>The party against an orc band<span class="dl"><a href="files/screenshots/false-edge-03-orc-band.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-04-wizard-sleep.jpg"><img src="img/04-wizard-sleep.webp" width="800" height="450" loading="lazy" alt="Screenshot: The wizard, a cutthroat down under the sleep spell"></a><figcaption>The wizard, a cutthroat down under the sleep spell<span class="dl"><a href="files/screenshots/false-edge-04-wizard-sleep.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-05-minotaur.jpg"><img src="img/05-minotaur.webp" width="800" height="450" loading="lazy" alt="Screenshot: A minotaur’s axe over the fighter"></a><figcaption>A minotaur’s axe over the fighter<span class="dl"><a href="files/screenshots/false-edge-05-minotaur.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-06-sunken-court.jpg"><img src="img/06-sunken-court.webp" width="800" height="450" loading="lazy" alt="Screenshot: The Sunken Court, one of the dungeon’s set rooms, mid-melee"></a><figcaption>The Sunken Court, one of the dungeon’s set rooms, mid-melee<span class="dl"><a href="files/screenshots/false-edge-06-sunken-court.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-07-aftermath.jpg"><img src="img/07-aftermath.webp" width="800" height="450" loading="lazy" alt="Screenshot: An orc fight, blood on the floor"></a><figcaption>An orc fight, blood on the floor<span class="dl"><a href="files/screenshots/false-edge-07-aftermath.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-08-wizard-slimes.jpg"><img src="img/08-wizard-slimes.webp" width="800" height="450" loading="lazy" alt="Screenshot: The wizard among slimes in the deep brickwork"></a><figcaption>The wizard among slimes in the deep brickwork<span class="dl"><a href="files/screenshots/false-edge-08-wizard-slimes.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-09-skeleton-melee.jpg"><img src="img/09-skeleton-melee.webp" width="800" height="450" loading="lazy" alt="Screenshot: The party against three skeletons"></a><figcaption>The party against three skeletons<span class="dl"><a href="files/screenshots/false-edge-09-skeleton-melee.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-10-creator-cleric.jpg"><img src="img/10-creator-cleric.webp" width="800" height="450" loading="lazy" alt="Screenshot: The character creator: a cleric in tabard and coif"></a><figcaption>The character creator: a cleric in tabard and coif<span class="dl"><a href="files/screenshots/false-edge-10-creator-cleric.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      <figure><a href="files/screenshots/false-edge-11-creator-face.jpg"><img src="img/11-creator-face.webp" width="800" height="450" loading="lazy" alt="Screenshot: The character creator, close on a face"></a><figcaption>The character creator, close on a face<span class="dl"><a href="files/screenshots/false-edge-11-creator-face.jpg" download>JPEG 1920×1080</a></span></figcaption></figure>
+      </div>
+
+      <h3>4K stills</h3>
+      <p class="note">To come: the strongest of these captured again at 3840×2160.</p>
+
+      <h3>Logo, icon and key art</h3>
+      <p class="note">To come. The Steam capsules made so far are placeholders (a screenshot with the name set on it), so the kit leaves them out.</p>
+      <div class="gallery">
+        <div class="slot"><b>Logo</b>transparent PNG</div>
+        <div class="slot"><b>Key art</b>16:9 and 1:1</div>
+        <div class="slot"><b>Steam capsules</b>header, main, vertical, library</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Keys and video policy ============ -->
+  <section id="keys" aria-labelledby="keys-title">
+    <div class="wrap copy policy">
+      <h2 id="keys-title">Keys, streaming and video</h2>
+      <p><b>Steam keys</b> go to press, streamers and video creators once Early Access opens. Email <a href="mailto:press@hexmonger.com?subject=False%20Edge%20key%20request">press@hexmonger.com</a> with a link to your outlet or channel.</p>
+      <p><b>Streaming and monetization:</b> you are welcome to stream, record and monetize video of False Edge on any platform, and you do not need to ask first. Screenshots from this kit may be used in coverage of the game.</p>
+    </div>
+  </section>
+
+  <!-- ============ Credits ============
+       To fill in with the user: the engine and the NCV Swordfight addon, the
+       3D art (Synty POLYGON Dungeon, KayKit, JustCreate's Stylized Fantasy
+       Bundle — check each licence's credit wording), music and sound, fonts. -->
+  <section class="band" id="credits" aria-labelledby="credits-title">
+    <div class="wrap copy">
+      <h2 id="credits-title">Credits</h2>
+      <ul>
+        <li>Design and programming: Nathaniel Voorhies</li>
+        <li>Engine: Godot 4</li>
+      </ul>
+      <p class="tbd"><b>To write</b>3D art, animation, music, sound and fonts.</p>
+    </div>
+  </section>
+
+  <!-- ============ The studio ============ -->
+  <section id="studio" aria-labelledby="studio-title">
+    <div class="wrap copy policy">
+      <h2 id="studio-title">About Hexmonger</h2>
+      <p>Hexmonger is the independent game studio of Nathaniel Voorhies, who worked on GPU architecture at NVIDIA and on machine-learning accelerators and their compilers at Google before turning to games. It makes small games with deep systems underneath: sand that behaves like sand, cities that generate themselves, and stories that ask you to understand rather than fight.</p>
+      <dl class="studio-facts">
+        <dt>Founder</dt><dd>Nathaniel Voorhies, solo developer</dd>
+        <dt>Business</dt><dd>Sole proprietorship: Nathaniel Voorhies, doing business as Hexmonger</dd>
+        <dt>Based in</dt><dd>San Mateo County, California, USA</dd>
+        <dt>Games</dt><dd><a href="/castles-in-the-sand/">Castles in the Sand</a>, a cozy beach-building game with real water, out now on iPhone and iPad<br><a href="/cozy-necromancy/">Cozy Necromancy</a>, a cozy mystery RPG with no combat<br><a href="/tin-coffins/">Tin Coffins</a>, a cel-shaded mech roguelite shooter<br><a href="../">False Edge</a>, a co-op dungeon crawler, in development</dd>
+      </dl>
+      <p class="tbd"><b>To write</b>A paragraph on False Edge’s history: when it started, the sword-fighting simulation under it, and the story campaign set in the same world.</p>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section class="band" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="intro mid">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">Talk to the developer</h2>
+        <p>Interviews, keys, questions, or a picture you can’t find here: email Nathaniel directly. There is no form.</p>
+      </div>
+      <ul class="contact-list">
+        <li><a href="mailto:press@hexmonger.com">press@hexmonger.com</a></li>
+        <li><a href="https://www.youtube.com/@hexmonger">youtube.com/@hexmonger</a></li>
+        <li><a href="/">hexmonger.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="game-footer">
+  <div class="wrap">
+    <div class="by-studio">
+      <img src="/assets/img/hexmonger-mark.svg" alt="" width="34" height="34">
+      <span><b>A Hexmonger game</b><a href="/">More from the studio</a></span>
+    </div>
+    <div>
+      <h4>Press</h4>
+      <ul>
+        <li><a href="mailto:press@hexmonger.com">press@hexmonger.com</a></li>
+        <li><a href="/press-kit/">All Hexmonger press kits</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>The game</h4>
+      <ul>
+        <li><a href="../">False Edge</a></li>
+        <li>Windows and Linux · English</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
