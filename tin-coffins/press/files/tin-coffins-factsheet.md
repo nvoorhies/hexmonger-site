@@ -8,7 +8,7 @@ A mech roguelite shooter where the pilot is a version number.
 | Publisher | Hexmonger (self-published) |
 | Platforms | Windows, macOS and Linux (Steam) |
 | Release | December 2026 on Steam. A free demo is on Steam now |
-| Price | US$9.99 on Steam |
+| Price | US$14.99 on Steam |
 | Genre | Third-person mech roguelite shooter |
 | Players | Single-player campaign; online co-op for up to four players (Steam, or LAN) |
 | Input | Controller (full support, adjustable aim assist), or keyboard and mouse |
@@ -102,25 +102,6 @@ strangers, and talk over push-to-talk voice chat. The free demo has co-op too.
 - **No account, no telemetry.** The campaign plays fully offline. Fourteen
   achievements, ten languages, colorblind modes, subtitles, and a scalable UI
   and HUD.
-
-## Generative AI, stated plainly
-
-**Made with AI tools:** the squad's mechs are modelled by script in Blender from
-concept designs made with AI image tools, and the HUD's damage diagram is traced
-from those designs. The collision shapes of some city buildings started as
-AI-generated 3D models; the city you see is built from a hand-scripted kit. AI
-tools helped draft and edit the game's text, including mission briefings and
-story transmissions, and translated it into every language the game offers
-besides English.
-
-**Made by people:** the enemy mechs, the dropship, the drop drones, the siege
-tank and the weapons, all modelled by script in Blender with no concept art.
-Every line of voice in the game was recorded by a person. The music is
-first-party or from licensed music libraries, and the sound effects come from
-human-made sound libraries.
-
-**Generated while you play:** nothing. No generative model runs in the game,
-and the enemy pilots in the campaign run hand-written behaviour.
 
 ## Streaming and video policy
 

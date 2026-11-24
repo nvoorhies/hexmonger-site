@@ -75,26 +75,6 @@ all of them: who sealed the Moonwell, and what were they protecting?
 - **Offline, no account.** No ads and no microtransactions on Steam. Steam
   achievements, and nothing collected about the player.
 
-## Generative AI, stated plainly
-
-**Made with AI tools:** the key art behind the game's icon, and the first
-versions of many 3D models (the villagers and spirits, the ritual items and
-several buildings). Each model was generated from our own written description,
-then cleaned up, re-shaded, rigged and animated by hand. The achievement icons
-are pictures of those models.
-
-**Written by a person:** the story, quests and dialogue. AI tools helped edit
-them. None of the game's writing, music or sound was generated: the music and
-sound effects come from human-made libraries.
-
-**Generated while you play:** a small language model (Google's Gemma 3 270M)
-runs entirely on the player's own machine, with no network connection. It
-writes short lines of villager small talk, the oracle's one- or two-sentence
-hint after a failed ritual, and routine filler records in the in-game archive.
-It also picks which of the pre-written dialogue lines fits the moment. The
-player never types to it. It never writes story. It can be switched off in
-Settings, and the game plays the same on written lines alone.
-
 ## Streaming and video policy
 
 You are welcome to stream, record and monetize video of Cozy Necromancy on any
@@ -104,8 +84,7 @@ may be used in coverage of the game. We'd appreciate a link to the Steam page.
 ## Credits
 
 - Design, programming and writing: Nathaniel Voorhies
-- 3D assets: KayKit by Kay Lousberg (CC0), Quaternius (CC0), and models
-  generated with MeshForge and Meshy, then reworked by hand
+- 3D assets: KayKit by Kay Lousberg (CC0), Quaternius (CC0)
 - Music: Ovani Sound
 - Sound effects: Ovani Sound, the Sonniss GDC Game Audio Bundles, and Kenney
   (CC0)
