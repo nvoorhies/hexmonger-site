@@ -1,0 +1,244 @@
+/* Hexmonger — False Edge page. No build step; served as-is.
+   Dressed like the game's own capsules: the dungeon's dark stone, torchlight,
+   FALSE EDGE in EB Garamond capitals, and the thin teal rule of the blade's edge
+   under it (dungeon-crawl tools/steam/capsules.py). */
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/inter.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Garamond";
+  src: url("fonts/garamond.woff2") format("woff2");
+  font-weight: 400 800; font-display: swap;
+}
+@font-face {
+  font-family: "Garamond";
+  src: url("fonts/garamond-italic.woff2") format("woff2");
+  font-weight: 400 800; font-style: italic; font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --ink: #0c0d11;         /* the dark past the torches */
+  --ink-2: #121318;
+  --panel: #18191f;
+  --panel-2: #1e1f26;
+  --line: #2b2c34;
+  --text: #ece6d6;        /* the capsule's title colour */
+  --muted: #aca696;
+  --faint: #7b776c;
+  --edge: #6ee1d2;        /* the blade-edge rule */
+  --edge-dim: #3f8f86;
+  --torch: #e39a4a;
+  --blood: #a8342c;
+  --radius: 3px;
+  --wrap: 1140px;
+  --head: "Garamond", "EB Garamond", Garamond, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--ink); color: var(--text);
+  font: 400 17px/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--edge); text-underline-offset: 3px; }
+h1, h2, h3 {
+  font-family: var(--head); font-weight: 700; line-height: 1.02; margin: 0;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+h2 { font-size: clamp(34px, 4.6vw, 54px); }
+h3 { font-size: 24px; letter-spacing: .06em; }
+p { margin: 0 0 16px; }
+.wrap { width: min(100% - 40px, var(--wrap)); margin: 0 auto; }
+section { padding: 84px 0; }
+.skip {
+  position: absolute; left: -9999px; top: 0; background: var(--edge);
+  color: #06201d; padding: 10px 16px; font-weight: 700; z-index: 20;
+}
+.skip:focus { left: 0; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* The edge: a rule that brightens toward its point, as under the capsule title. */
+.edge-rule {
+  display: block; height: 3px; width: min(100%, 420px); border: 0; margin: 0;
+  background: linear-gradient(90deg, rgba(110,225,210,0) 0%, rgba(110,225,210,.35) 45%, var(--edge) 100%);
+}
+
+/* ---------- studio bar (shared chrome, kept quiet) ---------- */
+.studio-bar {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(12,13,17,.86);
+  backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+  border-bottom: 1px solid var(--line);
+}
+.studio-bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+.studio-home { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--muted); font: 600 12.5px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; }
+.studio-home img { width: 22px; height: 22px; }
+.studio-home:hover { color: var(--text); }
+.game-nav { display: flex; align-items: center; gap: 22px; }
+.game-nav a { color: var(--text); text-decoration: none; font: 700 16px/1 var(--head); letter-spacing: .1em; text-transform: uppercase; }
+.game-nav a:hover { color: var(--edge); }
+.game-nav .chip {
+  border: 1px solid var(--line); color: var(--muted); padding: 6px 11px;
+  font: 600 11.5px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase;
+}
+.game-nav .nav-cta { border: 1px solid var(--edge-dim); color: var(--edge); padding: 8px 12px; font-size: 14.5px; }
+.game-nav span.nav-cta { color: var(--muted); border-color: var(--line); font: 700 14.5px/1 var(--head); letter-spacing: .1em; text-transform: uppercase; }
+@media (max-width: 680px) { .game-nav .opt { display: none; } .studio-home span { display: none; } }
+
+/* ---------- buttons ---------- */
+.btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 26px; text-decoration: none; white-space: nowrap;
+  font: 700 19px/1 var(--head); letter-spacing: .12em; text-transform: uppercase;
+  border: 1px solid transparent; transition: background .15s, box-shadow .15s, color .15s;
+}
+.btn-edge {
+  background: var(--edge); color: #06201d;
+  box-shadow: 0 0 0 1px rgba(110,225,210,.35), 0 0 36px -8px rgba(110,225,210,.5);
+}
+.btn-edge:hover { background: #a6f0e6; color: #06201d; }
+.btn-edge:focus-visible, .btn-plain:focus-visible { outline: 2px solid var(--torch); outline-offset: 4px; }
+.btn-plain { border-color: var(--edge-dim); color: var(--edge); }
+.btn-plain:hover { background: rgba(110,225,210,.08); }
+/* A button for something not there yet (the Steam page isn't public). */
+.btn-soon { border-color: var(--line); background: var(--panel); color: var(--muted); cursor: default; }
+.btn-soon small { font: 700 10.5px/1 var(--sans); letter-spacing: .14em; background: var(--line); color: var(--muted); padding: 4px 6px; }
+
+/* ---------- hero: one fight, full bleed, the name on the dark side ---------- */
+.hero {
+  position: relative; overflow: hidden; border-bottom: 1px solid var(--line);
+  min-height: min(86vh, 760px); display: flex; align-items: center; padding: 90px 0 80px;
+}
+.hero-bg { position: absolute; inset: 0; margin: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%; }
+.hero::after {
+  /* the capsule's shade: dark on the title's side, clear over the fight */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(8,8,12,.94) 0%, rgba(8,8,12,.82) 32%, rgba(8,8,12,.25) 62%, rgba(8,8,12,0) 80%),
+    linear-gradient(0deg, var(--ink) 0%, rgba(12,13,17,0) 22%);
+}
+.hero .wrap { position: relative; z-index: 1; }
+.hero-copy { max-width: 560px; }
+.eyebrow {
+  font: 700 12.5px/1 var(--sans); letter-spacing: .26em; text-transform: uppercase;
+  color: var(--torch); margin: 0 0 18px;
+}
+.wordmark {
+  font-size: clamp(64px, 10vw, 128px); line-height: .9; letter-spacing: .03em; margin: 0 0 22px;
+  text-shadow: 0 4px 30px rgba(0,0,0,.8);
+}
+.wordmark span { display: block; }
+.tagline { font: 700 18px/1 var(--head); letter-spacing: .14em; text-transform: uppercase; color: #c8c4ba; margin: 16px 0 28px; }
+.lede { font-size: 20px; line-height: 1.55; color: #f1ecdf; max-width: 40ch; }
+.hero .sub { color: var(--muted); font-size: 16.5px; max-width: 46ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0; padding: 0; list-style: none; }
+.chips li {
+  border: 1px solid var(--line); background: rgba(24,25,31,.85); color: var(--muted);
+  padding: 7px 12px; font: 600 12.5px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase;
+}
+.chips li.now { border-color: rgba(110,225,210,.45); color: var(--edge); }
+.hero-caption {
+  position: absolute; right: 20px; bottom: 16px; z-index: 1; margin: 0;
+  font: 600 12px/1.3 var(--sans); letter-spacing: .03em; color: rgba(236,230,214,.6);
+}
+@media (max-width: 760px) {
+  .hero { min-height: 0; padding: 0 0 56px; display: block; }
+  .hero-bg { position: relative; aspect-ratio: 16 / 9; }
+  .hero::after { background: linear-gradient(0deg, var(--ink) 0%, rgba(12,13,17,0) 30%); top: 0; bottom: auto; aspect-ratio: 16 / 9; height: auto; }
+  .hero .wrap { margin-top: -40px; }
+  .hero-caption { display: none; }
+}
+
+/* ---------- trailer ---------- */
+.trailer { padding: 70px 0 84px; background: var(--ink-2); border-bottom: 1px solid var(--line); }
+.trailer-frame {
+  position: relative; max-width: 960px; margin: 0 auto; aspect-ratio: 16 / 9;
+  border: 1px solid var(--line); overflow: hidden; background: #000;
+  box-shadow: 0 30px 70px -30px rgba(0,0,0,.95), 0 0 90px -40px rgba(227,154,74,.35);
+}
+.trailer-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+/* Until there is a trailer: a still, and a plain card in front of it. */
+.trailer-frame.placeholder img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.7); }
+.trailer-frame.placeholder .card {
+  position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 14px;
+}
+.trailer-frame.placeholder .card b { font: 700 clamp(26px, 4vw, 40px)/1 var(--head); letter-spacing: .1em; text-transform: uppercase; }
+.trailer-frame.placeholder .card span { font: 600 12.5px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--edge); }
+.trailer-note { max-width: 960px; margin: 14px auto 0; color: var(--faint); font-size: 14px; }
+
+/* ---------- section furniture ---------- */
+.intro { max-width: 680px; margin: 0 0 42px; }
+.intro .edge-rule { margin: 20px 0 0; width: 180px; }
+.intro p { color: var(--muted); font-size: 17.5px; margin-top: 18px; }
+.band { background: var(--ink-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.aside {
+  border-left: 2px solid var(--edge-dim); padding: 4px 0 4px 18px; margin: 26px 0 0;
+  color: var(--faint); font-size: 15px;
+}
+
+/* ---------- screenshots ---------- */
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.shot { margin: 0; }
+.shot.wide { grid-column: 1 / -1; }
+.shot img { width: 100%; height: auto; border: 1px solid var(--line); box-shadow: 0 22px 50px -30px rgba(0,0,0,.95); }
+.shot figcaption { margin-top: 10px; font: 500 13px/1.4 var(--sans); color: var(--faint); }
+@media (max-width: 760px) { .shots { grid-template-columns: 1fr; } }
+
+/* ---------- two-column feature ---------- */
+.feature { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.feature.flip > :first-child { order: 2; }
+.feature p { color: var(--muted); }
+@media (max-width: 860px) { .feature { grid-template-columns: 1fr; gap: 30px; } .feature.flip > :first-child { order: 0; } }
+
+/* ---------- the bestiary: a plain list set like a ledger ---------- */
+.bestiary { columns: 3 200px; column-gap: 36px; margin: 0; padding: 0; list-style: none; }
+.bestiary li {
+  break-inside: avoid; padding: 9px 0; border-bottom: 1px solid var(--line);
+  font: 600 19px/1.2 var(--head); letter-spacing: .03em; color: var(--text);
+}
+.bestiary li small { display: block; font: 400 14px/1.45 var(--sans); color: var(--faint); margin-top: 3px; }
+
+/* ---------- classes ---------- */
+.classes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 34px; }
+.class {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--line); border-top: 2px solid var(--edge-dim); padding: 24px 24px 22px;
+}
+.class h3 { margin-bottom: 4px; }
+.class .arms { font: italic 500 17px/1.3 var(--head); color: var(--torch); margin: 0 0 12px; }
+.class p { color: var(--muted); font-size: 15.5px; margin: 0; }
+@media (max-width: 860px) { .classes { grid-template-columns: 1fr; } }
+
+/* ---------- closing ---------- */
+.closing { text-align: center; position: relative; }
+.closing .edge-rule { margin: 0 auto 30px; width: 240px; background: linear-gradient(90deg, rgba(110,225,210,0), var(--edge), rgba(110,225,210,0)); }
+.closing p:not(.eyebrow) { color: var(--muted); font-size: 17.5px; max-width: 620px; margin: 16px auto 0; }
+.closing .btns { justify-content: center; }
+
+/* ---------- footer ---------- */
+.game-footer {
+  background: #090a0d; border-top: 1px solid var(--line);
+  padding: 40px 0 48px; font-size: 14.5px; color: var(--muted);
+}
+.game-footer .wrap { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px; }
+.game-footer h4 { margin: 0 0 10px; font: 700 12px/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--faint); }
+.game-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.game-footer a { color: var(--text); text-decoration: none; }
+.game-footer a:hover { color: var(--edge); }
+.by-studio { display: flex; align-items: center; gap: 10px; }
+.by-studio img { width: 34px; height: 34px; }
+.by-studio b { display: block; font: 700 18px/1.2 var(--head); letter-spacing: .06em; text-transform: uppercase; color: var(--text); }
+@media (max-width: 760px) { .game-footer .wrap { grid-template-columns: 1fr; } }

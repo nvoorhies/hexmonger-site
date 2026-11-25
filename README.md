@@ -22,6 +22,8 @@ store reviewers saw. This site only links to them.
 | `tin-coffins/index.html` | the Tin Coffins page, dressed like the game's briefing terminal (`assets/tin-coffins.css`) |
 | `tin-coffins/press/` | the Tin Coffins press kit: the page, thumbnails, every download in `files/` and the zip (~60 MB). **Generated** in nvoorhies/robot-fps (`tools/promo/build_presskit.py`) |
 | `cozy-necromancy/press/` | the Cozy Necromancy press kit, laid out the same way (~85 MB, the zip 43 MB). **Generated** in nvoorhies/cute-fantasy (`tools/promo/build_presskit.py`) |
+| `false-edge/index.html` | the False Edge page (dungeon-crawl, nvoorhies/dungeon-crawl), dressed like the game's capsules: dark stone, EB Garamond capitals and the teal blade-edge rule (`assets/false-edge.css`). **Not announced yet**: `noindex`, not in `sitemap.xml`, not linked from the home page or the press page, the Steam buttons are "soon" placeholders and the trailer is a still. Its copy follows dungeon-crawl `steam/store_page.md` |
+| `false-edge/press/` | the False Edge press kit, a skeleton hand-made here: the facts, the screenshots (`files/screenshots/`, with WebP thumbnails in `img/`), and dashed *To write* boxes and slots for what isn't there yet (descriptions, key art, logos, trailer, credits, zip, fact sheet). Once those exist it should be generated in dungeon-crawl like the other two kits |
 | `press-kit/index.html` | the studio's press page: the kits there are, studio facts and the press address. Linked from the home page's contact section and footer |
 | `blog/` | the blog: an index, a feed, and a folder per post. **Generated** by `blog-editor/` — edit posts there, not here |
 | `404.html` | the not-found page (Pages serves it for any missing path) |

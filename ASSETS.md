@@ -88,6 +88,19 @@ model-generated: the kit offers it because it is the game's icon on Steam, and s
 so beside it and in its AI statement. The page also uses `cn-trailer.webp` and
 `cn-og.jpg` from the Cozy Necromancy page above.
 
+## False Edge page
+
+The game is dungeon-crawl ([nvoorhies/dungeon-crawl](https://github.com/nvoorhies/dungeon-crawl), private: it holds Synty's files, but rendered frames of the game are fine to show). Every picture is one of its Steam screenshots, `steam/store/screenshots/` (1920×1080, rendered in the game by `tools/steam/store_shots.tscn` and `tools/probe/character_screen_shots.tscn`, at `5192e4f9`, 2026-11-19). Re-derive these when that set is re-captured.
+
+| file | source | notes |
+| --- | --- | --- |
+| `fe-hero.webp`, `fe-hero-960.webp` | `01_skeleton_duel` | The full-bleed hero, the whole frame at 1920 and 960 wide, WebP quality 82 |
+| `fe-hud.webp`, `fe-orcs.webp`, `fe-sleep.webp`, `fe-minotaur.webp`, `fe-court.webp`, `fe-aftermath.webp`, `fe-slimes.webp`, `fe-skeletons.webp`, `fe-cleric.webp`, `fe-face.webp` | `02_orc_band_hud`, `03_orc_band`, `04_wizard_sleep`, `05_minotaur`, `06_sunken_court`, `07_aftermath`, `08_wizard_slimes`, `09_skeleton_melee`, `10_creator_cleric`, `11_creator_face` | 1400×788, WebP quality 82 |
+| `fe-trailer.webp` | `09_skeleton_melee` at 55% brightness | 1280×720, WebP quality 80. The placeholder behind "Coming soon" until there is a trailer; then the trailer's own thumbnail |
+| `fe-og.jpg` | `01_skeleton_duel`, laid out by dungeon-crawl `tools/steam/capsules.py` (`crop_to` focus 0.6, 0.5, `shade`, `title`) at 1200×630 | Social preview, JPEG quality 88. A placeholder like the capsules it copies: replace it with key art and the logo |
+
+`false-edge/press/files/screenshots/` holds the same eleven JPEGs as they are, renamed `false-edge-NN-name.jpg`; `false-edge/press/img/` their 800-wide WebP thumbnails at quality 80. The fonts are the Goblin Hunt page's EB Garamond and the shared Inter.
+
 ## Goblin Hunt page
 
 | file | source | notes |
